@@ -1,3 +1,7 @@
+---
+sort: 4
+---
+
 # Hyperloop system
 
 The hyperloop train system is used to submit your analysis in a train to the Grid.
@@ -47,7 +51,7 @@ The rest of the parameters are not relevant for the Hyperloop train system.
 
 After all the parameters have been set, click on `Create` and your _Analysis_ will be available in the _My Analyses_ and _All Analyses_ page.
 
-<img src="images/comparisonwithjira.png" width="100%">
+<img src="../images/comparisonwithjira.png" width="100%">
 
 The synchronization from JIRA to the Hyperloop train system can take up to 30 minutes.
 
@@ -70,7 +74,7 @@ The _Service wagons_ are wagons which are dependencies to other wagons. They are
 Using the _My Analyses_ page, inside of the _Analysis_ you want to add the wagon to, click on `✚ Add new wagon`.
 
 <div align="center">
-<img src="images/newwagon.png" width="60%">
+<img src="../images/newwagon.png" width="60%">
 </div>
 
 There are 2 parameters required to create a new wagon:
@@ -84,7 +88,7 @@ By clicking on `💾 Save` the wagon will be added, and you will be redirected t
 *  Using the _My Analyses_ page, click on the button `🧬` to clone a wagon. 
 
 <div align="center">
-<img src="images/cloneWagon.png" width="70%">
+<img src="../images/cloneWagon.png" width="70%">
 </div>
 
 A list of _Analyses_ you belong to will be displayed. You have to select the _Analysis_ where you want to clone the _Wagon_ to, and name the _NewWagon_ (the wagon name has to be unique within _Analysis_). By clicking on `🧬 Clone`, a new wagon will be added with the same configuration as the _Wagon_ including subwagons and derived data.
@@ -99,13 +103,13 @@ You can get to the _All Analyses_ page by using the main menu, or by the link in
 *  In _Wagon settings_ you can modify the wagon name, work flow name, and select wagon's dependencies. The dependencies offered are wagons from the same _Analysis_ or from [_Service wagons_](#servicewagons).
 
 <div align="center">
-<img src="images/wagonSettings.png" width="70%">
+<img src="../images/wagonSettings.png" width="70%">
 </div>
 
 * In _Configuration_ the wagon configuration corresponding to the workflow will be available in the _Base_. The configuration is divided per _Task_, hence if you need to add a new parameter, you will need add it in the following order: task, parameter and value.
 
 <div align="center">
-<img src="images/wagonConfig.png" width="70%">
+<img src="../images/wagonConfig.png" width="70%">
 </div>
   
 * If you need to run the same workflow, but modify one (or more) of the parameter's value, you can use a subwagon instead of creating a new wagon. In order to create a subwagon, type the name of the new subwagon, the name has to be unique within the wagon, and type the value of at least one parameter in the configuration. The configuration of a subwagon will be kept the same as the _Base_ and overwrite the parameters that are different. When there are subwagons activated, the wagon's _Base_ will not run. NOTE: subwagon submission is at present not yet supported, but will come soon.
@@ -117,26 +121,26 @@ You can get to the _All Analyses_ page by using the main menu, or by the link in
 * In order to update the derived data configuration with the latest version of the workflow, click on the button `↻ sync` in _Derived data_. By synchronizing the derived data, the tables which no longer belong to the workflow will be removed, and the values of the tables will be updated.
 
 <div align="center">
-<img src="images/deriveddata.png" width="70%">
+<img src="../images/deriveddata.png" width="70%">
 </div>
 
 * _Test Statistics_ contains three graphs that display different metrics following the tests this wagon was part of. The first graph plots the _PSS Memory_ corresponding to each test run. The second one diplays the _CPU Time_, _Wall time_ and _Throughput_ along the test runs for this wagon. Finally, the third graph shows the _Output size_ at each test run.
 
 <div align="center">
-<img src="images/testStatistics.png" width="70%">
+<img src="../images/testStatistics.png" width="70%">
 </div>
 
 * Depending on the datasets this wagon is using, the user is able to choose the _Dataset_ on which the metrics mentioned above are plotted, from the upper-left dropdown. In case no tests were run on the chosen dataset, a message will appear stating this.
 
 <div align="center">
-<img src="images/datasetDropdown.png" width="70%">
+<img src="../images/datasetDropdown.png" width="70%">
 </div>
 
 * By clicking on the bullets representing the metric value at any of the test runs plotted, the user will open a new tab with the wagon test page. Likewise, in the upper-left corner, there is a link to the [_Wagon **History**_](#wagonhistory) page, which will display the state evolution of the wagon.
 
 
 <div align="center">
-<img src="images/bullets.png" width="70%">
+<img src="../images/bullets.png" width="70%">
 </div>
 
 
@@ -145,7 +149,7 @@ You can get to the _All Analyses_ page by using the main menu, or by the link in
 * In the _Wagon History_ page, there is a summary of the wagon's state from the creation until the last update. By clicking on the _+_ symbol, one can expand the information, showing the subwagons' details and the derived data at each timestamp.
 
 <div align="center">
-<img src="images/WagonHistory.png" width="70%">
+<img src="../images/WagonHistory.png" width="70%">
 </div>
 
 * On the right side of the page, the user can select two timestamps in order to compare the state of the wagon between the two by clicking _Compare_. This will lead to [_Compare Wagons_](#comparewagons) page. You can cancel your current selection by clicking _Unselect all_.
@@ -157,7 +161,7 @@ You can get to the _All Analyses_ page by using the main menu, or by the link in
 * The Derived data tab reflects the differences concerning the derived data at the two timestamps.
 
 <div align="center">
-<img src="images/compareWagons.png" width="70%">
+<img src="../images/compareWagons.png" width="70%">
 </div>
 
 ### <a name="enabledatasets"></a>Enabling datasets
@@ -167,7 +171,7 @@ You can get to the _All Analyses_ page by using the main menu, or by the link in
 *  Inside of an analysis, click on the button `Datasets and Settings 📝`. 
 
 <div align="center">
-<img src="images/datasetandsettings.png" width="50%">
+<img src="../images/datasetandsettings.png" width="50%">
 </div>
 
 *  There is a list of _Enabled datasets in **Analysis**_. You can disable a dataset for that analysis by clicking on the button `❌`.
@@ -176,7 +180,7 @@ You can get to the _All Analyses_ page by using the main menu, or by the link in
 #### 2. <a name="datasets"></a> Using the _Datasets_ page:
 *  You can browse and click on the _Dataset_ you want to add to your analysis.
 <div align="center">
-<img src="images/enableDatasetDatasetsPage.png" width="80%">
+<img src="../images/enableDatasetDatasetsPage.png" width="80%">
 </div>
 
 *  Inside of the _Dataset_ view page, click on the button `✚ Add dataset to analysis`. It will display a list of all the analyses you belong to. Select the _Analysis_ you want to add the dataset to, and click on `💾 Save`.
@@ -190,7 +194,7 @@ You can enable a wagon in the _My Analyses_ page. Inside of the _Analysis_ there
   3. Pull request: Select the option `☑️ Future tag based on pull request`. There will be a list of the latest merged/unmerger pull requests available with their corresponding description. By choosing a pull request, your wagon will be tested as soon as the pull request is merged in a package tag. Then your wagon will be composed in a train with the latest package tag available.
   
  <div align="center">
-<img src="images/enablewagon.png" width="70%">
+<img src="../images/enablewagon.png" width="70%">
 </div>
 
   After choosing the package tag to be used, click on the button `❌` to enable your wagon in a dataset, the icon will change from `❌` to `✅`. If you hover over `✅` you can see the information about the enabled wagon: package tag, time and username. If you need to disable a wagon in a dataset, click on the button `✅`. After enabled, the wagon will be automatically tested and you can follow the progress of the [test](#wagontest) on the button next to `✅`: `⌛️` queued,`⏳` ongoing,`🌟` done, `❗️` warning and `💣` failed.
@@ -221,7 +225,7 @@ When creating or enabling wagons, you can use a pull request instead of a packag
 * The Dashboard displays the current state of the system by showing a number of status parameters related to wagons, trains and grid jobs. Additionally, the user can see the summary of the last week: average completion time, number of finished trains and wagon tests. 
 
 <div align="center">
-<img src="images/dashboard.png" width="70%">
+<img src="../images/dashboard.png" width="70%">
 </div>
 
 * By clicking the number of wagons waiting to be included in a train, the user can directly open the [_Train Submission_](#trainsubmission). Similarly, a link to the [_Train Runs_](#trainruns) is available by clicking the number of trains to be submitted to the grid, the number of running tests, or the number of finished trains.
@@ -256,14 +260,14 @@ When creating or enabling wagons, you can use a pull request instead of a packag
 * In the _Test Graphs_ tab, the user can plot the available metrics for the specific _Train run_. By hovering over the graph, the corresponding values are displayed in a dynamic window, stating the value for each participating wagon.
 
   <div align="center">
-    <img src="images/testGraphs.png" width="70%">
+    <img src="../images/testGraphs.png" width="70%">
   </div>
 
   * The metric can be selected from the upper-left dropdown, and the graph will change accordingly.
   * The user can choose to plot the metric data per device, by checking the _Per Device_ near the dropdown.
   
   <div align="center">
-    <img src="images/testGraphsDevice.png" width="70%">
+    <img src="../images/testGraphsDevice.png" width="70%">
   </div>
 
 
@@ -280,7 +284,7 @@ When creating or enabling wagons, you can use a pull request instead of a packag
 
 * There is a history feature for wagons and datasets. You can access it by clicking on the button `📜` available inside of a wagon/dataset view. A detailed view of what has been created/updated/removed from the wagon/dataset is shown, as well as the username and the time when the change was made.
 <div align="center">
-<img src="images/datasetHistory.png" width="100%">
+<img src="../images/datasetHistory.png" width="100%">
 </div>
 
 * There are automated notifications. These notifications are created per user, and display changes made to tools, like _Datasets_, that are being used by the user. They are displayed per _Analysis_ in the _My Analyses_ page, or globally in the button `🔔` which can be found on the top menu.
@@ -293,5 +297,5 @@ When creating or enabling wagons, you can use a pull request instead of a packag
 
 * **Performance Graphs** page allows the user to upload his own local metrics file, and then generate the test graphs specific to that file. You produce a local _performanceMetrics.json_ by running the o2 workflow with the argument _--resources-monitoring 2_ which, in this example, produces monitoring information every 2 seconds. These are the same type of graphs produced in the _Test Graphs_ tab of the train run. This page can be accessed at: <a href="https://alimonitor.cern.ch/hyperloop/performance-graphs" target="_blank">https://alimonitor.cern.ch/hyperloop/performance-graphs</a>.
 <div align="center">
-<img src="images/performanceGraphs.png" width="100%">
+<img src="../images/performanceGraphs.png" width="100%">
 </div>

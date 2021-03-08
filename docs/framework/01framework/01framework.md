@@ -1,10 +1,8 @@
-<!-- doxy
-\page refFrameworkCoreANALYSIS Core ANALYSIS
-/doxy -->
+# Creating tasks to process the data
 
-# Analysis Framework infrastructure on top of O2 DPL
-
-In order to simplify analysis we have introduced an extension to DPL which allows to describe an Analysis in the form of a collection of Analysis Tasks.
+In order to simplify analysis we have introduced an extension to the Data Processing Layer
+(<a href="https://aliceo2group.github.io/quickstart/fair-dpl.html#data-processing-layer-dpl" target="_blank">DPL</a>)
+which allows to describe an Analysis in the form of a collection of Analysis Tasks.
 
 In order to create its own task, as user you need to create your own Task.
 

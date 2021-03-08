@@ -1,3 +1,19 @@
+repository: aliceo2group/analysis-framework
+title: ALICE O2 analysis framework documentation
+lang: en
+description: ALICE O2 Analysis framework documentation project
+
 remote_theme: rundocs/jekyll-rtd-theme
 
-#theme: jekyll-theme-minimal
+# Specific to this theme
+site_author: aliceo2group
+show_sorted: false
+sticky_navigation: true
+search_enabled: true
+
+readme_index:
+  with_frontmatter: true
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
