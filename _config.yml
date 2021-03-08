@@ -15,5 +15,6 @@ readme_index:
   with_frontmatter: true
 
 exclude:
+  - _site
   - Gemfile
   - Gemfile.lock
