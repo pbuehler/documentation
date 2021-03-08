@@ -6,3 +6,5 @@ These pages document everything you need to know about doing Run 3 analysis in A
 * The Hyperloop train framework
 
 and finally get some practice!
+
+The site can be viewed at https://pbuehler.github.io/documentation/
