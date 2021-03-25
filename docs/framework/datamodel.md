@@ -17,9 +17,9 @@ There is also a bunch of pre-defined joins and iterators which are summarized in
 
 ### Table relations
 
-Information contained in different tables can be related. E.g. a track belongs to a given collision, or signals in the fast FIT or Zdc detectors belong to a bunch crossing.
+Information contained in different tables can be related. E.g. a track belongs to a given collision, or signals in the FIT or Zdc detectors belong to a bunch crossing.
 
-Hence the dependent tables need to hold a pointer which points to a specific row of the master table. To realize this the master (e.g. table Collisions) has an index column o2::soa::index and the dependent (e.g. table Tracks) a column [master]Id (in this example collisionsId), which contains the related value of the index column of the master. See also e.g. master=BCs and dependent=CaloTriggers and many more.
+Hence the dependent tables need to hold a index which points to a specific row of the master table. For this the dependent table (e.g. table Tracks) has an index column [master]Id (in this case collisionsId) which points to the related information in table master. See also e.g. master=BCs and dependent=CaloTriggers and many more.
 
 <!----------------------------------------------------------------------------->
 <!--                                                                         -->
