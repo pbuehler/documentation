@@ -13,7 +13,7 @@ according to your needs.
 
 In each of the following sections one of these tutorial codes will be discussed in some detail. It is recommended to download the related source code (a link is provided on each page) to see the full working version of code while reading the explanations given in the tutorial.
 
-More in-depth information about analysis tasks can be found in the [Analysis Framework](framework.html) section of these documentation pages.
+More in-depth information about analysis tasks can be found in the [Analysis Framework](../framework/framework.html) section of these documentation pages.
 
 To run a tutorial analysis do
 ```csh
