@@ -7,4 +7,4 @@ These pages document everything you need to know about doing Run 3 analysis in A
 
 and finally get some practice!
 
-The site can be viewed at [https://pbuehler.github.io/ALICEO2documentation/](https://pbuehler.github.io/ALICEO2documentation/)
+The site can be viewed at [https://pbuehler.github.io/documentation/](https://pbuehler.github.io/documentation/)
