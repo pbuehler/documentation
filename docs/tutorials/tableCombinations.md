@@ -18,7 +18,7 @@ Are you having problems running this tutorial? If the program stops with an erro
 <a name="atask"></a>
 ### ATask
 
-Tables can be related - tracks belong to a collision, FT0 signals to a bunch crossing, muon clusters to a muon track, etc, etc. To express this child-parent relation, the childs have index columns which point into the parent table (see the <a href="/docs/framework/datamodel.html#table-relations">Data Model</a>).
+Tables can be related - tracks belong to a collision, FT0 signals to a bunch crossing, muon clusters to a muon track, etc, etc. To express this child-parent relation, the childs have index columns which point into the parent table (see the <a href="../framework/datamodel.html#table-relations">Data Model</a>).
 
 If we'd e.g. like to loop over all collisons and over all tracks belonging to a collision we would typically setup a 2-loop structure - first looping over all collisions and within this loop, loop over all tracks belonging to the collision.
 
