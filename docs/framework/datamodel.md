@@ -19,7 +19,7 @@ There is also a bunch of pre-defined joins and iterators which are summarized in
 
 Information contained in different tables can be related. E.g. a track belongs to a given collision, or signals in the FIT or Zdc detectors belong to a bunch crossing.
 
-Hence the dependent tables need to hold a index which points to a specific row of the master table. For this the dependent table (e.g. table Tracks) has an index column [master]Id (in this case collisionsId) which points to the related information in table master. See also e.g. master=BCs and dependent=CaloTriggers and many more.
+Hence the dependent tables need to hold a index which points to a specific row of the master table. For this the dependent table (e.g. table Tracks) has an index column [master]Id (in this case CollisionsId) which points to the related information in table master. See also e.g. master=BCs and dependent=CaloTriggers and many more.
 
 <!----------------------------------------------------------------------------->
 <!--                                                                         -->
