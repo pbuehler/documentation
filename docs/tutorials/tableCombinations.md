@@ -9,7 +9,7 @@ title: Table Combinations
 ```goal
 Learn how to efficiently access and process related information from different tables.
 ```
-source: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/Tutorials/src/histograms.cxx" target="_blank">collisionTracks.cxx</a>
+source: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/Tutorials/src/histograms.cxx" target="_blank">tableCombinations.cxx</a>
 
 ```warning
 Are you having problems running this tutorial? If the program stops with an error message form the internal-dpl-aod-reader saying something like `Exception caught: Couldn't get TTree "DF_xxx/O2v0index"` then go to the end of this tutorial to get some [advice](#ctask).

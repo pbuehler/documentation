@@ -9,7 +9,7 @@ title: Creating Tables
 ```goal
 Learn how to create new tables, extend existing tables with additional columns and have them saved to disk.
 ```
-source: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/Tutorials/src/histograms.cxx" target="_blank">newCollections.cxx</a>
+source: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/Tutorials/src/histograms.cxx" target="_blank">creatingTables.cxx</a>
 
 Before we come to discussing the tutorial [code](#atask) a few general words about creating tables.
 
