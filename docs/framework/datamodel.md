@@ -4,12 +4,11 @@ title: The Data Model
 ---
 
 # The data model
-Some introductory text
 
 The tables included in the O2 analysis data model are defined in <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Framework/Core/include/Framework/AnalysisDataModel.h" target="_blank">Framework/AnalysisDataModel.h</a>.
 
 ```note
-Be aware that tables can be [joined](/docs/framework/framework.html#processing-related-tables) and be [extended](http://127.0.0.1:4000/docs/framework/framework.html#expression-columns) with extra colums.
+Be aware that tables can be [joined](framework.html#processing-related-tables) and be [extended](framework.html#expression-columns) with extra colums.
 ```
 
 ## List of tables defined in the O2 Data Model
