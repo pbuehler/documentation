@@ -16,9 +16,11 @@ Before we come to discussing the tutorial [code](#atask) a few general words abo
 <a name="declareTables"></a>
 ### Declaration of tables
 
+The first step in creating a table in O2 is to to declare it, hence specify its name, some additional parameters, and it's basic component, the columns.
+
 The O2 framework provides a few methods to declare tables in analysis tasks. See the list below. Click on the titles to display information about the arguments and the resulting tables.
 
-All methods have a `Name` and `Description` argument. The argument Name is used to define the type of the table and is `o2::aod::Name`. The Description argument is a string which is used within the framework to identify the table. It has a maximum length of 16 characters.
+All methods have a `Name` and `Description` argument. The argument Name is used to define the type of the table which is `o2::aod::Name`. The Description argument is a string which is used within the framework to identify the table. It has a maximum length of 16 characters.
 
 <div>
 
@@ -72,7 +74,7 @@ Tables are basically collections of columns. The O2 framework provides the metho
 `Name` and `Getter` are the common arguments of all methods. Name is used to
 define the type of the column which is `namespace::Name` where namespace is the
 namespace the column is declared in. Getter is the method which allows to access
-a column (tab.pt() e.g. gets the column which was declared with a Getter value
+a column (tab.pt() e.g. retrieves the column which was declared with a Getter value
 equal to pt of a table tab).
 
 <div>
@@ -169,7 +171,7 @@ DECLARE_SOA_TABLE(EtaPhi, "AOD", "ETAPHI",
                   etaphi::Eta, etaphi::Phi);
 } // namespace o2::aod
 ```
-Now that the table is defined we can use it to create a corresponding table object. This happens with the Produces class. Produces is a templated class and takes the table type to create as template argument. The table type in this case is aod::EtaPhi and the actual table object is etaphi.
+Now that the table is declared we can use it to create a corresponding table object. This happens with the Produces class. Produces is a templated class and takes the table type to create as template argument. The table type in this case is aod::EtaPhi and the actual table object is etaphi.
 
 The filling of the table etaphi is done with the method (... ) which takes as many arguments as columns are available.
 
@@ -190,6 +192,7 @@ struct ATask {
   }
 };
 ```
+
 <a name="btask"></a>
 ### BTask and CTask
 
