@@ -29,7 +29,7 @@ void process(Track const& track)
 In this case the variable `track` inside the process function is of type `Track`
 which has a number of data members. Here we access the momentum P and print it
 out. For a comprehensive list of data items included in the O2 data model see <a
-href="/docs/framework/datamodel.html" target="_blank">The Data Model</a> section
+href="../framework/datamodel.html" target="_blank">The Data Model</a> section
 of these documentation pages. 
 
 The `Tracks` table only contains part of the available track information. In order to simulatneously access information of several tables, the tables can be joined using `soa::Join<>`.
@@ -44,7 +44,7 @@ void process(soa::Join<aod::Track, aod::TrackExtra> const& joinedTrack)
 }
 ```
 
-In this way also all three track tables could be joined. However, for this one can use the abbreviation `FullTrack`, which is a predefined join of all three track tables. A list of predefined joins is available in <a href="/docs/framework/datamodel.html" target="_blank">The Data Model</a> section of these documentation pages). 
+In this way also all three track tables could be joined. However, for this one can use the abbreviation `FullTrack`, which is a predefined join of all three track tables. A list of predefined joins is available in <a href="../framework/datamodel.html" target="_blank">The Data Model</a> section of these documentation pages). 
 
 ```cpp
 void process(aod::fullTrack const& fullTrack)

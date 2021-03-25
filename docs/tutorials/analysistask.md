@@ -55,4 +55,4 @@ The tables of the ALICE O2 analysis data model reside in the namespace o2::aod. 
 
 A task is a basic block of an analysis program. Several tasks can be put together to form a worklow. Workflows on the other hand can be chained - the output of one workflow is piped to the input of the other workflow.
 
-This is discussed in more detail in the [Data Processing ](/docs/framework/framework.html#creating-tasks-to-process-the-data) section of these documentation pages.
+This is discussed in more detail in the [Data Processing ](framework.html#creating-tasks-to-process-the-data) section of these documentation pages.
