@@ -22,7 +22,7 @@ Tables can be related - tracks belong to a collision, FT0 signals to a bunch cro
 
 If we'd e.g. like to loop over all collisons and over all tracks belonging to a collision we would typically setup a 2-loop structure - first looping over all collisions and within this loop, loop over all tracks belonging to the collision.
 
-Using the full power of the process function this can be done without explicit looping over the collisions. In the code snippet below, the process function is given two arguments, an argument of type Collision and one of type Tracks. In this case the framework takes care of selecting the tracks belonging to a given collision. The process function is executed for each entry in the Collisions table with the tracks belonging to the given collision only.
+Using the full power of the task's process method this can be done without explicit looping over the collisions. In the code snippet below, the process method is called with two arguments, an argument of type Collision and one of type Tracks. In this case the framework takes care of selecting (grouping) the tracks belonging to a given collision. The process method is executed for each entry in the Collisions table with the tracks belonging to the given collision only.
 
 ```cpp
 struct ATask {
@@ -54,7 +54,7 @@ struct ATask {
 <a name="btask"></a>
 ### BTask
 
-The automatic grouping of tracks according to the collision works in the above case because the table Tracks has an index column with pointers to the table Collision. It is also crucial to use the iterator version Collision and not Collisions. With Collisions the grouping does not happen!
+The automatic grouping of tracks according to the collision works in the above case because the table Tracks has an index column with pointers to the table Collisions. It is also crucial to use the iterator version Collision and not Collisions. It is in fact the first iterator of the argument list which is used for grouping. With Collisions instead of Collision the grouping does not happen!
 
 <a name="ctask"></a>
 ### CTask

@@ -11,7 +11,7 @@ This explains the basic blocks and structures an analysis task in O2 is built of
 
 ## License agreement
 
-At the very beginning of each analysis task we recommend to but the following license agreement. The task will also run without, but with these lines you confirm that your program is
+At the very beginning of each analysis task code file we recommend to but the following license agreement. The task will also run without, but with these lines you confirm that your program is
 <a href="https://www.gnu.org/philosophy/free-sw.html" target="_blank">free software</a>. You can find the full O2 license information <a href="https://alice-o2-project.web.cern.ch/license" target="_blank">here</a>.
 
 `License agreement`
@@ -48,7 +48,7 @@ using namespace o2::framework;
 ```
 
 ```note
-The tables of the ALICE O2 analysis data model reside in the namespace o2::aod. Thus e.g. the full specifier of the table Tracks is o2::aod::Tracks. Within the namespace o2 this hence becomes aod::Tracks.
+ALl tables of the ALICE O2 analysis data model reside in the namespace o2::aod. Thus e.g. the full specifier of the table Tracks is o2::aod::Tracks. Within the namespace o2 this hence becomes aod::Tracks.
 ```
 
 ## Tasks, workflows, data analysis
