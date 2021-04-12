@@ -53,6 +53,41 @@ ALl tables of the ALICE O2 analysis data model reside in the namespace o2::aod. 
 
 ## Tasks, workflows, data analysis
 
-A task is a basic block of an analysis program. Several tasks can be put together to form a worklow. Workflows on the other hand can be chained - the output of one workflow is piped to the input of the other workflow.
+A task is a basic block of an analysis program. Several tasks can be put together to form a workflow (using defineDataProcessing()). Workflows on the other hand can be chained - the output of one workflow is piped to the input of the other workflow.
 
 This is discussed in more detail in the [Data Processing ](../framework/framework.html#creating-tasks-to-process-the-data) section of these documentation pages.
+
+So this is kind of a task skeleton
+
+```cpp
+// Copyright CERN and copyright holders of ALICE O2. This software is
+// distributed under the terms of the GNU General Public License v3 (GPL
+// Version 3), copied verbatim in the file "COPYING".
+//
+// See http://alice-o2.web.cern.ch/license for full licensing information.
+//
+// In applying this license CERN does not waive the privileges and immunities
+// granted to it by virtue of its status as an Intergovernmental Organization
+// or submit itself to any jurisdiction.
+//
+
+#include "Framework/runDataProcessing.h"
+#include "Framework/AnalysisTask.h"
+
+using namespace o2;
+using namespace o2::framework;
+
+struct ATask {
+};
+
+struct BTask {
+};
+
+WorkflowSpec defineDataProcessing(ConfigContext const& cfgc)
+{
+  return WorkflowSpec{
+    adaptAnalysisTask<ATask>(cfgc, TaskName{"rask_A"}),
+    adaptAnalysisTask<BTask>(cfgc, TaskName{"task_B"}),
+  };
+}
+```

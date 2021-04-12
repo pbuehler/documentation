@@ -426,81 +426,78 @@ A full example can be found in `Analysis/Tutorials/src/eventMixing.cxx`.
 
 Produced tables can be saved to file as TTrees. This process is customized by various command line options of the internal-dpl-aod-writer. The options allow to specify which columns of which table are saved to which tree in which file.
 
-**Please be aware, that the functionality of these options is preliminary and might be changed in future.**
+**Please be aware, that the functionality of these options is preliminary and might change in future.**
 
 The options to consider are:
 
-* --keep
-* --res-file
-* --ntfmerge
-* --json-file
+* --aod-writer-keep
+* --aod-writer-resfile
+* --aod-writer-ntfmerge
+* --aod-writer-json
 
 
-### --keep
+### --aod-writer-keep
 
-`keep` is a comma-separated list of `DataOuputDescriptors`.
+aod-writer-keep is a comma-separated list of DataOuputDescriptors.
 
-`keep`
 ```csh
 DataOuputDescriptor1,DataOuputDescriptor2, ...
 ```
 
-Each `DataOuputDescriptor` is a colon-separated list of 4 items
+Each DataOuputDescriptor is a colon-separated list of 4 items
 
-`DataOuputDescriptor`
 ```csh
 table:tree:columns:file
 ```
-and instructs the internal-dpl-aod-writer, to save the columns `columns` of table `table` as TTree `tree` into files `file_x.root`, where `x` is an incremental number. The selected columns are saved as separate TBranches of TTree `tree`.
+and instructs the internal-dpl-aod-writer, to save the columns `columns` of table `table` as TTree `tree` into file `file`.root. The selected columns are saved as separate TBranches of TTree `tree`.
 
-By default `x` is incremented with every time frame. This behavior can be modified with the command line option `--ntfmerge`. The value of `ntfmerge` specifies the number of time frames to merge into one file. 
+By default there is one directory DF_x created per processed data frame, where x is the data frame number. This behavior can be modified with the command line option --aod-writer-ntfmerge. The value of aod-writer-ntfmerge specifies the number of data frames to write into the same DF_y directory with y = ntfmerge * (uint64_t)(x / ntfmerge).
 
-The first item of a `DataOuputDescriptor` (`table`) is mandatory and needs to be specified, otherwise the `DataOuputDescriptor` is ignored. The other three items are optional and are filled by default values if missing.
+The first item of a DataOuputDescriptor (`table`) is mandatory and needs to be specified, otherwise the DataOuputDescriptor is ignored. The other three items are optional and are filled by default values if missing.
 
 The format of `table` is
 
-`table`
 ```csh
 AOD/tablename/0
 ```
-`tablename` is the name of the table as defined in the workflow definition.
+`tablename` is the description of the table as defined in the workflow definition.
 
-The format of `tree` is a simple string which names the TTree the table is saved to. If `tree` is not specified then `tablename` is used as TTree name.
+The format of `tree` is a simple string which names the TTree the table is saved to. If tree is not specified then `tablename` is used as TTree name.
 
 `columns` is a slash(/)-separated list of column names., e.g.
 
-`columns`
 ```csh
 col1/col2/col3
 ```
-The column names are expected to match column names of table `tablename` as defined in the respective workflow. Non-matching columns are ignored. The selected table columns are saved as separate TBranches with the same names as the corresponding table columns. If `columns` is not specified then all table columns are saved.
+The column names are expected to match column labels as defined in the respective workflow. Non-matching columns are ignored. The selected table columns are saved as separate TBranches with the same names as the corresponding table columns. If `columns` is not specified then all table columns are saved.
 
-`file` finally specifies the base name of the files the tables are saved to. The actual file names are composed as `file`_`x`.root, where `x` is an incremental number. If `file` is not specified the default file name is used. The default file name can be set with the command line option `--res-file`. However, if `res-file` is missing then the default file name is set to `AnalysisResults`.
+`file` finally is used to compose the name of the file `file`.root the tables are saved to. If this is missing the file name is set to the default file name. The default file name is AnalysisResults_trees.root but can be changed with the option aod-writer-resfile.
 
 #### Dangling outputs
-The `keep` option also accepts the string "dangling" (or any leading sub-string of it). In
-this case all dangling output tables are saved. For the parameters `tree`, `columns`, and
-`file` the default values ([see table below](#priorities)) are used.
+The aod-writer-keep option also accepts the string "dangling" (or any leading
+sub-string of it). In this case all dangling output tables are saved. For the
+parameters tree, columns, and file the default values ([see table
+below](#priorities)) are used.
 
-### --ntfmerge
+### --aod-writer-ntfmerge
 
-`ntfmerge` specifies the number of time frames which are merged into a given root file. By default this value is set to 1. The actual file names are composed as `file`_`x`.root, where `x` is an incremental number. `x` is incremented by 1 at every `ntfmerge` time frame.
+aod-writer-ntfmerge specifies the number of data frames which are merged into a given root directory. By default this value is set to 1. The actual directory name is DF_y directory with y = ntfmerge * (uint64_t)(x / ntfmerge) and x the actual data frame the table belongs to.
 
-### --res-file
+### --aod-writer-resfile
 
-`res-file` specifies the default base name of the results files to which tables are saved. If in any of the `DataOutputDescriptors` the `file` value is missing it will be set to this default value.
+aod-writer-resfile specifies the default name of the result file. If in any of the DataOutputDescriptor the file value is missing it will be set to this default value.
 
-### --json-file
+### ----aod-writer-json
 
-`json-file` specifies the name of a json-file which contains the full information needed to customize the behavior of the internal-dpl-aod-writer. It can replace the other three options completely. Nevertheless, currently all options are supported ([see also discussion below](#redundancy)).
+--aod-writer-json specifies the name of a json-file which contains the full information needed to customize the behavior of the internal-dpl-aod-writer. It can replace the other three options completely. Nevertheless, currently all options are supported ([see also discussion below](#redundancy)).
 
 An example file is shown in the highlighted field below. The relevant
-information is contained in a json object `OutputDirector`. The
-`OutputDirector` can include three different items:
+information is contained in a json object OutputDirector. The
+OutputDirector can include three different items:
 
-  1. `resfile` is a string and corresponds to the `res-file` command line option  
-  2.`ntfmerge` is an integer and corresponds to the `ntfmerge` command line option  
-  3.`OutputDescriptors` is an array of objects and corresponds to the `keep` command line option. The objects are equivalent to the `DataOuputDescriptors` of the `keep` option and are composed of 4 items which correspond to the 4 items of a `DataOuputDescriptor`.
+  1. resfile is a string and corresponds to the aod-writer-resfile command line option  
+  2. ntfmerge is an integer and corresponds to the aod-writer-ntfmerge command line option  
+  3. OutputDescriptors is an array of objects and corresponds to the aod-writer-keep command line option. The objects are equivalent to the DataOuputDescriptors of the aod-writer-keep option and are composed of 4 items which correspond to the 4 items of a DataOuputDescriptor.
   
      a. `table` is a string  
      b. `treename` is a string  
@@ -508,7 +505,7 @@ information is contained in a json object `OutputDirector`. The
      d. `filename` is a string  
   
   
-`Example json file for the internal-dpl-aod-writer`
+Example json file for the internal-dpl-aod-writer:
 ```csh
 {
   "OutputDirector": {
@@ -536,16 +533,18 @@ information is contained in a json object `OutputDirector`. The
   }
 }
 ```
-<a name="redundancy"></a>
-The information provided with the json file and the information which can be provided with
-the other command line options is obviously redundant. Anyway, currently all options can
-be used together. Practically the json-file - if provided - is read first. Then parameters are reset with values specified by other command line options. If any parameter value is still unset then its default value is used.
+<a name="redundancy"></a> The information provided with the json file and the
+information which can be provided with the other command line options is
+obviously redundant. Anyway, currently all options can be used together.
+Practically the json-file - if provided - is read first. Then parameters are
+reset with values specified by other command line options. If any parameter
+value is still unset then its default value is used.
 
 This hierarchy of the options is summarized in the following table. The columns represent the command line options and the rows the parameters which can be set. The table elements specify the priority a given command line option has to set the value of a given parameter. The last column in the table is the default, which always has the lowest priority. The actual default value is the value shown between brackets.
 
 <a name="priorities"></a>
 
-| parameter\option | keep | res-file | ntfmerge | json-file | default |
+| parameter\option | keep | resfile | ntfmerge | json | default |
 |--------------|:----:|:--------:|:--------:|----------:|:-------:|
 | `default file name` | - | 1.    | -        | 2.        | 3. (AnalysisResults)|
 | `ntfmerge`   | -    | -        |  1.      | 2.        | 3. (1)  |
@@ -558,26 +557,26 @@ This hierarchy of the options is summarized in the following table. The columns 
 ### Valid example command line options
 
 ```csh
---keep AOD/UNO/0
- # save all columns of table 'UNO' to TTree 'UNO' in files 'AnalysisResults'_x.root
+--aod-writer-keep AOD/UNO/0
+ # save all columns of table 'UNO' to TTree 'UNO' in file AnalysisResults_tree.root
   
---keep AOD/UNO/0::c2/c4:unoresults
- # save columns 'c2' and 'c4' of table 'UNO' to TTree 'UNO' in files 'unoresults'_x.root
+--aod-writer-keep AOD/UNO/0::c2/c4:unoresults.root
+ # save columns 'c2' and 'c4' of table 'UNO' to TTree 'UNO' in file unoresults.root
 
---res-file myskim --ntfmerge 50 --keep AOD/UNO/0:trsel1:c1/c2,AOD/DUE/0:trsel2:c6/c7/c8
- # save columns 'c1' and 'c2' of table 'UNO' to TTree 'trsel1' in files 'myskim'_x.root and
- # save columns 'c6', 'c7' and 'c8' of table 'DUE' to TTree 'trsel2' in files 'myskim'_x.root.
- # Merge 50 time frames in each file.
+--aod-writer-resfile myskim --aod-writer-ntfmerge 50 --aod-writer-keep AOD/UNO/0:trsel1:c1/c2,AOD/DUE/0:trsel2:c6/c7/c8
+ # save columns 'c1' and 'c2' of table 'UNO' to TTree 'trsel1' in file myskim.root and
+ # save columns 'c6', 'c7' and 'c8' of table 'DUE' to TTree 'trsel2' in file myskim.root.
+ # Merge 50 data frames in one directory.
 
---json-file myconfig.json
+----aod-writer-json myconfig.json
  # according to the contents of myconfig.json
 ```
 
 ### Limitations
 
-If in any case two `DataOuputDescriptors` are provided which have equal combinations of
-the `tree` and `file` parameters then the processing is stopped! It is not possible to save
-two trees with equal name to a given file.
+If in any case two DataOuputDescriptor` are provided which have equal
+combinations of the tree and file parameters then the processing is stopped! It
+is not possible to save two trees with equal name to a given file.
 
 
 ## Reading tables from files
@@ -589,7 +588,7 @@ The internal-dpl-aod-reader reads trees from root files and provides them as arr
 
 ### --aod-file
 
-`aod-file` takes a string as option value, which either is the name of the input root file or, if starting with an `@`-character, is an ASCII-file which contains a list of input files. 
+aod-file takes a string as option value, which either is the name of the input root file or, if starting with an `@`-character, is an ASCII-file which contains a list of input files. 
 
 ```csh
 --aod-file AnalysisResults_0.root
@@ -602,31 +601,31 @@ The internal-dpl-aod-reader reads trees from root files and provides them as arr
 
 ### --json-file
 
-'json-file' is a string and specifies a json file, which contains the
+json-file is a string and specifies a json file, which contains the
 customization information for the internal-dpl-aod-reader. An example file is
 shown in the highlighted field below. The relevant information is contained in
-a json object `InputDirector`. The `InputDirector` can include the following
+a json object `InputDirector`. The InputDirector can include the following
 three items:
 
-  1. `resfiles` is a string or an array of strings and corresponds to the `aod-file` command line option. As the `aod-file` option it can specify a single input file or, when the option value starts with a `@`-character, an ASCII file with a list of input files. In addition `resfiles` can be an array of strings, which contains a list of input files.
-  2.`fileregex` is a regex string which is used to select the input files from the file list specified by `resfiles`.
-  3.`InputDescriptors` is an array of objects, the so called `DataInputDescriptors`, which are composed of 4 items.
+  1. `resfiles` is a string or an array of strings and corresponds to the aod-file command line option. As the aod-file option it can specify a single input file or, when the option value starts with a `@`-character, an ASCII file with a list of input files. In addition resfiles can be an array of strings which contains a list of input files.
+  2. `fileregex` is a regex string which is used to select the input files from the file list specified by resfiles.
+  3. `InputDescriptors` is an array of objects, the so called `DataInputDescriptors`, which are composed of 4 items.
   
-     a. `table` is a string and specifies the table to fill. The `table` needs to be provided in the format `AOD/tablename/0`, where `tablename` is the name of the table as defined in the workflow definition.  
-     b. `treename` is a string and specifies the tree which is to be used to fill `table`  
-     c. `resfiles` is either a string or an array of strings. It specifies a list of possible input files (see discussion of `resfiles` above).  
-     d. `fileregex` is a regular expression string which is used to select the input files from the file list specified by `resfiles`  
+     a. `table` is a string and specifies the table to fill. table needs to be provided in the format "AOD/tablename/0", where tablename is the name of the table as defined in the workflow definition.  
+     b. `treename` is a string and specifies the tree which is to be used to fill table  
+     c. `resfiles` is either a string or an array of strings. It specifies a list of possible input files (see discussion of resfiles above).  
+     d. `fileregex` is a regular expression string which is used to select the input files from the file list specified by resfiles  
 
-The information contained in a `DataInputDescriptor` instructs the internal-dpl-aod-reader to fill table `table` with the values from the tree `treename` in the files which are defined by `resfiles` and which names match the regex `fileregex`.
+The information contained in a DataInputDescriptor instructs the internal-dpl-aod-reader to fill table `table` with the values from the tree `treename` in the files which are defined by `resfiles` and which names match the regex `fileregex`.
 
-Of the four items of a `DataInputDescriptor`, `table` is the only required information. If one of the other items is missing its value will be set as follows:
+Of the four items of a DataInputDescriptor, table is the only required information. If one of the other items is missing its value will be set as follows:
 
-  1. `treename` is set to `tablename` of the respective `table` item.  
-  2. `resfiles` is set to `resfiles` of the `InputDirector` (1. item of the `InputDirector`). If that is missing, then the value of the `aod-file` option is used. If that is missing, then `AnalysisResults.root` is used.  
-  3. `fileregex` is set to `fileregex` of the `InputDirector` (2. item of the `InputDirector`). If that is missing, then `.*` is used.
+  1. treename is set to tablename of the respective table item.  
+  2. resfiles is set to resfiles of the InputDirector (1. item of the InputDirector). If that is missing, then the value of the aod-file option is used. If that is missing, then "AnalysisResults.root" is used.  
+  3. fileregex is set to fileregex of the InputDirector (2. item of the InputDirector). If that is missing, then ".*" is used.
 
 
-`Example json file for the internal-dpl-aod-reader`
+Example json file for the internal-dpl-aod-reader
 ```csh
 {
   "InputDirector": {
@@ -657,22 +656,21 @@ Of the four items of a `DataInputDescriptor`, `table` is the only required infor
   }
 ```
 
-When the internal-dpl-aod-reader receives the request to fill a given table `tablename` it searches in the provided `InputDirector` for the corresponding `InputDescriptor` and proceeds as defined there. However, if there is no corresponding `InputDescriptor` it falls back to the information provided by the `resfiles` and `fileregex` options of the `InputDirector` and uses the `tablename` as `treename`.
+When the internal-dpl-aod-reader receives the request to fill a given table tablename it searches in the provided InputDirector for the corresponding InputDescriptor and proceeds as defined there. However, if there is no corresponding InputDescripto` it falls back to the information provided by the resfiles and fileregex options of the InputDirector and uses the tablename as treename.
 
 ### Some practical comments
 
-The `json-file` option allows to setup the reading of tables in a rather
+The json-file option allows to setup the reading of tables in a rather
 flexible way. Here a few presumably practical cases are discussed:
 
-  1. Let's assume a case where data from tables `tableA` and `tableB` need to
-be processed together. Table `tableA` was previously saved as tree `tableA` to
-files `tableAResults_x.root`, where `x` is a number and `tableB` was saved as
-tree `tableB` to `tableBResults_x.root`. The following json-file could be used
-to read these tables:
+  1. Let's assume a case where data from tables `tableA` and `tableB` need to be
+processed together. Table tableA was previously saved as tree tableA to file
+tableAResults.root and tableB was saved as tree tableB to tableBResults.root.
+The following json-file could be used to read these tables:
 
 ```csh
 {
-  # file resfiles.txt lists all tableAResults_x.root and tableBResults_x.root files.
+  # file resfiles.txt lists all tableAResults.root and tableBResults.root files.
 
   "InputDirector": {
     "resfiles": "@resfiles.txt",
@@ -689,7 +687,7 @@ to read these tables:
   }
 ```
 
-  2. In this case several tables need to be provided. All tables can be read from files `tableResult_x.root`, except for one table, namely `tableA`, which is saved as tree `treeA` in files `tableAResult_x.root`.
+  2. In this case several tables need to be provided. All tables can be read from files tableResults_x.root, except for one table, namely tableA, which is saved as tree treeA in files tableAResults_x.root.
   
 ```csh
   # file resfiles.txt lists all tableResults_x.root and tableAResults_x.root files.
@@ -709,10 +707,10 @@ to read these tables:
 
 ### Limitations
 
-  1. It is required that all `InputDescriptors` have the same number of selected input files. This is internally checked and the processing is stopped if it turns out that this is not the case.
+  1. It is required that all InputDescriptors have the same number of selected input files. This is internally checked and the processing is stopped if it turns out that this is not the case.
   2. The internal-dpl-aod-reader loops over the selected input files in the order as they are listed. It is the duty of the user to make sure that the order is correct and that the order in the file lists
-of the various `InputDescriptors` are corresponding to each other.
-  3. The regular expression `fileregex` is evaluated with the c++ Regular expressions library. Thus check there for the proper syntax of regexes.
+of the various InputDescriptors are corresponding to each other.
+  3. The regular expression fileregex is evaluated with the c++ Regular expressions library. Thus check there for the proper syntax of regexes.
 
 ## Features not implemented yet
 

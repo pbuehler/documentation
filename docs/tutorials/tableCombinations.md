@@ -9,7 +9,10 @@ title: Table Combinations
 ```goal
 Learn how to efficiently access and process related information from different tables.
 ```
-source: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/Tutorials/src/histograms.cxx" target="_blank">tableCombinations.cxx</a>
+<div style="margin-bottom:5mm">
+  source: <a href="https://github.com/pbuehler/documentation/blob/main/docs/tutorials/code/collisionTracksIteration.cxx" target="_blank">collisionTracksIteration.cxx</a><br>
+  Executable: o2-analysistutorial-collision-tracks-iteration
+</div>
 
 ```warning
 Are you having problems running this tutorial? If the program stops with an error message form the internal-dpl-aod-reader saying something like `Exception caught: Couldn't get TTree "DF_xxx/O2v0index"` then go to the end of this tutorial to get some [advice](#ctask).
@@ -18,9 +21,9 @@ Are you having problems running this tutorial? If the program stops with an erro
 <a name="atask"></a>
 ### ATask
 
-Tables can be related - tracks belong to a collision, FT0 signals to a bunch crossing, muon clusters to a muon track, etc, etc. To express this child-parent relation, the childs have index columns which point into the parent table (see the <a href="../framework/datamodel.html#table-relations">Data Model</a>).
+Tables can be related - tracks belong to a collision, FT0 signals to a bunch crossing, muon clusters to a muon track, etc, etc. To express this child-parent relation, the children have index columns which point into the parent table (see the <a href="../framework/datamodel.html#table-relations">Data Model</a>).
 
-If we'd e.g. like to loop over all collisons and over all tracks belonging to a collision we would typically setup a 2-loop structure - first looping over all collisions and within this loop, loop over all tracks belonging to the collision.
+If we'd e.g. like to loop over all collisions and over all tracks belonging to a collision we would typically setup a 2-loop structure - first looping over all collisions and within this loop, loop over all tracks belonging to the collision.
 
 Using the full power of the task's process method this can be done without explicit looping over the collisions. In the code snippet below, the process method is called with two arguments, an argument of type Collision and one of type Tracks. In this case the framework takes care of selecting (grouping) the tracks belonging to a given collision. The process method is executed for each entry in the Collisions table with the tracks belonging to the given collision only.
 
@@ -59,7 +62,7 @@ The automatic grouping of tracks according to the collision works in the above c
 <a name="ctask"></a>
 ### CTask
 
-The grouping works with any number of childs. In the below example the process function is given three arguments. In this case process is run for each collision with the tracks and V0s belonging to the actual collision.
+The grouping works with any number of children. In the below example the process function is given three arguments. In this case process is run for each collision with the tracks and V0s belonging to the actual collision.
 
 ```cpp
   void process(aod::Collision const& collision, aod::Tracks const& tracks, aod::V0s const& v0s)

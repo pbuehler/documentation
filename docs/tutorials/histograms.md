@@ -9,8 +9,12 @@ title: Histograms
 ```goal
 Learn how to create, fill, and save histograms.
 ```
-source: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/Tutorials/src/histograms.cxx" target="_blank">histograms.cxx</a>
 
+<div style="margin-bottom:5mm">
+  source: <a href="https://github.com/pbuehler/documentation/blob/main/docs/tutorials/code/histograms.cxx" target="_blank">histograms.cxx</a><br>
+  Executable: o2-analysistutorial-histograms
+</div>
+  
 <a name="atask"></a>
 ### ATask
 
@@ -34,7 +38,7 @@ struct ATask {
 };
 ```
 
-In this way one can create and process tables. However, they are not persistent and will be deleted at the end of the task. Extra code is needed to save the histograms.
+In this way one can create and process tables. However, they are not persistent and will be deleted at the end of the workflow. Extra code is needed to save the histograms.
 
 This is different when using `OutputObj<>` to create a histogram or other root objects.
 

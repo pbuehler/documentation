@@ -3,13 +3,16 @@ sort: 5
 title: Creating Tables
 ---
 
-# Creating and Modifying tables 
+# Declaration and production of tables 
 
 
 ```goal
-Learn how to create new tables, extend existing tables with additional columns and have them saved to disk.
+Learn how to declare and produce new tables.
 ```
-source: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/Tutorials/src/histograms.cxx" target="_blank">creatingTables.cxx</a>
+<div style="margin-bottom:5mm">
+  source: <a href="https://github.com/pbuehler/documentation/blob/main/docs/tutorials/code/newCollections.cxx" target="_blank">newCollections.cxx</a><br>
+  Executable: o2-analysistutorial-new-collections
+</div>
 
 Before we come to discussing the tutorial [code](#atask) a few general words about creating tables.
 
@@ -29,7 +32,7 @@ All methods have a `Name` and `Description` argument. The argument Name is used 
     <div>
       DECLARE_SOA_TABLE(Name, Origin, Description, ...);
       <div>
-        Declares a table of type `Name` with the columns specified in the argument list. The columns are specfied as a comma separated list of column types.
+        Declares a table of type `Name` with the columns specified in the argument list. The columns are specified as a comma separated list of column types. Only columns, dynamic columns, and index columns are accepted.
       </div>
     </div>
   </div>
@@ -39,7 +42,7 @@ All methods have a `Name` and `Description` argument. The argument Name is used 
     <div>
       DECLARE_SOA_EXTENDED_TABLE_USER(Name, Table, Description, ...);
       <div>
-        Declares a table of type `Name` which contains the columns of table `Table` and in addition the columns specified in the argument list.
+        Declares a table of type `Name` which contains the columns of table `Table` and in addition the expression columns specified in the argument list. Only expression columns are accepted.
       </div>
     </div>
   </div>
@@ -84,7 +87,7 @@ equal to pt of a table tab).
     <div>
       DECLARE_SOA_COLUMN_FULL(Name, Getter, Type, Label);
       <div>
-        Dcelares a column of type `Name`. The elements are of type `Type` and the function to access the column is `Getter`(). The column is given a label `Label` which is used within the framework to identify the column.
+        Declares a column of type `Name`. The elements are of type `Type` and the function to access the column is `Getter`(). The column is given the label "f`Label`" which is used within the framework to identify the column.
       </div>
     </div>
   </div>
@@ -94,7 +97,7 @@ equal to pt of a table tab).
     <div>
       DECLARE_SOA_COLUMN(Name, Getter, Type);
       <div>
-        Same as DECLARE_SOA_COLUMN_FULL but here the label is by default set to `Name`.
+        Same as DECLARE_SOA_COLUMN_FULL but here the label is by default set to "f`Name`".
       </div>
     </div>
   </div>
@@ -134,7 +137,7 @@ equal to pt of a table tab).
     <div>
       DECLARE_SOA_INDEX_COLUMN_FULL(Name, Getter);
       <div>
-        Same as DECLARE_SOA_INDEX_COLUMN_FULL but here element type is by default set to int_32, the referencing table to `Name`s, and the label which is used within the framework to identify the column is accrodingly set to fIndex`Name`.
+        Same as DECLARE_SOA_INDEX_COLUMN_FULL but here element type is by default set to int_32, the referencing table to `Name`s, and the label which is used within the framework to identify the column is accordingly set to fIndex`Name`.
       </div>
     </div>
   </div>
@@ -155,7 +158,7 @@ equal to pt of a table tab).
 <a name="atask"></a>
 ### ATask
 
-In order to avoid naming conflicts between different tasks it is advicable to declare new columns in subspaces of the namespace o2::aod and the new tables in namespace o2::aod. 
+In order to avoid naming conflicts between different tasks it is advisable to declare new columns in subspaces of the namespace o2::aod and the new tables in namespace o2::aod. 
 
 ```cpp
 // declare columns in a sub-namespace of o2::aod
@@ -171,7 +174,7 @@ DECLARE_SOA_TABLE(EtaPhi, "AOD", "ETAPHI",
                   etaphi::Eta, etaphi::Phi);
 } // namespace o2::aod
 ```
-Now that the table is declared we can use it to create a corresponding table object. This happens with the Produces class. Produces is a templated class and takes the table type to create as template argument. The table type in this case is aod::EtaPhi and the actual table object is etaphi.
+Now that the table is declared we can use it to create a corresponding table object. This happens with the Produces class. Produces is a templated class and takes the type of the table to create as template argument. The table type in this case is aod::EtaPhi and the actual table object is etaphi.
 
 The filling of the table etaphi is done with the method (... ) which takes as many arguments as columns are available.
 
@@ -201,3 +204,4 @@ Within all tasks of a workflow the such created and filled table is available an
 <a name="dtask"></a>
 ### DTask
 
+More to follow for index tables

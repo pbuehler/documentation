@@ -9,7 +9,10 @@ title: TrackIteration
 Learn how to access the tracks and their measured quantities.
 ```
 
-source: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/Tutorials/src/trackIteration.cxx" target="_blank">trackIteration.cxx</a>
+<div style="margin-bottom:5mm">
+  Source: <a href="https://github.com/pbuehler/documentation/blob/main/docs/tutorials/code/trackIteration.cxx" target="_blank">trackIteration.cxx</a><br>
+  Executable: o2-analysistutorial-track-iteration
+</div>
 
 <a name="atask"></a>
 ### ATask
@@ -32,7 +35,7 @@ out. For a comprehensive list of data items included in the O2 data model see <a
 href="../framework/datamodel.html" target="_blank">The Data Model</a> section
 of these documentation pages. 
 
-The `Tracks` table only contains part of the available track information. In order to simulatneously access information of several tables, the tables can be joined using `soa::Join<>`.
+The `Tracks` table only contains part of the available track information. In order to simultaneously access information of several tables, the tables can be joined using `soa::Join<>`.
 
 To loop over all available tracks and having simultaneous access to the `Tracks` and `TracksExtra` information you could e.g. do
 
