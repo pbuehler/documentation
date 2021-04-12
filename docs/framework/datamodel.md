@@ -16,7 +16,7 @@ Information contained in different tables can be related. E.g. a track belongs t
 Hence the dependent tables need to hold an index which points to a specific row of the master table. For this the dependent table (e.g. table Tracks) has an index column [master]Id (in this case CollisionsId) which points to the related information in table master. See also e.g. master=BCs and dependent=CaloTriggers and many more.
 
 ```note
-Be aware that tables can be [joined](framework.html#processing-related-tables) and be [extended](framework.html#expression-columns) with extra colums.
+Be aware that tables can be [joined](framework.md#processing-related-tables) and be [extended](framework.html#expression-columns) with extra colums.
 ```
 
 <a name="AO2D"></a>

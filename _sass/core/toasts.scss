@@ -59,4 +59,12 @@
     }
   }
 
+  &.instruction {
+    background-color: lighten($theme-violet, 70%);
+
+    .title {
+      background: lighten($theme-violet, 20%);
+    }
+  }
+
 }
