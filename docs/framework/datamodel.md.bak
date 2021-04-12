@@ -5,7 +5,7 @@ title: The Data Model
 
 # The data model
 
-The ALICE O2 data model is a collection of tables. This includes tables which are read from the input files [AO2D files](#AO2D) and also such which are created by tasks. To produce some tables with commonly used quantities there exist a set of predefined [helper tasks](#helper_tasks) which can be included in user analysis work flows.
+The ALICE O2 data model is a collection of tables. This includes tables which are read from the input files [AO2D files](#AO2D) and also such which are created by tasks. To produce some tables with commonly used qauntities there exist a set of predefined [helper tasks](#helper_tasks) which can be included in user analysis workflows.
 
 There is also a bunch of pre-defined [joins and iterators](#usings) which are summarized in the list further down.
 
@@ -22,7 +22,7 @@ Be aware that tables can be [joined](framework.html#processing-related-tables) a
 <a name="AO2D"></a>
 ## List of tables defined in the AO2D data files
 
-The tables which are extracted from the AO2D files are declared in <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Framework/Core/include/Framework/AnalysisDataModel.h" target="_blank">Framework/AnalysisDataModel.h</a> and listed below. They are available by default when using an AO2D file as input to an analysis work flow.
+The tables which are extracted from the AO2D files are declared in <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Framework/Core/include/Framework/AnalysisDataModel.h" target="_blank">Framework/AnalysisDataModel.h</a> and listed below. They are available by default when using an AO2D file as input to an analysis workflow.
 
 Click on the labels to display the table details.
 
