@@ -22,7 +22,7 @@ file](../framework/framework.html#saving-tables-to-file) and [Reading tables
 from file](../framework/framework.html#reading-tables-from-files) of these
 documentation pages.
 
-When proceeding AO2D root files the command line option --aod-file is sufficient to have the system fill the tables of the O2 [Analysis Data Model](../framework/datamodel.html#the-data-model) with the information contained in the specified input files. This is of course because the layout of the data model and the AO2Ds is matched and the relations between table name and root tree names, column names and branch names is coded in the framework.
+When proceeding AO2D root files the command line option --aod-file is sufficient to have the system fill the tables of the O2 [Analysis Data Model](../framework/datamodel.md#the-data-model) with the information contained in the specified input files. This is of course because the layout of the data model and the AO2Ds is matched and the relations between table name and root tree names, column names and branch names is coded in the framework.
 
 By default the writing of e.g. histograms created in a task also happens without much hassle. They are saved to one of the files AnalysisResults.root or QAResults.root (see tutorial [Histograms](histograms.html)).
 

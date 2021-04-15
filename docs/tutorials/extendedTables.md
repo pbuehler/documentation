@@ -20,7 +20,7 @@ Learn how add new columns to existing tables, use dynamic and expression columns
 <a name="atask"></a>
 ### ATask
 
-Existing tables can be extended with additional expression columns using the 'Extend" function. The first step is the declaration of the new expression column (see also tutorial [Creating Tables](creatingTables)
+Existing tables can be extended with additional expression columns using the 'Extend" function. The first step is the declaration of the new expression column (see also tutorial [Creating Tables](creatingTables)).
 
 ```cpp
 # declare expression column P2
