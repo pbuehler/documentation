@@ -20,7 +20,7 @@ Hyperloop provides a web interface for users and operators which allows to:
 * study the resource consumption of the train for each wagon
 
 The views available in the Hyperloop framework are:
-* [My Analyses](hyperlooppractice.html#myanalyses)
+* [My Analyses](hyperlooppractice.md#myanalyses)
 * [All Analyses](hyperlooppractice.md#allanalyses)
 * [Dashboard](hyperlooppractice.md#dashboard)
 * [Train Submission](hyperlooppractice.md#trainsubmission)

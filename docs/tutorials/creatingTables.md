@@ -30,7 +30,9 @@ All methods have a `Name` and `Description` argument. The argument Name is used 
   <button class="myaccordion"><i class="fa fa-code"></i> DECLARE_SOA_TABLE</button>
   <div class="panel">
     <div>
-      DECLARE_SOA_TABLE(Name, Origin, Description, ...);
+      <b>
+      DECLARE_SOA_TABLE(char* Name, char* Origin, char* Description, ...);
+      </b>
       <div>
         Declares a table of type `Name` with the columns specified in the argument list. The columns are specified as a comma separated list of column types. Only columns, dynamic columns, and index columns are accepted.
       </div>
@@ -40,7 +42,9 @@ All methods have a `Name` and `Description` argument. The argument Name is used 
   <button class="myaccordion"><i class="fa fa-code"></i> DECLARE_SOA_EXTENDED_TABLE_USER</button>
   <div class="panel">
     <div>
-      DECLARE_SOA_EXTENDED_TABLE_USER(Name, Table, Description, ...);
+      <b>
+      DECLARE_SOA_EXTENDED_TABLE_USER(char* Name, o2::soa::Table<> Table, char* Description, ...);
+      </b>
       <div>
         Declares a table of type `Name` which contains the columns of table `Table` and in addition the expression columns specified in the argument list. Only expression columns are accepted.
       </div>
@@ -50,7 +54,9 @@ All methods have a `Name` and `Description` argument. The argument Name is used 
   <button class="myaccordion"><i class="fa fa-code"></i> DECLARE_SOA_INDEX_TABLE_USER</button>
   <div class="panel">
     <div>
+      <b>
       DECLARE_SOA_INDEX_TABLE_USER(Name, Key, Description, ...);
+      </b>
       <div>
       
       </div>
@@ -61,7 +67,9 @@ All methods have a `Name` and `Description` argument. The argument Name is used 
   <button class="myaccordion"><i class="fa fa-code"></i> DECLARE_SOA_INDEX_TABLE_EXCLUSIVE_USER</button>
   <div class="panel">
     <div>
+      <b>
       DECLARE_SOA_INDEX_TABLE_EXCLUSIVE_USER(Name, Key, Description, ...);
+      </b>
       <div>
       </div>
     </div>
@@ -85,7 +93,9 @@ equal to pt of a table tab).
   <button class="myaccordion"><i class="fa fa-code"></i> DECLARE_SOA_COLUMN_FULL</button>
   <div class="panel">
     <div>
-      DECLARE_SOA_COLUMN_FULL(Name, Getter, Type, Label);
+      <b>
+      DECLARE_SOA_COLUMN_FULL(char* Name, char* Getter, Type, char* Label);
+      </b>
       <div>
         Declares a column of type `Name`. The elements are of type `Type` and the function to access the column is `Getter`(). The column is given the label "f`Label`" which is used within the framework to identify the column.
       </div>
@@ -95,7 +105,9 @@ equal to pt of a table tab).
   <button class="myaccordion"><i class="fa fa-code"></i> DECLARE_SOA_COLUMN</button>
   <div class="panel">
     <div>
-      DECLARE_SOA_COLUMN(Name, Getter, Type);
+      <b>
+      DECLARE_SOA_COLUMN(char* Name, char* Getter, Type);
+      </b>
       <div>
         Same as DECLARE_SOA_COLUMN_FULL but here the label is by default set to "f`Name`".
       </div>
@@ -105,7 +117,9 @@ equal to pt of a table tab).
   <button class="myaccordion"><i class="fa fa-code"></i> DECLARE_SOA_EXPRESSION_COLUMN_FULL</button>
   <div class="panel">
     <div>
-      DECLARE_SOA_EXPRESSION_COLUMN_FULL(Name, Getter, Type, Label, Expression);
+      <b>
+      DECLARE_SOA_EXPRESSION_COLUMN_FULL(char* Name, char* Getter, Type, char* Label, Expression);
+      </b>
       <div>
         Same as DECLARE_SOA_COLUMN_FULL but here the column element values are computed according to the expression `Expression`.
       </div>
@@ -115,7 +129,9 @@ equal to pt of a table tab).
   <button class="myaccordion"><i class="fa fa-code"></i> DECLARE_SOA_EXPRESSION_COLUMN</button>
   <div class="panel">
     <div>
-      DECLARE_SOA_EXPRESSION_COLUMN(Name, Getter, Type, Expression);
+      <b>
+      DECLARE_SOA_EXPRESSION_COLUMN(char* Name, char* Getter, Type, Expression);
+      </b>
       <div>
         Same as DECLARE_SOA_EXPRESSION_COLUMN_FULL but here the label is by default set to `Name`.
       </div>
@@ -125,7 +141,9 @@ equal to pt of a table tab).
   <button class="myaccordion"><i class="fa fa-code"></i> DECLARE_SOA_INDEX_COLUMN_FULL</button>
   <div class="panel">
     <div>
-      DECLARE_SOA_INDEX_COLUMN_FULL(Name, Getter, Type, Table, Suffix);
+      <b>
+      DECLARE_SOA_INDEX_COLUMN_FULL(char* Name, char* Getter, Type, o2::soa::Table<> Table, char* Suffix);
+      </b>
       <div>
         Declares an index column of type `Name`Id to elements of the existing table `Table`s. The column elements are of type `Type` and can be retrieved with the method `Getter`(). `Suffix` can be used to distinguish several index columns to the same table. The label which is used within the framework to identify the column is set to fIndex`Table``Suffix`. If `Suffix` is not empty it must start with an underscore!
       </div>
@@ -135,7 +153,9 @@ equal to pt of a table tab).
   <button class="myaccordion"><i class="fa fa-code"></i> DECLARE_SOA_INDEX_COLUMN</button>
   <div class="panel">
     <div>
+      <b>
       DECLARE_SOA_INDEX_COLUMN_FULL(Name, Getter);
+      </b>
       <div>
         Same as DECLARE_SOA_INDEX_COLUMN_FULL but here element type is by default set to int_32, the referencing table to `Name`s, and the label which is used within the framework to identify the column is accordingly set to fIndex`Name`.
       </div>
@@ -145,7 +165,9 @@ equal to pt of a table tab).
   <button class="myaccordion"><i class="fa fa-code"></i> DECLARE_SOA_DYNAMIC_COLUMN</button>
   <div class="panel">
     <div>
+      <b>
       DECLARE_SOA_DYNAMIC_COLUMN(Name, Getter, ...);
+      </b>
       <div>
         Similar to DECLARE_SOA_COLUMN but here the column element values are computed with the lambda which is provided as third argument to the declaration. The lambda also determines the type of the elements.
       </div>

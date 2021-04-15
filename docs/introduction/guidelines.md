@@ -12,14 +12,14 @@ target="_blank">repository</a> under the directory **docs**.
 They are converted by the <a href="https://docs.github.com/en/pages"
 target="_blank">GitHub Pages</a> engine into the documentation website, which
 consists of static html files. The html files are place into the **_site/docs**
-folder of the git repository. For details about the markdown syntax used by
+folder of the git repository. For details about the markdown flovour used by
 GitHub see GitHubs specific <a
 href="https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github"
 target="_blank">documentation</a>.
 
 ### Testing off-line
 
-Be aware that changes to the repository are immediately rendered automatically. So it is recommended to test changes localy before applying to the GitHub repository.
+Be aware that changes to the repository are immediately rendered automatically. So it is recommended to test changes localy before applying them to the GitHub repository.
 
 The procedure to set up the site locally is described <a
 href="https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll"
@@ -29,7 +29,7 @@ target="_blank">here</a>.
 
 The source files are organized in a directory structure as outlined below. It consists of a number of subdirectories below the main directory docs/. Each subdirectory contains a README.md and any number of documentation files.
 
-This structure is the basis for the automatic generation of the menu which appears on the left hand side of the web pages. The first level items of the menu represent the subdirectories below the main directory docs/. Then there is a second level item per documentation file, and the third level items correspond to the h2 headers in the documentation files.
+This structure is the basis for the automatic generation of the menu which appears on the left hand side of the web pages. The first level items of the menu represent the subdirectories below the main directory docs/. When clicking on such an item the README.md of the respective directory will be displayed. There is a second level item per documentation file in each folder, and the third level items correspond to the h2 headers in the documentation files.
 
 ```csh
 docs/
@@ -52,7 +52,7 @@ docs/
 .
 ```
 
-The documentation files contain a header as shown below
+The documentation files (including the READMEs) contain a header as shown below
 ```markdown 
 ---
 sort: n
@@ -99,7 +99,7 @@ Markdown provides several methods to highlight text.
 
 In order to highlight blocks of code use fenced code blocks. Fenced code blocks are marked by two lines with three back ticks ```` ``` ```` befor and after the text to display in a box. In order to have the syntax of the code highlighted you can specify a language next to the backticks before the fenced code block, e.g. ```` ```json ````.
 
-In addition to languages other specifications of fenced blocks are available. Use these to emphasize specific information. The available specifications are listed below.
+In addition to languages other specifications of fenced blocks are available. Use these to emphasize specific information. The available flavours are listed below.
 
 
 ```note
