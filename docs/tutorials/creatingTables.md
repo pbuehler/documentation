@@ -35,6 +35,60 @@ All methods have a `Name` and `Description` argument. The argument Name is used 
       </b>
       <div>
         Declares a table of type `Name` with the columns specified in the argument list. The columns are specified as a comma separated list of column types. Only columns, dynamic columns, and index columns are accepted.
+        
+        <table style="width:100%">
+          <tr>
+            <th> Method </th>
+            <th> Type </th>
+            <th> </th>
+          </tr>
+          <tr>
+            <td> asArrowTable( ) </td>
+            <td> std::shared_ptr<arrow::Table> </td>
+            <td> Type erased arrow table. </td>
+          </tr>
+          <tr>
+            <td> getId&lt;T&gt; ( ) </td>
+            <td>  </td>
+            <td>  </td>
+          </tr>
+          <tr>
+            <td> size ( ) or tableSize ( ) </td>
+            <td> int64_t </td>
+            <td> The number of rows the table contains. </td>
+          </tr>
+          <tr>
+            <td> begin ( ) </td>
+            <td>  </td>
+            <td> First row. </td>
+          </tr>
+          <tr>
+            <td> iteratorAt ( uint64_t i) </td>
+            <td>  </td>
+            <td> ith row. </td>
+          </tr>
+          <tr>
+            <td> end ( ) </td>
+            <td>  </td>
+            <td> Last row. </td>
+          </tr>
+          <tr>
+            <td> select (framework::expressions::Filter&& f) </td>
+            <td>  </td>
+            <td> Rows of table for which filter f returns true. </td>
+          </tr>
+          <tr>
+            <td> scliceBy&lt;T&gt;(colId, int value) </td>
+            <td>  </td>
+            <td> Rows of table for which (colId == value) is true. colId is an index column. </td>
+          </tr>
+          <tr>
+            <td>  </td>
+            <td>  </td>
+            <td>  </td>
+          </tr>
+       </table>
+        
       </div>
     </div>
   </div>
@@ -43,7 +97,7 @@ All methods have a `Name` and `Description` argument. The argument Name is used 
   <div class="panel">
     <div>
       <b>
-      DECLARE_SOA_EXTENDED_TABLE_USER (Name, o2::soa::Table<> Table, char* Description, ...);
+      DECLARE_SOA_EXTENDED_TABLE_USER (Name, Table, char* Description, ...);
       </b>
       <div>
         Declares a table of type `Name` which contains the columns of table `Table` and in addition the expression columns specified in the argument list. Only expression columns are accepted.
@@ -72,7 +126,21 @@ a column (tab.pt() e.g. gives access to an element of the column which was decla
       DECLARE_SOA_COLUMN_FULL (Name, Getter, Type, char* Label);
       </b>
       <div>
-        Declares a column of type `Name`. The elements are of type `Type` and the function to access the column is `Getter`(). The column is given the label "f`Label`" which is used within the framework to identify the column.
+        Declares a column of type `Name`. The elements are of type `Type`. The column is given the label "f`Label`" which is used within the framework to identify the column.
+        
+        <table style="width:100%">
+          <tr>
+            <th> Method </th>
+            <th> Type </th>
+            <th> </th>
+          </tr>
+          <tr>
+            <td> `Getter`( ) </td>
+            <td> `Type` </td>
+            <td> Column element. </td>
+          </tr>
+        </table>
+        
       </div>
     </div>
   </div>
@@ -97,6 +165,25 @@ a column (tab.pt() e.g. gives access to an element of the column which was decla
       </b>
       <div>
         Same as DECLARE_SOA_COLUMN_FULL but here the column element values are computed according to the expression `Expression`. Expression columns can be used to extend an exising table (see tutorial <a href="extendedTables.html">Extending Tables</a>).
+        
+        <table style="width:100%">
+          <tr>
+            <th> Method </th>
+            <th> Type </th>
+            <th> </th>
+          </tr>
+          <tr>
+            <td> `Getter`( ) </td>
+            <td> `Type` </td>
+            <td> Column element. </td>
+          </tr>
+          <tr>
+            <td> Projector( ) </td>
+            <td> o2::framework::expressions::Projector </td>
+            <td> `Expression`. </td>
+          </tr>
+        </table>
+        
       </div>
     </div>
   </div>
@@ -117,10 +204,49 @@ a column (tab.pt() e.g. gives access to an element of the column which was decla
   <div class="panel">
     <div>
       <b>
-      DECLARE_SOA_INDEX_COLUMN_FULL (Name, Getter, Type, o2::soa::Table<> Table, char* Suffix);
+      DECLARE_SOA_INDEX_COLUMN_FULL (Name, Getter, Type, Table, char* Suffix);
       </b>
       <div>
-        Declares an index column of type `Name`Id to elements of the existing table `Table`s. The column elements are of type `Type` and can be retrieved with the method `Getter`(). `Suffix` can be used to distinguish several index columns to the same table. The label which is used within the framework to identify the column is set to fIndex`Table``Suffix`. If `Suffix` is not empty it must start with an underscore!
+        Declares the index column `Name`Id to the existing table `Table`s (binding table). The column elements are of type `Type`. `Suffix` can be used to distinguish several index columns to the same table. The column label which is used within the framework to identify the column is set to fIndex`Table``Suffix`. If `Suffix` is not empty it must start with an underscore! `Table` must have a o2::soa::Index column!
+        
+        <table style="width:100%">
+          <tr>
+            <th> Method </th>
+            <th> Type </th>
+            <th> </th>
+          </tr>
+          <tr>
+            <td> `Getter`Id( ) </td>
+            <td> `Type` </td>
+            <td> Column element. </td>
+          </tr>
+          <tr>
+            <td> has_`Getter`( ) </td>
+            <td> bool </td>
+            <td> True if the binding table is not a NULL pointer. </td>
+          </tr>
+          <tr>
+            <td> `Getter`_as &lt;T&gt;( ) </td>
+            <td> auto </td>
+            <td> Respective row of (T*)binding table. T must include `Tables`s. </td>
+          </tr>
+          <tr>
+            <td> `Getter`( ) </td>
+            <td> auto </td>
+            <td> Respective row of table `Tables`s. </td>
+          </tr>
+          <tr>
+            <td> setCurrent &lt;T&gt;(T* t) </td>
+            <td> bool </td>
+            <td> Replace `Table`s by t as binding table. </td>
+          </tr>
+          <tr>
+            <td> getCurrent( ) </td>
+            <td> `Table`s* </td>
+            <td> Binding table. </td>
+          </tr>
+        </table>
+        
       </div>
     </div>
   </div>
@@ -144,7 +270,26 @@ a column (tab.pt() e.g. gives access to an element of the column which was decla
       DECLARE_SOA_DYNAMIC_COLUMN (Name, Getter, ...);
       </b>
       <div>
-        Similar to DECLARE_SOA_COLUMN but here the column element values are computed with the lambda which is provided as third argument to the declaration. The lambda also determines the type of the elements. Dynamic columns can be attached to exising tables (see tutorial <a href="extendedTables.html">Extending Tables</a>).
+        Declares a column of type `Name`. The column elements are dynamically computed with the lambda provided as third argument to the declaration. This also determines the type of the elements. Dynamic columns can be attached to exising tables (see tutorial <a href="extendedTables.html">Extending Tables</a>).
+        
+        <table style="width:100%">
+          <tr>
+            <th> Method </th>
+            <th> Type </th>
+            <th> </th>
+          </tr>
+          <tr>
+            <td> `Name`Callback </td>
+            <td> functor </td>
+            <td> The column lambda. </td>
+          </tr>
+          <tr>
+            <td> `Getter`&lt;T...&gt;(T... t) </td>
+            <td> according to functor </td>
+            <td> Dynamic column element computed with input columns t. </td>
+          </tr>
+        </table>
+        
       </div>
     </div>
   </div>

@@ -7,25 +7,19 @@
 // In applying this license CERN does not waive the privileges and immunities
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
-
-#include "Framework/runDataProcessing.h"
 #include "Framework/AnalysisTask.h"
+#include "Framework/runDataProcessing.h"
 
-namespace o2::aod
-{
-namespace minmax
-{
+namespace o2::aod {
+namespace minmax {
 DECLARE_SOA_COLUMN(Minpt, minpt, float);
 DECLARE_SOA_COLUMN(Maxpt, maxpt, float);
 DECLARE_SOA_COLUMN(Mineta, mineta, float);
 DECLARE_SOA_COLUMN(Maxeta, maxeta, float);
 } // namespace minmax
 
-DECLARE_SOA_TABLE(PtRange, "AOD", "PTRANGE",
-                  minmax::Minpt, minmax::Maxpt);
-
-DECLARE_SOA_TABLE(EtaRange, "AOD", "ETARANGE",
-                  minmax::Mineta, minmax::Maxeta);
+DECLARE_SOA_TABLE(PtRange, "AOD", "PTRANGE", minmax::Minpt, minmax::Maxpt);
+DECLARE_SOA_TABLE(EtaRange, "AOD", "ETARANGE", minmax::Mineta, minmax::Maxeta);
 
 } // namespace o2::aod
 
@@ -33,19 +27,22 @@ using namespace o2;
 using namespace o2::framework;
 
 struct ATask {
-  void process(aod::PtRange const& ptranges, aod::EtaRange const& etaranges)
-  {
+  void process(aod::PtRange const &ptranges, aod::EtaRange const &etaranges) {
     // check ptranges and etaranges to have same number of rows
     if (ptranges.size() != etaranges.size()) {
-      LOGF (error, "The numbers of rows in PtRange (%d) and EtaRange (%d) do NOT agree!", ptranges.size(), etaranges.size());
+      LOGF(
+          error,
+          "The numbers of rows in PtRange (%d) and EtaRange (%d) do NOT agree!",
+          ptranges.size(), etaranges.size());
     } else {
-      LOGF (error, "The numbers of rows in EtaRange (%d) and EtaRange (%d) agree!", ptranges.size(), etaranges.size());
+      LOGF(error,
+           "The numbers of rows in EtaRange (%d) and EtaRange (%d) agree!",
+           ptranges.size(), etaranges.size());
     }
   }
 };
 
-WorkflowSpec defineDataProcessing(ConfigContext const& cfgc)
-{
+WorkflowSpec defineDataProcessing(ConfigContext const &cfgc) {
   return WorkflowSpec{
-    adaptAnalysisTask<ATask>(cfgc, TaskName{"aod-reader-tutorial_A"})};
+      adaptAnalysisTask<ATask>(cfgc, TaskName{"aod-reader-tutorial_A"})};
 }
