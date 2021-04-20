@@ -2484,7 +2484,7 @@ Similar for the columns:
         <td>o2::aod::muon::Covariances</td>
         <td></td>
         <td>covariances</td>
-        <td>float</td>
+        <td>float[15]</td>
         <td></td>
       </tr>
       <tr>
@@ -2618,7 +2618,7 @@ Similar for the columns:
         <td>o2::aod::muon::Covariances</td>
         <td></td>
         <td>covariances</td>
-        <td>float</td>
+        <td>float[15]</td>
         <td></td>
       </tr>
       <tr>
@@ -2862,28 +2862,28 @@ Similar for the columns:
         <td>o2::aod::zdc::EnergySectorZNA</td>
         <td></td>
         <td>energySectorZNA</td>
-        <td>float</td>
+        <td>float[4]</td>
         <td></td>
       </tr>
       <tr>
         <td>o2::aod::zdc::EnergySectorZNC</td>
         <td></td>
         <td>energySectorZNC</td>
-        <td>float</td>
+        <td>float[4]</td>
         <td></td>
       </tr>
       <tr>
         <td>o2::aod::zdc::EnergySectorZPA</td>
         <td></td>
         <td>energySectorZPA</td>
-        <td>float</td>
+        <td>float[4]</td>
         <td></td>
       </tr>
       <tr>
         <td>o2::aod::zdc::EnergySectorZPC</td>
         <td></td>
         <td>energySectorZPC</td>
-        <td>float</td>
+        <td>float[4]</td>
         <td></td>
       </tr>
       <tr>
@@ -2970,7 +2970,7 @@ Similar for the columns:
         <td>o2::aod::fv0a::Amplitude</td>
         <td></td>
         <td>amplitude</td>
-        <td>float</td>
+        <td>float[48]</td>
         <td></td>
       </tr>
       <tr>
@@ -3029,7 +3029,7 @@ Similar for the columns:
         <td>o2::aod::fv0c::Amplitude</td>
         <td></td>
         <td>amplitude</td>
-        <td>float</td>
+        <td>float[32]</td>
         <td></td>
       </tr>
       <tr>
@@ -3081,14 +3081,14 @@ Similar for the columns:
         <td>o2::aod::ft0::AmplitudeA</td>
         <td></td>
         <td>amplitudeA</td>
-        <td>float</td>
+        <td>float[96]</td>
         <td></td>
       </tr>
       <tr>
         <td>o2::aod::ft0::AmplitudeC</td>
         <td></td>
         <td>amplitudeC</td>
-        <td>float</td>
+        <td>float[112]</td>
         <td></td>
       </tr>
       <tr>
@@ -3154,14 +3154,14 @@ Similar for the columns:
         <td>o2::aod::fdd::AmplitudeA</td>
         <td></td>
         <td>amplitudeA</td>
-        <td>float</td>
+        <td>float[4]</td>
         <td></td>
       </tr>
       <tr>
         <td>o2::aod::fdd::AmplitudeC</td>
         <td></td>
         <td>amplitudeC</td>
-        <td>float</td>
+        <td>float[4]</td>
         <td></td>
       </tr>
       <tr>
@@ -4362,7 +4362,7 @@ Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/T
         <td>o2::aod::evsel::Alias</td>
         <td></td>
         <td>alias</td>
-        <td>int32_t</td>
+        <td>int32_t[kNaliases]</td>
         <td></td>
       </tr>
       <tr>
@@ -4498,7 +4498,7 @@ Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/T
         <td>o2::aod::evsel::Alias</td>
         <td></td>
         <td>alias</td>
-        <td>int32_t</td>
+        <td>int32_t[kNaliases]</td>
         <td></td>
       </tr>
       <tr>
