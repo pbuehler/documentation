@@ -67,4 +67,12 @@
     }
   }
 
+  &.todo {
+    background-color: lighten($theme-black, 50%);
+
+    .title {
+      background: lighten($theme-red,  0%);
+    }
+  }
+
 }

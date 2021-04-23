@@ -1,5 +1,5 @@
 ---
-sort: 1
+sort: 2
 title: Data Processing
 ---
 
@@ -212,9 +212,14 @@ DECLARE_SOA_TABLE(Point, "MISC", "POINT", X, Y, (R2<X,Y>));
 Notice how the dynamic column is defined as a stand alone column and binds to X and Y
 only when you attach it as part of a table.
 
-## Expression columns
+### Expression columns
 
-TODO: describe
+```todo
+- Description of expression columns
+- Indices: declaration and usage
+- Complete list of column and table declarations
+```
+
 
 ## Filtering and partitioning data
 
@@ -254,9 +259,9 @@ struct MyTask {
 
 `filteredTracks` will contain only the tracks in the table which pass the condition `aod::track::pt > 1.0f`. 
 
-You can specify multiple filters which will be applied in a sequence effectively resulting in the intersection of all them.
+You can specify multiple filters which will be applied in a sequence effectively resulting in the intersection of all of them.
 
-Functions can be used, prefixed with an "n", such as: absolute value (nabs), square-root (nsqrt), power (npow), trigonometric functions (ncos, nsin, ntan, nacos, nasin, natan), exponent (nexp) and logarithm (nlog and nlog10). Those are defined in the file [Expressions.h](https://github.com/AliceO2Group/AliceO2/blob/4adfa838d7fa71ac579c2de9d41cdec639cfa118/Framework/Core/include/Framework/Expressions.h).
+Functions can be used, prefixed with an "n", such as: absolute value (nabs), square-root (nsqrt), power (npow), trigonometric functions (ncos, nsin, ntan, nacos, nasin, natan), exponent (nexp) and logarithm (nlog and nlog10). Those are defined in the file <a href="https://github.com/AliceO2Group/AliceO2/blob/4adfa838d7fa71ac579c2de9d41cdec639cfa118/Framework/Core/include/Framework/Expressions.h" target="_blank">Expressions.h</a>.
 
 ### Partitioning your inputs
 
@@ -303,8 +308,17 @@ struct MyTask {
 };
 ```
 
-## Getting combinations (pairs, triplets, ...)
+```todo
+- Complete list of methods related to filters and partitions
+```
+
+
+## Getting combinations
 To get combinations of distinct tracks, helper functions from `ASoAHelpers.h` can be used. Presently, there are 3 combinations policies available: strictly upper, upper and full. `CombinationsStrictlyUpperPolicy` is applied by default if all tables are of the same type, otherwise `FullIndexPolicy` is applied.
+
+```todo
+- Explain difference between policies
+```
 
 ```cpp
 // equivalent to combinations(CombinationsStrictlyUpperIndexPolicy(tracks, tracks));
@@ -378,7 +392,7 @@ struct MyTask : AnalysisTask {
 };
 ```
 
-## Getting mixed event data
+## Event mixing
 > **Separate docs for specific analysis details?**
 
 Block combinations can be used to obtain tracks from mixed events. First, one needs to calculate hash to associate each collision with proper bins:
@@ -420,7 +434,7 @@ struct CollisionsCombinationsTask {
 };
 ```
 
-A full example can be found in `Analysis/Tutorials/src/eventMixing.cxx`.
+A full example can be found in the [tutorial](/docs/tutorials/otherTutorials.html) section.
 
 ## Saving tables to file
 

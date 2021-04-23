@@ -1,5 +1,5 @@
 ---
-sort: 5
+sort: 6
 title: Creating Tables
 ---
 
@@ -45,7 +45,7 @@ All methods have a `Name` and `Description` argument. The argument Name is used 
           <tr>
             <td> asArrowTable( ) </td>
             <td> std::shared_ptr<arrow::Table> </td>
-            <td> Type erased arrow table. </td>
+            <td> Type erased arrow table. Allows to apply the full functionality of <a href="https://arrow.apache.org/docs/cpp/api/table.html#tables" target="_blank">Apache arrow tables</a>.</td>
           </tr>
           <tr>
             <td> getId&lt;T&gt; ( ) </td>
@@ -101,6 +101,18 @@ All methods have a `Name` and `Description` argument. The argument Name is used 
       </b>
       <div>
         Declares a table of type `Name` which contains the columns of table `Table` and in addition the expression columns specified in the argument list. Only expression columns are accepted.
+      </div>
+    </div>
+  </div>
+
+  <button class="myaccordion"><i class="fa fa-code"></i> DECLARE_SOA_INDEX_TABLE_USER</button>
+  <div class="panel">
+    <div>
+      <b>
+      DECLARE_SOA_INDEX_TABLE_USER (Name, Key, char* Description, ...);
+      </b>
+      <div>
+        Declares an index table of type `Name`.
       </div>
     </div>
   </div>
@@ -228,7 +240,7 @@ a column (tab.pt() e.g. gives access to an element of the column which was decla
           <tr>
             <td> `Getter`_as &lt;T&gt;( ) </td>
             <td> auto </td>
-            <td> Respective row of (T*)binding table. T must include `Tables`s. </td>
+            <td> Respective row of (T*)binding table. T must include `Tables`s, hence can be e.g. a join including `Tables`s. </td>
           </tr>
           <tr>
             <td> `Getter`( ) </td>
