@@ -1,122 +1,76 @@
 ---
-sort: 10
-title: More tutorials ...
+sort: 15
+title: More tutorials
 ---
 
 ### List of available tutorials
-All tutorials are in the <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/"
+This is a list of tutorials with less explanations. All code file can be found
+in the <a
+href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/"
 target="_blank">ALICEO2 code repository</a>.
 
-
-<div style="margin-bottom:5mm">
-  Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/aodreader.cxx" target="_blank">aodreader.cxx</a><br>
-  Executable: o2-analysistutorial-aodreader
-  <div>
-    Short description of content.
-  </div>
-</div>
-
-<div style="margin-bottom:5mm">
-  Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/aodwriter.cxx" target="_blank">aodwriter.cxx</a><br>
-  Executable: o2-analysistutorial-aodwriter
-</div>
-
-<div style="margin-bottom:5mm">
-  Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/associatedExample.cxx" target="_blank">associatedExample.cxx</a><br>
-  Executable: o2-analysistutorial-associated-derived
-</div>
-
-<div style="margin-bottom:5mm">
-  Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/ccdbaccess.cxx" target="_blank">ccdbaccess.cxx</a><br>
-  Executable: o2-analysistutorial-ccdbaccess
-  <div class="indBox">
-    A tutorial task to retrieve objects from CCDB given a run number. The
-tutorial shows also how to use timestamps in your analysis. This task requires
-to access the timestamp table in order to be working. Currently this is done by
-adding `o2-analysis-timestamp` to the workflow. The CCDB can be browsed <a
-href="http://ccdb-test.cern.ch:8080/browse/" target="_blank">here.</a>
-  </div>
-</div>
-
-<div style="margin-bottom:5mm">
-  Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/collisionTracksIteration.cxx" target="_blank">collisionTracksIteration.cxx</a><br>
-  Executable: o2-analysistutorial-collision-tracks-iteration
-  <div class="indBox">
-    Group the tracks according to the collision they belong to.
-  </div>
-</div>
 
 <div style="margin-bottom:5mm">
   Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/compatibleBCs.cxx" target="_blank">compatibleBCs.cxx</a><br>
   Executable: o2-analysistutorial-compatible-bcs
   <div class="indBox">
-    Due to the filling scheme the most probably BC may not be the one estimated from the collision time. The tutorial shows how to determine the range of bunch crossing which are compatible with a given collision.
+    The most probable BC associated to a collision is the one closest in time to the collision time, which is determined from the tracks forming the collision vertex. Within the uncertainty of the collision time there might howvere be more than on BC. This tutorial shows how to find all BC which are within the uncertainty range of the collision time.
   </div>
 </div>
-
+  
 <div style="margin-bottom:5mm">
-  Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/configurableObjects.cxx" target="_blank">configurableObjects.cxx</a><br>
+  Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/configurableObjects.cxx" target="_blank">configurableObjects.cxx</a>, <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/configurableCut.cxx" target="_blank">configurableCut.cxx</a>, <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/include/Analysis/configurableCut.h" target="_blank">configurableCut.h</a>, <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/configurableCut.json" target="_blank">configurableCut.json</a><br>
   Executable: o2-analysistutorial-configurable-objects
   <div class="indBox">
     Configurables are handy because their values can be set on the command line. The tutorial demonstrates the usage of such configurables.
   </div>
 </div>
 
-<div style="margin-bottom:5mm">
-  Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/dynamicColumns.cxx" target="_blank">dynamicColumns.cxx</a><br>
-  Executable: o2-analysistutorial-dynamic-columns
-  <div class="indBox">
-    Attaching a dynamic column to an existing table.
-  </div>
-</div>
-
-<div style="margin-bottom:5mm">
-  Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/efficiencyGlobal.cxx" target="_blank">efficiencyGlobal.cxx</a><br>
-  Executable: o2-analysistutorial-efficiency-global
-  <div class="indBox">
-    In this tutorial an object is retrieved from the CCDB and is used for the construction of an efficiency histogram
-  </div>
-</div>
-
-<div style="margin-bottom:5mm">
-  Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/efficiencyPerRun.cxx" target="_blank">efficiencyPerRun.cxx</a><br>
-  Executable: o2-analysistutorial-efficiency-per-run
-  <div class="indBox">
-    Similar as the previous tutorial.
-  </div>
-</div>
-
-<div style="margin-bottom:5mm">
-  Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/eventMixing.cxx" target="_blank">eventMixing.cxx</a><br>
-  Executable: o2-analysistutorial-event-mixing
-  <div class="indBox">
-    This is an example of an event misxing task.
-  </div>
-</div>
 
 <div style="margin-bottom:5mm">
   Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/extendedColumns.cxx" target="_blank">extendedColumns.cxx</a><br>
   Executable: o2-analysistutorial-extended-columns
   <div class="indBox">
-    Extension of an existing table with an expression column.
+    Expression column are declared with a recipe to compute its values. The column is automatically computed when added to an existing table with the soa::Extend operator. 
   </div>
 </div>
 
+
 <div style="margin-bottom:5mm">
-  Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/filters.cxx" target="_blank">filters.cxx</a><br>
-  Executable: o2-analysistutorial-filters
+  Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/dynamicColumns.cxx" target="_blank">dynamicColumns.cxx</a><br>
+  Executable: o2-analysistutorial-dynamic-columns
   <div class="indBox">
-    Apply filters to select events with specific characteristica.
+    Dynamic columns are declared with a recipe to compute its values. When attached to an existing table with the soa::Attach operator the column is automatically filled.
   </div>
 </div>
+
+
+<div style="margin-bottom:5mm">
+  Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/efficiencyGlobal.cxx" target="_blank">efficiencyGlobal.cxx</a><br>
+  Executable: o2-analysistutorial-efficiency-global
+  <div class="indBox">
+    In this tutorial an object which has previously been saved to the CCDB, is retrieved from the CCDB and is used for the construction of an efficiency histogram.
+  </div>
+</div>
+
+
+<div style="margin-bottom:5mm">
+  Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/efficiencyPerRun.cxx" target="_blank">efficiencyPerRun.cxx</a><br>
+  Executable: o2-analysistutorial-efficiency-per-run
+  <div class="indBox">
+    Similar as the previous tutorial but here an object is retrieved from the CCDB for a specific time.
+  </div>
+</div>
+
 
 <div style="margin-bottom:5mm">
   Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/fullTrackIteration.cxx" target="_blank">fullTrackIteration.cxx</a><br>
-  Executable: o2-analysistutorial-full-track-iteration
+  Executable: o2-analysistutorial-track-iteration
   <div class="indBox">
-    Loop over joined tables.
+    An example showing how to loop over the entries of joined tables.
   </div>
 </div>
+
 
 <div style="margin-bottom:5mm">
   Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/histHelpersTest.cxx" target="_blank">histHelpersTest.cxx</a><br>
@@ -126,87 +80,107 @@ href="http://ccdb-test.cern.ch:8080/browse/" target="_blank">here.</a>
   </div>
 </div>
 
-<div style="margin-bottom:5mm">
-  Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/histogramRegistry.cxx" target="_blank">histogramRegistry.cxx</a><br>
-  Executable: o2-analysistutorial-histogram-registry
-</div>
-
-<div style="margin-bottom:5mm">
-  Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/histograms.cxx" target="_blank">histograms.cxx</a><br>
-  Executable: o2-analysistutorial-histograms
-</div>
 
 <div style="margin-bottom:5mm">
   Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/histogramsFullTracks.cxx" target="_blank">histogramsFullTracks.cxx</a><br>
-  Executable: o2-analysistutorial-histograms-full-tracks
+  Executable: o2-analysistutorial-full-tracks
+  <div class="indBox">
+    There is a number of predefined joins of tables (see the <a href="/docs/framework/datamodel.html#list-of-defined-joins-and-iterators">list of defined joins and iterators</a>).
+    This example shows how to use aod::FullTracks which is a join of Tracks, TracksCov, and TracksExtra.
+  </div>
 </div>
+
 
 <div style="margin-bottom:5mm">
   Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/histogramTrackSelection.cxx" target="_blank">histogramTrackSelection.cxx</a><br>
-  Executable: o2-analysistutorial-histogram-track-selection
+  Executable: o2-analysistutorial-track-selection
+  <div class="indBox">
+    In this tutorial the information contained in table TrackSelection is
+    exploited to retrieve tracks of a given type. In order to fill TrackSelection the task
+    o2-analysis-trackselection needs to be run.<br>
+    o2-analysis-trackselection --aod-file AO2D.root |
+    o2-analysistutorial-track-selection  </div>
 </div>
+
 
 <div style="margin-bottom:5mm">
   Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/jetAnalysis.cxx" target="_blank">jetAnalysis.cxx</a><br>
   Executable: o2-analysistutorial-jet-analysis
+  <div class="indBox">
+  The JetAnalysis tasks subscribed to the tables Jet and JetConstituents which are created with the jet-finder executable o2-analysis-jetfinder.
+  </div>
 </div>
 
-<div style="margin-bottom:5mm">
-  Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/mcHistograms.cxx" target="_blank">mcHistograms.cxx</a><br>
-  Executable: o2-analysistutorial-mc-histograms
-</div>
 
 <div style="margin-bottom:5mm">
   Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/multiplicityEventTrackSelection.cxx" target="_blank">multiplicityEventTrackSelection.cxx</a><br>
-  Executable: o2-analysistutorial-multiplicity-event-track-selection
+  Executable: o2-analysistutorial-event-track-selection
+  <div class="indBox">
+  Example task generating a multiplicity distribution of collisions which pass the INT7 selection and tracks which pass the "isGlobalTrack" selection. Needs to run with event and track selection:<br>
+  o2-analysis-timestamp | o2-analysis-event-selection | o2-analysis-trackextension | o2-analysis-trackselection | o2-analysistutorial-multiplicity-event-track-selection
+  </div>
 </div>
+
+
+<div style="margin-bottom:5mm">
+  Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/multiProcess.cxx" target="_blank">multiProcess.cxx</a><br>
+  Executable: o2-analysistutorial-multiprocess-example
+  <div class="indBox">
+  </div>
+</div>
+
 
 <div style="margin-bottom:5mm">
   Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/muonIteration.cxx" target="_blank">muonIteration.cxx</a><br>
   Executable: o2-analysistutorial-muon-iteration
+  <div class="indBox">
+  </div>
 </div>
 
-<div style="margin-bottom:5mm">
-  Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/newCollections.cxx" target="_blank">newCollections.cxx</a><br>
-  Executable: o2-analysistutorial-new-collections
-</div>
 
 <div style="margin-bottom:5mm">
   Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/outputs.cxx" target="_blank">outputs.cxx</a><br>
   Executable: o2-analysistutorial-outputs
+  <div class="indBox">
+  </div>
 </div>
 
-<div style="margin-bottom:5mm">
-  Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/partitions.cxx" target="_blank">partitions.cxx</a><br>
-  Executable: o2-analysistutorial-partitions
-</div>
 
 <div style="margin-bottom:5mm">
   Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/schemaEvolution.cxx" target="_blank">schemaEvolution.cxx</a><br>
   Executable: o2-analysistutorial-schema-evolution
+  <div class="indBox">
+  </div>
 </div>
+
 
 <div style="margin-bottom:5mm">
   Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/trackCollectionIteration.cxx" target="_blank">trackCollectionIteration.cxx</a><br>
-  Executable: o2-analysistutorial-track-collection-iteration
+  Executable: o2-analysistutorial-collection-iteration
+  <div class="indBox">
+  </div>
 </div>
 
-<div style="margin-bottom:5mm">
-  Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/trackIteration.cxx" target="_blank">trackIteration.cxx</a><br>
-  Executable: o2-analysistutorial-track-iteration
-</div>
 
 <div style="margin-bottom:5mm">
   Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/tracksCombinations.cxx" target="_blank">tracksCombinations.cxx</a><br>
   Executable: o2-analysistutorial-tracks-combinations
+  <div class="indBox">
+  </div>
 </div>
+
 
 <div style="margin-bottom:5mm">
   Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/weakDecayIteration.cxx" target="_blank">weakDecayIteration.cxx</a><br>
   Executable: o2-analysistutorial-weak-decay-iteration
+  <div class="indBox">
+  </div>
 </div>
+
 
 <div style="margin-bottom:5mm">
   Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/ZDCVZeroIteration.cxx" target="_blank">ZDCVZeroIteration.cxx</a><br>
   Executable: o2-analysistutorial-zdc-vzero-iteration
+  <div class="indBox">
+  </div>
 </div>

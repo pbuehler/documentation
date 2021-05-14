@@ -32,8 +32,8 @@ struct ATask {
   
   void process(aod::Collision const&, aod::Tracks const& tracks)
   {
-    // `tracks` contains tracks belonging `collision`
-    LOGF(info, "Tracks for this collision: %d", tracks.size());
+    // `tracks` contains tracks belonging to`collision`
+    LOGF(info, "Number of tracks: %d", tracks.size());
 
     // process the tracks of a given collision
     for (auto& track : tracks) {
@@ -57,7 +57,7 @@ struct ATask {
 <a name="btask"></a>
 ### BTask
 
-The automatic grouping of tracks according to the collision works in the above case because the table Tracks has an index column with pointers to the table Collisions. It is also crucial to use the iterator version Collision and not Collisions. It is in fact the first iterator of the argument list which is used for grouping. With Collisions instead of Collision the grouping does not happen!
+The automatic grouping of tracks according to the collision works in the above case because the table Tracks has an index column with pointers to the table Collisions. It is also crucial to use the iterator version Collision and not Collisions. It is in fact the first iterator of the argument list which is used for grouping. With Collisions instead of Collision the grouping does not happen! Instead the entire Collisions and Tracks tables will be available in the process function.
 
 <a name="ctask"></a>
 ### CTask

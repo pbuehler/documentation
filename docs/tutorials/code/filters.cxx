@@ -7,12 +7,11 @@
 // In applying this license CERN does not waive the privileges and immunities
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
-
+//
 ///
-/// \brief
+/// \brief Filters are used to select specific rows of a table
 /// \author
 /// \since
-///
 
 #include "Framework/runDataProcessing.h"
 #include "Framework/AnalysisTask.h"
@@ -21,21 +20,21 @@ namespace o2::aod
 {
 namespace etaphi
 {
-DECLARE_SOA_COLUMN(NPhi, nphi, float);               //!
-DECLARE_SOA_EXPRESSION_COLUMN(CosPhi, cosphi, float, //!
+DECLARE_SOA_COLUMN(NPhi, nphi, float);
+DECLARE_SOA_EXPRESSION_COLUMN(CosPhi, cosphi, float,
                               ncos(aod::etaphi::nphi));
 } // namespace etaphi
 namespace track
 {
-DECLARE_SOA_EXPRESSION_COLUMN(SPt, spt, float, //!
+DECLARE_SOA_EXPRESSION_COLUMN(SPt, spt, float,
                               nabs(aod::track::sigma1Pt / aod::track::signed1Pt));
 }
-DECLARE_SOA_TABLE(TPhi, "AOD", "TPHI", //!
+DECLARE_SOA_TABLE(TPhi, "AOD", "TPHI",
                   etaphi::NPhi);
-DECLARE_SOA_EXTENDED_TABLE_USER(EPhi, TPhi, "EPHI", //!
+DECLARE_SOA_EXTENDED_TABLE_USER(EPhi, TPhi, "EPHI",
                                 aod::etaphi::CosPhi);
 using etracks = soa::Join<aod::Tracks, aod::TracksCov>;
-DECLARE_SOA_EXTENDED_TABLE_USER(MTracks, etracks, "MTRACK", //!
+DECLARE_SOA_EXTENDED_TABLE_USER(MTracks, etracks, "MTRACK",
                                 aod::track::SPt);
 } // namespace o2::aod
 

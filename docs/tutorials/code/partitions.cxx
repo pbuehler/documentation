@@ -7,18 +7,18 @@
 // In applying this license CERN does not waive the privileges and immunities
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
-
+//
 ///
-/// \brief
+/// \brief Partitions are subsets of tables.
 /// \author
 /// \since
-///
 
 #include "Framework/runDataProcessing.h"
 #include "Framework/AnalysisTask.h"
 
 using namespace o2;
 using namespace o2::framework;
+using namespace o2::framework::expressions;
 
 struct ATask {
   float fPI = static_cast<float>(M_PI);
@@ -71,8 +71,12 @@ struct BTask {
   void process(aod::Collisions const& collisions, aod::Tracks& tracks)
   {
     for (auto& c : collisions) {
+
+      // create the partition groupedTracks
       Partition<aod::Tracks> groupedTracks = aod::track::collisionId == c.globalIndex();
       groupedTracks.bindTable(tracks);
+
+      // loop over the partition groupedTracks
       for (auto& t : groupedTracks) {
         LOGF(INFO, "collision global index: %d grouped track collision id: %d", c.globalIndex(), t.collisionId());
       }

@@ -1,6 +1,6 @@
 ---
 sort: 2
-title: TrackIteration
+title: Track Iteration
 ---
 
 # Looping over tracks
@@ -61,8 +61,9 @@ void process(aod::fullTrack const& fullTrack)
 <a name="btask"></a>
 ### BTask
 
-In the above <a href="#atask">example</a> the processing runs over all tracks of the input files. This is achieved by using the iterator version `Track` of table `Tracks`.
-A run3 analysis however is more likely based on data frames and thus looping over data frames will often be required. This is achieved by subscribing to table `Tracks` or to any join of the track tables.
+In the above <a href="#atask">example</a> the processing loops over all tracks of the input files. Within the processing function only one specific track is available. This is achieved by using the iterator version `Track` of table `Tracks`.
+
+A run3 analysis however is more likely based on data frames and thus looping over data frames will often be required. To have all tracks of a data frame simultaneously available in the process function one needs to subscribing to table `Tracks` or to any join of the track tables.
 
 ```cpp
 // loop over data frames

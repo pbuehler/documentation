@@ -7,6 +7,10 @@
 // In applying this license CERN does not waive the privileges and immunities
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
+//
+/// \brief Shows how to loop over collisions and tracks of a data frame.
+/// \author
+/// \since
 
 #include "Framework/runDataProcessing.h"
 #include "Framework/AnalysisTask.h"
@@ -15,12 +19,16 @@ using namespace o2;
 using namespace o2::framework;
 
 struct ATask {
-  
   void process(aod::Collision const& collision, aod::Tracks const& tracks)
   {
     // `tracks` contains tracks belonging to `collision`
     LOGF(info, "Collision index : %d", collision.index());
     LOGF(info, "Number of tracks: %d", tracks.size());
+
+    // process the tracks of a given collision
+    for (auto& track : tracks) {
+      LOGF(info, "  track pT = %f GeV/c", track.pt());
+    }
 
   }
 };

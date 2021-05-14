@@ -70,10 +70,24 @@ struct BTask {
 <a name="ctask"></a>
 ### CTask
 
-HistogramRegistry is an other method to work with histograms in a flexible way. There is a tutorial on this specific topic to which we refer for further details. To give an impression an example task using HistogramRegistry is displayed below.
+In CTask the initial definition of the OutputObj trZ is incomplet. The axis definition of the histogram is missing. This is rectified in the init function. The setObject() method allows to redefine the actual object properties.
 
 ```cpp
-struct CTask {
+  OutputObj<TH1F> trZ{"trZ", OutputObjHandlingPolicy::QAObject};
+
+  void init(InitContext const&)
+  {
+    // complete the definition of the OutputObj
+    trZ.setObject(new TH1F("Z", "Z", 100, -10., 10.));
+```
+
+<a name="dtask"></a>
+### DTask
+
+HistogramRegistry is an other method to work with histograms in a flexible way. There is a [tutorial](/docs/tutorials/histogramRegistry.html) on this specific topic to which we refer for further details. To give an impression an example task using HistogramRegistry is displayed below.
+
+```cpp
+struct DTask {
   
   // histogram defined with HistogramRegistry
   HistogramRegistry registry {

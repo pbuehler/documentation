@@ -7,6 +7,11 @@
 // In applying this license CERN does not waive the privileges and immunities
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
+//
+///
+/// \brief Write a table to a root tree.
+/// \author
+/// \since
 
 #include "Framework/runDataProcessing.h"
 #include "Framework/AnalysisTask.h"

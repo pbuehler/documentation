@@ -19,7 +19,7 @@ Before we come to discussing the tutorial [code](#atask) a few general words abo
 <a name="declareTables"></a>
 ### Declaration of tables
 
-The first step in creating a table in O2 is to to declare it, hence specify its name, some additional parameters, and it's basic components, the columns.
+The first step in creating a table in O2 is to declare it, hence specify its name, some additional parameters, and it's basic components, the columns.
 
 The O2 framework provides a few methods to declare tables in analysis tasks. See the list below. Click on the titles to display information about the arguments and the resulting tables.
 
@@ -112,7 +112,7 @@ All methods have a `Name` and `Description` argument. The argument Name is used 
       DECLARE_SOA_INDEX_TABLE_USER (Name, Key, char* Description, ...);
       </b>
       <div>
-        Declares an index table of type `Name`.
+        Declares an index table of type `Name` with key table `Key` and a descriptive string `Description`. The remaining arguments are index columns to tables and are specified by `Table`Id. Index tables are used to access matching rows from non-joinable, but compatible tables.
       </div>
     </div>
   </div>
@@ -127,7 +127,7 @@ Tables are basically collections of columns. The O2 framework provides the metho
 `Name` and `Getter` are the common arguments of all methods. Name is used to
 define the type of the column which is `namespace::Name` where namespace is the
 namespace the column is declared in. Getter is the method which allows to access
-a column (tab.pt() e.g. gives access to an element of the column which was declared with a Getter value of pt).
+a column (tab.pt() e.g. gives access to an element of the column which was declared with a Getter value of pt). 
 
 <div>
 
@@ -308,6 +308,9 @@ a column (tab.pt() e.g. gives access to an element of the column which was decla
 
 </div>
 
+<br>
+This tutorial demonstrates the creation and filling of normal tables. The usage of index tables is explained in tutorial [Index Tables](/docs/tutorials/indexTables.html).
+
 
 <a name="atask"></a>
 ### ATask
@@ -354,8 +357,3 @@ struct ATask {
 ### BTask and CTask
 
 Within all tasks of a workflow the such created and filled table is available and hence can be use for further calculations. This is demonstrated with BTask and CTask of this tutorial.
-
-<a name="dtask"></a>
-### DTask
-
-More to follow for index tables

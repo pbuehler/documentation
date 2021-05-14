@@ -26,7 +26,7 @@ Filters are used to select table entries only which comply with given reqirement
 <a name="btask"></a>
 ### BTask
 
-In BTask a couple of filters are defined. One of them (posZfilter) acts on collisions, the others on tracks.
+In BTask a couple of filters are defined. One of them (posZfilter) acts on collisions, the others on tracks. Note, that Filters is defined in namespace o2::framework::expressions.
 
 ```cpp
 
@@ -51,7 +51,7 @@ struct BTask {
 
 ```
 
-Filters defined in front can be applied to the arguments of the process function using the templated function soa::Filtered&lt;T&gt;. T is used to deduce which of the declared filters are applied. If there are several matching filters then they are logically anded.
+Filters defined in front can be applied to the arguments of the process function using the templated function soa::Filtered&lt;T&gt;. T is used to deduce which of the declared filters can be applied. If there are several matching filters then they are all logically anded.
 
 ```cpp
 
@@ -78,7 +78,12 @@ Filters defined in front can be applied to the arguments of the process function
 <a name="atask"></a>
 ### ATask
 
-Partitions are subsets of existing tables, subsets of rows which are consistent with set requirements. The Partition function is templated and takes the type of table to work on as template argument. Note how in this example Filter and Partition are combined.
+Partitions are subsets of existing tables, subsets of rows which are consistent
+with set requirements. The Partition function is templated and takes the type of
+table to work on as template argument. Partitions defined in front are created
+automatically when the process function is executed and are available within
+the process function. Note how in this example Filter and Partition are
+combined.
 
 ```cpp
 struct ATask {
@@ -122,7 +127,9 @@ struct ATask {
 <a name="btask"></a>
 ### BTask
 
-Partitions can also be defined and used within the process function.
+Partitions can also be defined and used within the process function. in order to
+have the partition filled use the bindTable(T t) method where t is the table the
+partition shall be applied to.
 
 ```cpp
 struct BTask {

@@ -23,6 +23,9 @@ DECLARE_SOA_EXPRESSION_COLUMN(SPt, spt, float, nabs(track::sigma1Pt / track::sig
 } // namespace etaphi
 DECLARE_SOA_TABLE(EtaPhi, "AOD", "ETAPHI",
                   etaphi::MEta, etaphi::MPhi);
+
+DECLARE_SOA_EXTENDED_TABLE_USER(XTracks,FullTracks,"XTRACKS",
+                                etaphi::SPt);
 } // namespace o2::aod
 
 using namespace o2;
@@ -67,11 +70,25 @@ struct CTask {
   }
 };
 
+struct DTask {
+  // declare production of extended-table xtracks
+  Spawns<aod::XTracks> xtracks;
+  
+  void process(aod::XTracks const& xtracks)
+  {
+    LOGF(INFO, "Number of xtracks: %d", xtracks.size());
+    for (auto& xtrack : xtracks) {
+      LOGF(INFO, "(%f, %f - %f)", xtrack.spt(), xtrack.sigma1Pt(), xtrack.signed1Pt());
+    }
+  }
+};
+
 WorkflowSpec defineDataProcessing(ConfigContext const& cfgc)
 {
   return WorkflowSpec{
-    adaptAnalysisTask<ATask>(cfgc, TaskName{"new-collections-tutorial_A"}),
-    adaptAnalysisTask<BTask>(cfgc, TaskName{"new-collections-tutorial_B"}),
-    adaptAnalysisTask<CTask>(cfgc, TaskName{"new-collections-tutorial_C"}),
+    //adaptAnalysisTask<ATask>(cfgc, TaskName{"new-collections-tutorial_A"}),
+    //adaptAnalysisTask<BTask>(cfgc, TaskName{"new-collections-tutorial_B"}),
+    //adaptAnalysisTask<CTask>(cfgc, TaskName{"new-collections-tutorial_C"}),
+    adaptAnalysisTask<DTask>(cfgc, TaskName{"new-collections-tutorial_D"}),
   };
 }

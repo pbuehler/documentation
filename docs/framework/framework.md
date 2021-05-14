@@ -14,7 +14,7 @@ collection of Analysis Tasks.
 A task is defined with
 
 ```cpp
-struct MyTask {
+struct MyTask : AnalysisTask {
 };
 ```
 
@@ -24,32 +24,38 @@ Such a task can then be added to a workflow via the `adaptAnalysisTask` helper. 
 #include "Framework/runDataProcessing.h"
 #include "Framework/AnalysisTask.h"
 
-struct MyTask {
+struct MyTask : AnalysisTask {
 };
 
-WorkflowSpec defineDataProcessing(ConfigContext const&) {
-  return WorkflowSpec{
-    adaptAnalysisTask<MyTask>("my-task-unique-name")
+defineDataProcessing() {
+  return {
+    adaptAnalysisTask<MyTask>(TaskName{"my-task-unique-name"});
   };
 }
 ```
 
-> **Implementation details**: an Analysis Task is simply a `struct`.
+> **Implementation details**: `AnalysisTask` is simply a `struct`. Since `struct` default inheritance policy is `public`, we can omit specifying it when declaring MyTask.
 >
-> An Analysis Task does not actually need provide any virtual method, as the `adaptAnalysisTask` helper relies on template argument matching to discover the properties of the task. It will come clear in the next paragraph how this allow is used to avoid the proliferation of data subscription methods.   
+> `AnalysisTask` will not actually provide any virtual method, as the `adaptAnalysis` helper relies on template argument matching to discover the properties of the task. It will come clear in the next paragraph how this allow is used to avoid the proliferation of data subscription methods.   
+
+```todo
+Define minimum requirements for a complet task
+```
+
+See also tutorial [Analysis Task](/docs/tutorials/analysistask.html).
 
 ## Processing data
 
 ### Simple subscriptions
 
-Once you have Analysis Task (task, from now on), the most generic way which you can use to process data is to provide a `process` method for it.
+Once you have an `AnalysisTask` derived type, the most generic way which you can use to process data is to provide a `process` method for it.
 
 Depending on the arguments of such a function, you get to iterate on different parts of the AOD content.
 
 For example:
 
 ```cpp
-struct MyTask {
+struct MyTask : AnalysisTask {
   void process(o2::aod::Tracks const& tracks) {
     ...
   }
@@ -67,7 +73,7 @@ for (auto &track : tracks) {
 Alternatively you can subscribe to tracks one by one via (notice the missing `s`):
 
 ```cpp
-struct MyTask {
+struct MyTask : AnalysisTask {
   void process(o2::aod::Track const& track) {
     ...
   }
@@ -79,6 +85,7 @@ This has the advantage that you might be able to benefit from vectorization / pa
 > **Implementation notes**: as mentioned before, the arguments of the process method are inspected using template argument matching. This way the system knows at compile time what data types are requested by a given `process` method and can create the relevant DPL data descriptions. 
 >
 > The distinction between `Tracks` and `Track` above is simply that one refers to the whole collection, while the second is an alias to `Tracks::iterator`.  Notice that we assume that each collection is of type `o2::soa::Table` which carries meta data about the dataOrigin and dataDescription to be used by DPL to subscribe to the associated data stream.
+
 
 ### Navigating data associations
 
@@ -101,6 +108,17 @@ void process(o2::aod::Collection const& collision, o2::aod::Track const& track) 
 
 Also in this case the advantage is that your code might be up for parallelization and vectorization.
 
+Notice that you are not limited to two different collections, but you could specify more. E.g.: 
+
+```cpp
+void process(o2::aod::Collection const& collision, o2::aod::V0 const& v0, o2::aod::Tracks const& tracks) {
+}
+```
+
+will be invoked for each v0 associated to a given collision and you will be given the tracks associated to it.
+
+This means that each subsequent argument is associated to all the one preceding it.
+
 ### Processing related tables
 
 For performance reasons, sometimes it's a good idea to split data in separate tables, so that once can request only the subset which is required for a given task. For example, so far the track related information is split in three tables: `Tracks`, `TracksCov`, `TracksExtra`.
@@ -108,17 +126,19 @@ For performance reasons, sometimes it's a good idea to split data in separate ta
 However you might need to get all the information at once. This can be done by asking for a `Join` table in the process method:
 
 ```cpp
-struct MyTask {
+struct MyTask : AnalysisTask {
 
-  void process(soa::Join<aod::Tracks, aod::TracksExtra> const& mytracks) {
+  void process(Join<Tracks, TracksExtras> const& mytracks) {
     for (auto& track : mytracks) {
-      if (track.length()) {  // from TracksExtra
+      if (track.length()) {  // from TrackExtras
         tracks.alpha();      // from Tracks
       }
     }
   }
-};
+}
 ```
+
+See also tutorials [Track Iteration](/docs/tutorials/trackiteration.html) and [Table Combinations](/docs/tutorials/trackiteration.html).
 
 ## Configurables
 
@@ -137,7 +157,7 @@ struct MyTask {
 };
 ```
 
-Supported types for configurables are basic arithmetic types (e.g. `int`, `float`, `double`), string (i.e. `std::string`) and flat structures containing those (provided they have a ROOT dictionary attached). 
+Supported types for configurables are basic arithmetic types (e.g. `int`, `float`, `double`), string (i.e. `std::string`) and flat structures containing those (provided they have a ROOT dictionary attached). See e.g. the tutorial [configurableObjects.cxx](/docs/tutorials/otherTutorials.html#list-of-available-tutorials).
 
 ## Creating new collections
 
@@ -188,8 +208,10 @@ struct MyTask : AnalysisTask {
 The `etaphi` object is a functor that will effectively act as a cursor which allows to populate the `EtaPhi` table. Each invocation of the functor will create a new row in the table, using the arguments as contents of the given column. By default the arguments must be given in order, but one can give them in any order by using the correct column type. E.g. in the example above:
 
 ```cpp
-etaphi(aod::track::Phi(calculatePhi(track), aod::track::Eta(calculateEta(track)));
+etaphi(track::Phi(calculatePhi(track), track::Eta(calculateEta(track)));
 ```
+
+See also tutorial [Creating Tables](/docs/tutorials/creatingTables.html).
 
 ### Adding dynamic columns to a data type
 
@@ -214,11 +236,52 @@ only when you attach it as part of a table.
 
 ### Expression columns
 
+# Creating new columns in a declarative way
+
+Besides the `Produces` helper, which allows you to create a new table which can be reused by others, there is another way to define a single column,  via the `Defines` helper.
+
+```cpp
+struct MyTask : AnalysisTask {
+  Defines<track::Eta> eta = track::alpha;
+};
+```
+
 ```todo
 - Description of expression columns
 - Indices: declaration and usage
 - Complete list of column and table declarations
 ```
+
+See also tutorial [Extending Tables](/docs/tutorials/extendedTables.html).
+
+
+### Executing a finalization method, post run
+
+Sometimes it's handy to perform an action when all the data has been processed, for example executing a fit on a histogram we filled during the processing. This can be done by implementing the postRun method.
+
+### Creating histograms
+
+New tables are not the only kind on objects you want to create, but most likely you would like to fill histograms associated to the objects you have calculated.
+
+You can do so by using the `Histogram` helper:
+
+```cpp
+struct MyTask : AnalysisTask {
+  Histogram etaHisto;
+
+  void process(o2::aod::EtaPhi const& etaphi) {
+    etaHisto.fill(etaphi.eta());
+  }
+};
+```
+
+## HistogramRegistry
+
+```todo
+Add description of HistogramRegistry and its functionality
+```
+
+See also tutorials [Extending Tables](/docs/tutorials/histograms.html) and[histogram Registry](/docs/tutorials/histogramRegistry.html).
 
 
 ## Filtering and partitioning data
@@ -226,7 +289,7 @@ only when you attach it as part of a table.
 Given a process function, one can of course define a filter using an if condition:
 
 ```cpp
-struct MyTask {
+struct MyTask : AnalysisTask {
   void process(o2::aod::EtaPhi const& etaphi) {
     if (etaphi.phi() > 1 && etaphi.phi < 1) {
       ...
@@ -247,21 +310,35 @@ The most common kind of filtering is when you process objects only if one of its
 properties passes a certain criteria. This can be specified with the `Filter` helper.
 
 ```cpp
-struct MyTask {
-  Filter ptFilter = aod::track::pt > 1.0f;
+struct MyTask : AnalysisTask {
+  Filter<Tracks> ptFilter = track::pt > 1;
 
-  void process(soa::Filtered<aod::Tracks> const &filteredTracks) {
+  void process(Tracks const &filteredTracks) {
     for (auto& track : filteredTracks) {
     }
   }
 };
 ```
 
-`filteredTracks` will contain only the tracks in the table which pass the condition `aod::track::pt > 1.0f`. 
+filteredTracks will contain only the tracks in the table which pass the condition `track::pt > 1`. 
 
-You can specify multiple filters which will be applied in a sequence effectively resulting in the intersection of all of them.
+You can specify multiple filters which will be applied in a sequence effectively resulting in the intersection of all them.
 
-Functions can be used, prefixed with an "n", such as: absolute value (nabs), square-root (nsqrt), power (npow), trigonometric functions (ncos, nsin, ntan, nacos, nasin, natan), exponent (nexp) and logarithm (nlog and nlog10). Those are defined in the file <a href="https://github.com/AliceO2Group/AliceO2/blob/4adfa838d7fa71ac579c2de9d41cdec639cfa118/Framework/Core/include/Framework/Expressions.h" target="_blank">Expressions.h</a>.
+You can also specify filters on associated quantities:
+
+```cpp
+struct MyTask : AnalysisTask {
+  Filter<Collisions> collisionFilter = max(track::pt) > 1;
+
+  void process(Collsions const &filteredCollisions) {
+    for (auto& collision: collisions) {
+    ...
+    }
+  }
+};
+```
+
+will process all the collisions which have at least one track with `pt > 1`.
 
 ### Partitioning your inputs
 
@@ -270,13 +347,11 @@ Filtering is not the only kind of conditional processing one wants to do. Someti
 ```cpp
 using namespace o2::aod;
 
-struct MyTask {
-  Partition<aod::Tracks> leftTracksPartition = aod::track::eta < 0;
-  Partition<aod::Tracks> rightTracksPartition = aod::track::eta >= 0;
+struct MyTask : AnalysisTask {
+  Partition<Tracks> leftTracks = track::eta < 0;
+  Partition<Tracks> rightTracks = track::eta >= 0;
 
-  void process(aod::Tracks const &tracks) {
-    auto& leftTracks = leftTracksPartition.getPartition();
-    auto& rightTracks = rightTracksPartition.getPartition();
+  void process(Tracks const &tracks) {
     for (auto& left : leftTracks(tracks)) {
       for (auto& right : rightTracks(tracks)) {
         ...
@@ -286,19 +361,19 @@ struct MyTask {
 };
 ```
 
-i.e. `Filter` is applied to the objects before passing them to the `process` method, while `Partition` objects can be used to do further reduction inside the `process()` method itself.
+i.e. `Filter` is applied to the objects before passing them to the `process` method, while `Select` objects can be used to do further reduction inside the `process` method itself. 
 
 ### Filtering and partitioning together
 
-Of course it should be possible to filter and partition data in the same task. The way this works is that multiple `Filter`s are logically ANDed together and then they will get anded with each `Partition`'s selection.
+Of course it should be possible to filter and partition data in the same task. The way this works is that multiple `Filter`s are logically ANDed together and then they will get anded with the OR of all the `Select` specified selections.
 
 ### Configuring filters
 
 One of the features of the current framework is the ability to customize on the fly cuts and selection. The idea is to allow that by having a `configurable("mnemonic-name-of-the-parameter")` helper which can be used to refer to configurable options. The previous example will then become:
 
 ```cpp
-struct MyTask {
-  Filter collisionFilter = max(track::pt) > configurable<float>("my-pt-cut");
+struct MyTask : AnalysisTask {
+  Filter<Collisions> collisionFilter = max(track::pt) > configurable<float>("my-pt-cut");
 
   void process(Collsions const &filteredCollisions) {
     for (auto& collision: collisions) {
@@ -312,19 +387,32 @@ struct MyTask {
 - Complete list of methods related to filters and partitions
 ```
 
+See also tutorials [Data Selection](/docs/tutorials/dataSelection.html).
 
-## Getting combinations
+
+## Getting combinations (pairs, triplets, ...)
 To get combinations of distinct tracks, helper functions from `ASoAHelpers.h` can be used. Presently, there are 3 combinations policies available: strictly upper, upper and full. `CombinationsStrictlyUpperPolicy` is applied by default if all tables are of the same type, otherwise `FullIndexPolicy` is applied.
 
 ```todo
-- Explain difference between policies
+Explain difference between policies
+
+`IndexPolicy`:
+- CombinationsIndexPolicyBase
+- CombinationsUpperIndexPolicy
+- CombinationsStrictlyUpperIndexPolicy
+- CombinationsFullIndexPolicy
+- CombinationsBlockIndexPolicyBase
+- CombinationsBlockUpperIndexPolicy
+- CombinationsBlockFullIndexPolicy
+- CombinationsBlockSameIndexPolicyBase
+- CombinationsBlockUpperSameIndexPolicy
+- CombinationsBlockStrictlyUpperSameIndexPolicy
+- CombinationsBlockFullSameIndexPolicy
 ```
 
 ```cpp
-// equivalent to combinations(CombinationsStrictlyUpperIndexPolicy(tracks, tracks));
-combinations(tracks, tracks);
-// equivalent to combinations(CombinationsUpperIndexPolicy(tracks, covs), filter, tracks, covs);
-combinations(filter, tracks, covs);
+combinations(tracks, tracks); // equivalent to combinations(CombinationsStrictlyUpperIndexPolicy(tracks, tracks));
+combinations(filter, tracks, covs); // equivalent to combinations(CombinationsUpperIndexPolicy(tracks, covs), filter, tracks, covs);
 ```
 
 The number of elements in a combination is deduced from the number of arguments passed to `combinations()` call. For example, to get pairs of tracks from the same source, one must specify `tracks` table twice:
@@ -357,10 +445,8 @@ struct MyTask : AnalysisTask {
 One can get combinations of elements with the same value in a given column. Input tables do not need to be the same but each table must contain the column used for categorizing. Additionally, you can specify a value to be skipped for grouping as well as the number of elements to be matched with first element in a combination. Again, full, strictly upper and upper policies are available:
 
 ```cpp
-for (auto& [c0, c1] : combinations(
-  CombinationsBlockStrictlyUpperIndexPolicy("fRunNumber", 3, -1, collisions, collisions))) {
-  // Pairs of collisions with same fRunNumber, max 3 pairs for each element in a given "fRunNumber" bin.
-  // Entries with fRunNumber == -1 are skipped.
+for (auto& [c0, c1] : combinations(CombinationsBlockStrictlyUpperIndexPolicy("fRunNumber", 3, -1, collisions, collisions))) {
+  // Pairs of collisions with same fRunNumber, max 3 pairs for each element in a given "fRunNumber" bin. Entries with fRunNumber == -1 are skipped.
 }
 for (auto& [c0, t1] : combinations(CombinationsBlockFullIndexPolicy("fX", 200, -1, collisions, tracks)));
 ```
@@ -368,11 +454,9 @@ for (auto& [c0, t1] : combinations(CombinationsBlockFullIndexPolicy("fX", 200, -
 For better performance, if the same table is used, `Block{Full,StrictlyUpper,Upper}SameIndex` policies should be preferred. `selfCombinations()` are a shortuct to apply StrictlyUpperSameIndex policy:
 
 ```cpp
-for (auto& [c0, c1] : combinations(
-  CombinationsBlockFullSameIndexPolicy("fRunNumber", 3, -1, collisions, collisions)));
+for (auto& [c0, c1] : combinations(CombinationsBlockFullSameIndexPolicy("fRunNumber", 3, -1, collisions, collisions)));
 for (auto& [c0, c1] : selfCombinations("fRunNumber", 3, -1, collisions, collisions)) {
-  // same as: combinations(
-  //            CombinationsBlockStrictlyUpperSameIndexPolicy("fRunNumber", 3, -1, collisions, collisions));
+  // same as: combinations(CombinationsBlockStrictlyUpperSameIndexPolicy("fRunNumber", 3, -1, collisions, collisions));
 }
 ```
 
@@ -383,8 +467,7 @@ struct MyTask : AnalysisTask {
 
   void process(Tracks const& tracks1, Tracks const& tracks2) {
     Filter triplesFilter = track::eta < 0;
-    for (auto& [t0, t1, t2] : combinations(
-      CombinationsFullIndexPolicy(tracks1, tracks2, tracks2), triplesFilter, tracks1, tracks2, tracks2)) {
+    for (auto& [t0, t1, t2] : combinations(CombinationsFullIndexPolicy(tracks1, tracks2, tracks2), triplesFilter, tracks1, tracks2, tracks2)) {
       // Triples of tracks, each of them with eta < 0
       ...
     }
@@ -434,7 +517,8 @@ struct CollisionsCombinationsTask {
 };
 ```
 
-A full example can be found in the [tutorial](/docs/tutorials/otherTutorials.html) section.
+A full example can be found in the tutorial [Event Mixing](/docs/tutorials/eventMixing.html) section.
+
 
 ## Saving tables to file
 
@@ -472,11 +556,11 @@ The first item of a DataOuputDescriptor (`table`) is mandatory and needs to be s
 The format of `table` is
 
 ```csh
-AOD/tablename/0
+AOD/TABLENAME/0
 ```
-`tablename` is the description of the table as defined in the workflow definition.
+`TABLENAME` is the description of the table as defined in the workflow definition.
 
-The format of `tree` is a simple string which names the TTree the table is saved to. If tree is not specified then `tablename` is used as TTree name.
+The format of `tree` is a simple string which names the TTree the table is saved to. If tree is not specified then `O2tablename` is used as TTree name.
 
 `columns` is a slash(/)-separated list of column names., e.g.
 
@@ -560,10 +644,10 @@ This hierarchy of the options is summarized in the following table. The columns 
 
 | parameter\option | keep | resfile | ntfmerge | json | default |
 |--------------|:----:|:--------:|:--------:|----------:|:-------:|
-| `default file name` | - | 1.    | -        | 2.        | 3. (AnalysisResults)|
+| `default file name` | - | 1.    | -        | 2.        | 3. (AnalysisResults_trees)|
 | `ntfmerge`   | -    | -        |  1.      | 2.        | 3. (1)  |
 | `tablename`  | 1.   | -        | -        | 2.        | -       |
-| `tree`       | 1.   | -        | -        | 2.        | 3. (`tablename`) |
+| `tree`       | 1.   | -        | -        | 2.        | 3. (`O2tablename`) |
 | `columns`    | 1.   | -        | -        | 2.        | 3. (all columns)     |
 | `file`       | 1.   | 2.       | -        | 3.        | 4. (`default file name`)|
 
@@ -572,14 +656,14 @@ This hierarchy of the options is summarized in the following table. The columns 
 
 ```csh
 --aod-writer-keep AOD/UNO/0
- # save all columns of table 'UNO' to TTree 'UNO' in file AnalysisResults_tree.root
+ # save all columns of table 'UNO' to TTree O2'uno' in file AnalysisResults_tree.root
   
---aod-writer-keep AOD/UNO/0::c2/c4:unoresults.root
- # save columns 'c2' and 'c4' of table 'UNO' to TTree 'UNO' in file unoresults.root
+--aod-writer-keep AOD/UNO/0::c2/c4:unoresults
+ # save columns 'c2' and 'c4' of table 'UNO' to TTree O2'uno' in file unoresults.root
 
 --aod-writer-resfile myskim --aod-writer-ntfmerge 50 --aod-writer-keep AOD/UNO/0:trsel1:c1/c2,AOD/DUE/0:trsel2:c6/c7/c8
- # save columns 'c1' and 'c2' of table 'UNO' to TTree 'trsel1' in file myskim.root and
- # save columns 'c6', 'c7' and 'c8' of table 'DUE' to TTree 'trsel2' in file myskim.root.
+ # save columns 'c1' and 'c2' of table `O2uno' to TTree 'trsel1' in file myskim.root and
+ # save columns 'c6', 'c7' and 'c8' of table `O2due' to TTree 'trsel2' in file myskim.root.
  # Merge 50 data frames in one directory.
 
 ----aod-writer-json myconfig.json
@@ -598,7 +682,7 @@ is not possible to save two trees with equal name to a given file.
 The internal-dpl-aod-reader reads trees from root files and provides them as arrow tables to the requesting workflows. Its behavior is customized with the following command line options:
 
 * --aod-file
-* --json-file
+* --aod-reader-json
 
 ### --aod-file
 
@@ -613,9 +697,9 @@ aod-file takes a string as option value, which either is the name of the input r
 
 ```
 
-### --json-file
+#### --aod-reader-json
 
-json-file is a string and specifies a json file, which contains the
+aod-reader-json is a string and specifies a json file, which contains the
 customization information for the internal-dpl-aod-reader. An example file is
 shown in the highlighted field below. The relevant information is contained in
 a json object `InputDirector`. The InputDirector can include the following
@@ -634,7 +718,7 @@ The information contained in a DataInputDescriptor instructs the internal-dpl-ao
 
 Of the four items of a DataInputDescriptor, table is the only required information. If one of the other items is missing its value will be set as follows:
 
-  1. treename is set to tablename of the respective table item.  
+  1. treename is set to `O2tablename`, where TABLENAME is the name of the respective table.  
   2. resfiles is set to resfiles of the InputDirector (1. item of the InputDirector). If that is missing, then the value of the aod-file option is used. If that is missing, then "AnalysisResults.root" is used.  
   3. fileregex is set to fileregex of the InputDirector (2. item of the InputDirector). If that is missing, then ".*" is used.
 
@@ -725,63 +809,17 @@ The following json-file could be used to read these tables:
   2. The internal-dpl-aod-reader loops over the selected input files in the order as they are listed. It is the duty of the user to make sure that the order is correct and that the order in the file lists
 of the various InputDescriptors are corresponding to each other.
   3. The regular expression fileregex is evaluated with the c++ Regular expressions library. Thus check there for the proper syntax of regexes.
+  
+See also tutorial [Table IO](/docs/tutorials/tablesIO.html).  
 
-## Features not implemented yet
 
-### More collections in `process()`
-For example:
+### Possible ideas
 
-```cpp
-void process(o2::aod::Collection const& collision, o2::aod::V0 const& v0, o2::aod::Tracks const& tracks) {
-}
-```
-
-will be invoked for each v0 associated to a given collision and you will be given the tracks associated to it.
-
-This means that each subsequent argument is associated to all the one preceding it.
-
-### Executing a finalization method, post run
-
-Sometimes it's handy to perform an action when all the data has been processed, for example executing a fit on a histogram we filled during the processing. This can be done by implementing the postRun method.
-
-### Creating histograms
-
-New tables are not the only kind on objects you want to create, but most likely you would like to fill histograms associated to the objects you have calculated.
-
-You can do so by using the `Histogram` helper:
+We could add a template `<typename C...> reshuffle()` method to the Table class which allows you to reduce the number of columns or attach new dynamic columns. A template wrapper could
+even be used to specify if a given dynamic column should be precalculated (or not). This would come handy to optimize the creation of a RowView, which could bind only the required (dynamic) columns. E.g.:
 
 ```cpp
-struct MyTask {
-  Histogram etaHisto;
-
-  void process(o2::aod::EtaPhi const& etaphi) {
-    etaHisto.fill(etaphi.eta());
-  }
-};
+for (auto twoD : points.reshuffle<point::X, point::Y, Cached<point::R>>()) {
+...
+} 
 ```
-
-### Creating new columns in a declarative way
-
-Besides the `Produces` helper, which allows you to create a new table which can be reused by others, there is another way to define a single column,  via the `Defines` helper.
-
-```cpp
-struct MyTask {
-  Defines<track::Eta> eta = track::alpha;
-};
-```
-
-### Filters on associated quantities:
-
-```cpp
-struct MyTask {
-  Filter<Collisions> collisionFilter = max(track::pt) > 1;
-
-  void process(Collsions const &filteredCollisions) {
-    for (auto& collision: collisions) {
-    ...
-    }
-  }
-};
-```
-
-This will process all the collisions which have at least one track with `pt > 1.0f`.

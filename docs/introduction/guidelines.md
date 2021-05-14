@@ -125,6 +125,6 @@ goal
 ```instruction
 instruction
 
-Additional types can be added by making the required changes in files **_layouts/tasks/shortcodes.liquid**, **_sass/core/toasts.scss**, and **_sass/_variables.scss** and adding a corresponding code file in **./_includes/shortcodes/**. See at fontawesome.com for suitable icons.
+Additional types of fenced blocks can be added by making the required changes in files **_layouts/tasks/shortcodes.liquid**, **_sass/core/toasts.scss**, and **_sass/_variables.scss** and adding a corresponding code file in **./_includes/shortcodes/**. See at fontawesome.com for suitable icons.
 ```
 

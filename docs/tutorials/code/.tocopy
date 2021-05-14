@@ -7,10 +7,18 @@ destpath="/home/pbuehler/physics/projects/alice/O2/documentation/documentation/d
 tutfiles=(  \
   "aodreader.cxx"  \
   "aodwriter.cxx"  \
-  "newCollections.cxx"  \
+  "associatedExample.cxx" \
+  "ccdbaccess.cxx"  \
   "collisionTracksIteration.cxx"  \
+  "eventMixing.cxx" \
+  "filters.cxx" \
+  "histogramRegistry.cxx" \
+  "histograms.cxx"  \
+  "mcHistograms.cxx"  \
+  "newCollections.cxx"  \
+  "partitions.cxx" \
   "trackIteration.cxx"  \
-  "histograms.cxx" )
+)
 
 
 for file in ${tutfiles[@]}

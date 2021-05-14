@@ -1,5 +1,5 @@
 ---
-sort: 9
+sort: 11
 title: Table IO
 ---
 
@@ -11,9 +11,9 @@ Learn how to customize the reading of tables from root files. Write tables selec
 ```
 
 <div style="margin-bottom:5mm">
-  Sources: <a href="https://github.com/pbuehler/documentation/blob/main/docs/tutorials/code/aodwriter.cxx" target="_blank">aodwriter.cxx</a>
-/ <a href="https://github.com/pbuehler/documentation/blob/main/docs/tutorials/code/aodreader.cxx" target="_blank">aodreader.cxx</a><br>
-  Executables: o2-analysistutorial-aodwriter, o2-analysistutorial-aodreader
+  Sources: <a href="https://github.com/pbuehler/documentation/blob/main/docs/tutorials/code/tableIOout.cxx" target="_blank">tableIOout.cxx</a>
+/ <a href="https://github.com/pbuehler/documentation/blob/main/docs/tutorials/code/tableIOin.cxx" target="_blank">tableIOin.cxx</a><br>
+  Executables: o2-analysistutorial-tableioout, o2-analysistutorial-tableioin
 </div>
 
 The topic of reading tables from and writing tables to file is comprehensively
@@ -22,7 +22,9 @@ file](../framework/framework.html#saving-tables-to-file) and [Reading tables
 from file](../framework/framework.html#reading-tables-from-files) of these
 documentation pages.
 
-When proceeding AO2D root files the command line option --aod-file is sufficient to have the system fill the tables of the O2 [Analysis Data Model](../framework/datamodel.md#the-data-model) with the information contained in the specified input files. This is of course because the layout of the data model and the AO2Ds is matched and the relations between table name and root tree names, column names and branch names is coded in the framework.
+Tables are saved to root trees with branches corresponding to the table columns. by default it is expected that a table with name TABLE is contained in a root tree O2tABLE and a column with name COLUMN, in a root branch fCOLUMN.
+
+When processing AO2D root files the command line option --aod-file is sufficient to have the system fill the tables of the O2 [Analysis Data Model](../framework/datamodel.md#the-data-model) with the information contained in the specified input files. This is of course because the layout of the data model and the AO2Ds is matched and the relations between table name and root tree names, column names and branch names is coded in the framework.
 
 By default the writing of e.g. histograms created in a task also happens without much hassle. They are saved to one of the files AnalysisResults.root or QAResults.root (see tutorial [Histograms](histograms.html)).
 
@@ -125,7 +127,7 @@ With the following json file both tables of the example are saved to file EtaPtR
 
 Now that we have saved data to a file we would like to read it in an other task for further processing.
 
-Let's consider the file EtaPtRanges.root which has been created in the previous step of this tutorial and contains the data of both tables, MinMaxPt and MinMaxEta. The task to process this data is displayed below. The first part contains the declaration of two tables, table PtRange with columns Minpt and Maxpt and table EtaRange with columns Mineta and Maxeta which shall be fill with the data from file EtaPtRanges.root. In the second part of the example code these tables are processed.
+Let's consider the file EtaPtRanges.root which has been created in the previous step of this tutorial and contains the data of both tables, MinMaxPt and MinMaxEta. The task to process this data is displayed below. The first part contains the declaration of two tables, table PtRange with columns Minpt and Maxpt and table EtaRange with columns Mineta and Maxeta which shall be filled with the data from file EtaPtRanges.root. In the second part of the example code these tables are processed.
 
 ```cpp
 namespace o2::aod
@@ -165,10 +167,10 @@ struct ATask {
 To run the example do
 
 ```csh
-o2-analysistutorial-aodreader --aod-file EtaPtRanges.root
+o2-analysistutorial-tableioin --aod-file EtaPtRanges.root
 ```
 
-and as a result you should obtain the confirmation message that the number of rows in tables PtRange and EtaRange are equal. The case works fine without further specification, because a few rules have been followed in the declaration of the two tables and their columns. By default a table 'TABLE' is filled with data from the tree 'O2table' and column 'COLUMN' with values from branch 'fCOLUMN'.
+and as a result you should obtain the confirmation message that the number of rows in tables PtRange and EtaRange are equal. The case works fine without further specification, because a few rules have been followed in the declaration of the two tables and their columns. By default a table 'TABLE' is filled with data from the tree 'O2tABLE' and column 'COLUMN' with values from branch 'fCOLUMN'.
 
 What if we want to use the same task but read the data from the previously created files AnalysisResults_trees.root and TemporaryResults_trees.root. In fact together these two files contain exactly the same data as EtaPtRanges.root although the treenames are different. 
 
@@ -180,7 +182,7 @@ To customize the aod-reader beyond the default behavior we use the command line 
 </center>
 
 ```csh
-o2-analysistutorial-aodreader --aod-file @resultFiles.txt --aod-reader-json reader.json
+o2-analysistutorial-tableioin --aod-file @resultFiles.txt --aod-reader-json reader.json
 ```
 
 `reader.json`

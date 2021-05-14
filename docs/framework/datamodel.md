@@ -228,7 +228,7 @@ Similar for the columns:
         <td></td>
         <td>collisionTime</td>
         <td>float</td>
-        <td></td>
+        <td>mus</td>
       </tr>
       <tr>
         <td>o2::aod::collision::CollisionTimeRes</td>
@@ -2260,6 +2260,13 @@ Similar for the columns:
         <td></td>
       </tr>
       <tr>
+        <td>o2::aod::hmpid::HMPIDNPhotons</td>
+        <td></td>
+        <td>hmpidNPhotons</td>
+        <td>short</td>
+        <td></td>
+      </tr>
+      <tr>
         <td>o2::aod::hmpid::HMPIDQMip</td>
         <td></td>
         <td>hmpidQMip</td>
@@ -3316,6 +3323,13 @@ Similar for the columns:
         <td></td>
       </tr>
       <tr>
+        <td>o2::aod::run2::L0TriggerInputMask</td>
+        <td></td>
+        <td>l0TriggerInputMask</td>
+        <td>uint32_t</td>
+        <td></td>
+      </tr>
+      <tr>
         <td>o2::aod::run2::SPDClustersL0</td>
         <td></td>
         <td>spdClustersL0</td>
@@ -3326,6 +3340,48 @@ Similar for the columns:
         <td>o2::aod::run2::SPDClustersL1</td>
         <td></td>
         <td>spdClustersL1</td>
+        <td>uint16_t</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::run2::SPDFiredChipsL0</td>
+        <td></td>
+        <td>spdFiredChipsL0</td>
+        <td>uint16_t</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::run2::SPDFiredChipsL1</td>
+        <td></td>
+        <td>spdFiredChipsL1</td>
+        <td>uint16_t</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::run2::SPDFiredFastOrL0</td>
+        <td></td>
+        <td>spdFiredFastOrL0</td>
+        <td>uint16_t</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::run2::SPDFiredFastOrL1</td>
+        <td></td>
+        <td>spdFiredFastOrL1</td>
+        <td>uint16_t</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::run2::V0TriggerChargeA</td>
+        <td></td>
+        <td>v0TriggerChargeA</td>
+        <td>uint16_t</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::run2::V0TriggerChargeC</td>
+        <td></td>
+        <td>v0TriggerChargeC</td>
         <td>uint16_t</td>
         <td></td>
       </tr>
@@ -4366,109 +4422,116 @@ Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/T
         <td></td>
       </tr>
       <tr>
-        <td>o2::aod::evsel::BBT0A</td>
+        <td>o2::aod::evsel::Selection</td>
         <td></td>
-        <td>bbT0A</td>
-        <td>bool</td>
-        <td>beam-beam time in T0A</td>
-      </tr>
-      <tr>
-        <td>o2::aod::evsel::BBT0C</td>
+        <td>selection</td>
+        <td>int32_t[kNsel]</td>
         <td></td>
-        <td>bbT0C</td>
-        <td>bool</td>
-        <td>beam-beam time in T0C</td>
       </tr>
       <tr>
         <td>o2::aod::evsel::BBV0A</td>
         <td></td>
         <td>bbV0A</td>
         <td>bool</td>
-        <td>beam-beam time in V0A</td>
+        <td>Beam-beam time in V0A</td>
       </tr>
       <tr>
         <td>o2::aod::evsel::BBV0C</td>
         <td></td>
         <td>bbV0C</td>
         <td>bool</td>
-        <td>beam-beam time in V0C</td>
+        <td>Beam-beam time in V0C</td>
       </tr>
       <tr>
         <td>o2::aod::evsel::BGV0A</td>
         <td></td>
         <td>bgV0A</td>
         <td>bool</td>
-        <td>beam-gas time in V0A</td>
+        <td>Beam-gas time in V0A</td>
       </tr>
       <tr>
         <td>o2::aod::evsel::BGV0C</td>
         <td></td>
         <td>bgV0C</td>
         <td>bool</td>
-        <td>beam-gas time in V0C</td>
-      </tr>
-      <tr>
-        <td>o2::aod::evsel::BBZNA</td>
-        <td></td>
-        <td>bbZNA</td>
-        <td>bool</td>
-        <td>beam-beam time in ZNA</td>
-      </tr>
-      <tr>
-        <td>o2::aod::evsel::BBZNC</td>
-        <td></td>
-        <td>bbZNC</td>
-        <td>bool</td>
-        <td>beam-beam time in ZNC</td>
+        <td>Beam-gas time in V0C</td>
       </tr>
       <tr>
         <td>o2::aod::evsel::BBFDA</td>
         <td></td>
         <td>bbFDA</td>
         <td>bool</td>
-        <td>beam-beam time in FDA</td>
+        <td>Beam-beam time in FDA</td>
       </tr>
       <tr>
         <td>o2::aod::evsel::BBFDC</td>
         <td></td>
         <td>bbFDC</td>
         <td>bool</td>
-        <td>beam-beam time in FDC</td>
+        <td>Beam-beam time in FDC</td>
       </tr>
       <tr>
         <td>o2::aod::evsel::BGFDA</td>
         <td></td>
         <td>bgFDA</td>
         <td>bool</td>
-        <td>beam-gas time in FDA</td>
+        <td>Beam-gas time in FDA</td>
       </tr>
       <tr>
         <td>o2::aod::evsel::BGFDC</td>
         <td></td>
         <td>bgFDC</td>
         <td>bool</td>
-        <td>beam-gas time in FDC</td>
+        <td>Beam-gas time in FDC</td>
       </tr>
       <tr>
-        <td>o2::aod::evsel::SEL7</td>
-        <td>D</td>
+        <td>o2::aod::evsel::MultRingV0A</td>
+        <td></td>
+        <td>multRingV0A</td>
+        <td>float[5]</td>
+        <td>V0A multiplicity per ring (4 rings in run2, 5 rings in run3)</td>
+      </tr>
+      <tr>
+        <td>o2::aod::evsel::MultRingV0C</td>
+        <td></td>
+        <td>multRingV0C</td>
+        <td>float[4]</td>
+        <td>V0C multiplicity per ring (4 rings in run2)</td>
+      </tr>
+      <tr>
+        <td>o2::aod::evsel::SpdClusters</td>
+        <td></td>
+        <td>spdClusters</td>
+        <td>uint32_t</td>
+        <td>Number of SPD clusters in two layers</td>
+      </tr>
+      <tr>
+        <td>o2::aod::evsel::NTracklets</td>
+        <td></td>
+        <td>nTracklets</td>
+        <td>int</td>
+        <td>Tracklet multiplicity</td>
+      </tr>
+      <tr>
+        <td>o2::aod::evsel::Sel7</td>
+        <td></td>
         <td>sel7</td>
         <td>bool</td>
-        <td></td>
+        <td>Event selection decision based on V0A & V0C</td>
       </tr>
       <tr>
-        <td>o2::aod::evsel::SEL8</td>
-        <td>D</td>
+        <td>o2::aod::evsel::Sel8</td>
+        <td></td>
         <td>sel8</td>
         <td>bool</td>
-        <td></td>
+        <td>Event selection decision based on TVX</td>
       </tr>
       <tr>
         <td>o2::aod::evsel::FoundFT0</td>
         <td></td>
         <td>foundFT0</td>
         <td>int64_t</td>
-        <td>the nearest FT0 signal</td>
+        <td>The nearest FT0 signal</td>
       </tr>
     </table>
   </div>
@@ -4502,88 +4565,88 @@ Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/T
         <td></td>
       </tr>
       <tr>
-        <td>o2::aod::evsel::BBT0A</td>
+        <td>o2::aod::evsel::Selection</td>
         <td></td>
-        <td>bbT0A</td>
-        <td>bool</td>
-        <td>beam-beam time in T0A</td>
-      </tr>
-      <tr>
-        <td>o2::aod::evsel::BBT0C</td>
+        <td>selection</td>
+        <td>int32_t[kNsel]</td>
         <td></td>
-        <td>bbT0C</td>
-        <td>bool</td>
-        <td>beam-beam time in T0C</td>
       </tr>
       <tr>
         <td>o2::aod::evsel::BBV0A</td>
         <td></td>
         <td>bbV0A</td>
         <td>bool</td>
-        <td>beam-beam time in V0A</td>
+        <td>Beam-beam time in V0A</td>
       </tr>
       <tr>
         <td>o2::aod::evsel::BBV0C</td>
         <td></td>
         <td>bbV0C</td>
         <td>bool</td>
-        <td>beam-beam time in V0C</td>
+        <td>Beam-beam time in V0C</td>
       </tr>
       <tr>
         <td>o2::aod::evsel::BGV0A</td>
         <td></td>
         <td>bgV0A</td>
         <td>bool</td>
-        <td>beam-gas time in V0A</td>
+        <td>Beam-gas time in V0A</td>
       </tr>
       <tr>
         <td>o2::aod::evsel::BGV0C</td>
         <td></td>
         <td>bgV0C</td>
         <td>bool</td>
-        <td>beam-gas time in V0C</td>
-      </tr>
-      <tr>
-        <td>o2::aod::evsel::BBZNA</td>
-        <td></td>
-        <td>bbZNA</td>
-        <td>bool</td>
-        <td>beam-beam time in ZNA</td>
-      </tr>
-      <tr>
-        <td>o2::aod::evsel::BBZNC</td>
-        <td></td>
-        <td>bbZNC</td>
-        <td>bool</td>
-        <td>beam-beam time in ZNC</td>
+        <td>Beam-gas time in V0C</td>
       </tr>
       <tr>
         <td>o2::aod::evsel::BBFDA</td>
         <td></td>
         <td>bbFDA</td>
         <td>bool</td>
-        <td>beam-beam time in FDA</td>
+        <td>Beam-beam time in FDA</td>
       </tr>
       <tr>
         <td>o2::aod::evsel::BBFDC</td>
         <td></td>
         <td>bbFDC</td>
         <td>bool</td>
-        <td>beam-beam time in FDC</td>
+        <td>Beam-beam time in FDC</td>
       </tr>
       <tr>
         <td>o2::aod::evsel::BGFDA</td>
         <td></td>
         <td>bgFDA</td>
         <td>bool</td>
-        <td>beam-gas time in FDA</td>
+        <td>Beam-gas time in FDA</td>
       </tr>
       <tr>
         <td>o2::aod::evsel::BGFDC</td>
         <td></td>
         <td>bgFDC</td>
         <td>bool</td>
-        <td>beam-gas time in FDC</td>
+        <td>Beam-gas time in FDC</td>
+      </tr>
+      <tr>
+        <td>o2::aod::evsel::MultRingV0A</td>
+        <td></td>
+        <td>multRingV0A</td>
+        <td>float[5]</td>
+        <td>V0A multiplicity per ring (4 rings in run2, 5 rings in run3)</td>
+      </tr>
+      <tr>
+        <td>o2::aod::evsel::MultRingV0C</td>
+        <td></td>
+        <td>multRingV0C</td>
+        <td>float[4]</td>
+        <td>V0C multiplicity per ring (4 rings in run2)</td>
+      </tr>
+      <tr>
+        <td>o2::aod::evsel::SpdClusters</td>
+        <td></td>
+        <td>spdClusters</td>
+        <td>uint32_t</td>
+        <td>Number of SPD clusters in two layers</td>
       </tr>
     </table>
   </div>
@@ -4868,239 +4931,14 @@ Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/T
 
 </div>
 
-####  o2-analysis-pid-tof
-Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/Tasks/PID//pidTOF.cxx" target="_blank">pidTOF.cxx</a>
+####  o2-analysis-pid-tof-beta
+Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/Tasks/PID//pidTOFbeta.cxx" target="_blank">pidTOFbeta.cxx</a>
 <div>
 
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTOFEl</button>
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTOFbeta</button>
   <div class="panel">
     <div>
-       
-    </div>
-    <div>
-      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
-    </div>
-    <div>Is used in:
-      <ul>
-        <li>o2::aod::BigTracksPID = soa::Join<o2::aod::BigTracks, o2::aod::pidRespTPCEl, o2::aod::pidRespTPCMu, o2::aod::pidRespTPCPi, o2::aod::pidRespTPCKa, o2::aod::pidRespTPCPr, o2::aod::pidRespTOFEl, o2::aod::pidRespTOFMu, o2::aod::pidRespTOFPi, o2::aod::pidRespTOFKa, o2::aod::pidRespTOFPr></li>
-      </ul>
-    </div>
-    <table class=DataModel>
-      <tr>
-        <th>Name</th>
-        <th></th>
-        <th>Getter</th>
-        <th>Type</th>
-        <th>Comment</th>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtof::TOFExpSignalDiffEl</td>
-        <td>D</td>
-        <td>tofExpSignalDiffEl</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtof::TOFExpSigmaEl</td>
-        <td></td>
-        <td>tofExpSigmaEl</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtof::TOFNSigmaEl</td>
-        <td></td>
-        <td>tofNSigmaEl</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-    </table>
-  </div>
-
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTOFMu</button>
-  <div class="panel">
-    <div>
-       
-    </div>
-    <div>
-      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
-    </div>
-    <div>Is used in:
-      <ul>
-        <li>o2::aod::BigTracksPID = soa::Join<o2::aod::BigTracks, o2::aod::pidRespTPCEl, o2::aod::pidRespTPCMu, o2::aod::pidRespTPCPi, o2::aod::pidRespTPCKa, o2::aod::pidRespTPCPr, o2::aod::pidRespTOFEl, o2::aod::pidRespTOFMu, o2::aod::pidRespTOFPi, o2::aod::pidRespTOFKa, o2::aod::pidRespTOFPr></li>
-      </ul>
-    </div>
-    <table class=DataModel>
-      <tr>
-        <th>Name</th>
-        <th></th>
-        <th>Getter</th>
-        <th>Type</th>
-        <th>Comment</th>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtof::TOFExpSignalDiffMu</td>
-        <td>D</td>
-        <td>tofExpSignalDiffMu</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtof::TOFExpSigmaMu</td>
-        <td></td>
-        <td>tofExpSigmaMu</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtof::TOFNSigmaMu</td>
-        <td></td>
-        <td>tofNSigmaMu</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-    </table>
-  </div>
-
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTOFPi</button>
-  <div class="panel">
-    <div>
-       
-    </div>
-    <div>
-      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
-    </div>
-    <div>Is used in:
-      <ul>
-        <li>o2::aod::BigTracksPID = soa::Join<o2::aod::BigTracks, o2::aod::pidRespTPCEl, o2::aod::pidRespTPCMu, o2::aod::pidRespTPCPi, o2::aod::pidRespTPCKa, o2::aod::pidRespTPCPr, o2::aod::pidRespTOFEl, o2::aod::pidRespTOFMu, o2::aod::pidRespTOFPi, o2::aod::pidRespTOFKa, o2::aod::pidRespTOFPr></li>
-      </ul>
-    </div>
-    <table class=DataModel>
-      <tr>
-        <th>Name</th>
-        <th></th>
-        <th>Getter</th>
-        <th>Type</th>
-        <th>Comment</th>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtof::TOFExpSignalDiffPi</td>
-        <td>D</td>
-        <td>tofExpSignalDiffPi</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtof::TOFExpSigmaPi</td>
-        <td></td>
-        <td>tofExpSigmaPi</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtof::TOFNSigmaPi</td>
-        <td></td>
-        <td>tofNSigmaPi</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-    </table>
-  </div>
-
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTOFKa</button>
-  <div class="panel">
-    <div>
-       
-    </div>
-    <div>
-      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
-    </div>
-    <div>Is used in:
-      <ul>
-        <li>o2::aod::BigTracksPID = soa::Join<o2::aod::BigTracks, o2::aod::pidRespTPCEl, o2::aod::pidRespTPCMu, o2::aod::pidRespTPCPi, o2::aod::pidRespTPCKa, o2::aod::pidRespTPCPr, o2::aod::pidRespTOFEl, o2::aod::pidRespTOFMu, o2::aod::pidRespTOFPi, o2::aod::pidRespTOFKa, o2::aod::pidRespTOFPr></li>
-      </ul>
-    </div>
-    <table class=DataModel>
-      <tr>
-        <th>Name</th>
-        <th></th>
-        <th>Getter</th>
-        <th>Type</th>
-        <th>Comment</th>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtof::TOFExpSignalDiffKa</td>
-        <td>D</td>
-        <td>tofExpSignalDiffKa</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtof::TOFExpSigmaKa</td>
-        <td></td>
-        <td>tofExpSigmaKa</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtof::TOFNSigmaKa</td>
-        <td></td>
-        <td>tofNSigmaKa</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-    </table>
-  </div>
-
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTOFPr</button>
-  <div class="panel">
-    <div>
-       
-    </div>
-    <div>
-      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
-    </div>
-    <div>Is used in:
-      <ul>
-        <li>o2::aod::BigTracksPID = soa::Join<o2::aod::BigTracks, o2::aod::pidRespTPCEl, o2::aod::pidRespTPCMu, o2::aod::pidRespTPCPi, o2::aod::pidRespTPCKa, o2::aod::pidRespTPCPr, o2::aod::pidRespTOFEl, o2::aod::pidRespTOFMu, o2::aod::pidRespTOFPi, o2::aod::pidRespTOFKa, o2::aod::pidRespTOFPr></li>
-      </ul>
-    </div>
-    <table class=DataModel>
-      <tr>
-        <th>Name</th>
-        <th></th>
-        <th>Getter</th>
-        <th>Type</th>
-        <th>Comment</th>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtof::TOFExpSignalDiffPr</td>
-        <td>D</td>
-        <td>tofExpSignalDiffPr</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtof::TOFExpSigmaPr</td>
-        <td></td>
-        <td>tofExpSigmaPr</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtof::TOFNSigmaPr</td>
-        <td></td>
-        <td>tofNSigmaPr</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-    </table>
-  </div>
-
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTOFDe</button>
-  <div class="panel">
-    <div>
-       
+       Table of the TOF beta
     </div>
     <div>
       Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
@@ -5114,143 +4952,44 @@ Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/T
         <th>Comment</th>
       </tr>
       <tr>
-        <td>o2::aod::pidtof::TOFExpSignalDiffDe</td>
+        <td>o2::aod::pidtofbeta::Beta</td>
+        <td></td>
+        <td>beta</td>
+        <td>float</td>
+        <td>TOF beta</td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtofbeta::BetaError</td>
+        <td></td>
+        <td>betaerror</td>
+        <td>float</td>
+        <td>Uncertainty on the TOF beta</td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtofbeta::ExpBetaEl</td>
+        <td></td>
+        <td>expbetael</td>
+        <td>float</td>
+        <td>Expected beta of electron</td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtofbeta::ExpBetaElError</td>
+        <td></td>
+        <td>expbetaelerror</td>
+        <td>float</td>
+        <td>Expected uncertainty on the beta of electron</td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtofbeta::SeparationBetaEl</td>
+        <td></td>
+        <td>separationbetael</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtofbeta::DiffBetaEl</td>
         <td>D</td>
-        <td>tofExpSignalDiffDe</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtof::TOFExpSigmaDe</td>
-        <td></td>
-        <td>tofExpSigmaDe</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtof::TOFNSigmaDe</td>
-        <td></td>
-        <td>tofNSigmaDe</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-    </table>
-  </div>
-
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTOFTr</button>
-  <div class="panel">
-    <div>
-       
-    </div>
-    <div>
-      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
-    </div>
-    <table class=DataModel>
-      <tr>
-        <th>Name</th>
-        <th></th>
-        <th>Getter</th>
-        <th>Type</th>
-        <th>Comment</th>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtof::TOFExpSignalDiffTr</td>
-        <td>D</td>
-        <td>tofExpSignalDiffTr</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtof::TOFExpSigmaTr</td>
-        <td></td>
-        <td>tofExpSigmaTr</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtof::TOFNSigmaTr</td>
-        <td></td>
-        <td>tofNSigmaTr</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-    </table>
-  </div>
-
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTOFHe</button>
-  <div class="panel">
-    <div>
-       
-    </div>
-    <div>
-      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
-    </div>
-    <table class=DataModel>
-      <tr>
-        <th>Name</th>
-        <th></th>
-        <th>Getter</th>
-        <th>Type</th>
-        <th>Comment</th>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtof::TOFExpSignalDiffHe</td>
-        <td>D</td>
-        <td>tofExpSignalDiffHe</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtof::TOFExpSigmaHe</td>
-        <td></td>
-        <td>tofExpSigmaHe</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtof::TOFNSigmaHe</td>
-        <td></td>
-        <td>tofNSigmaHe</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-    </table>
-  </div>
-
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTOFAl</button>
-  <div class="panel">
-    <div>
-       
-    </div>
-    <div>
-      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
-    </div>
-    <table class=DataModel>
-      <tr>
-        <th>Name</th>
-        <th></th>
-        <th>Getter</th>
-        <th>Type</th>
-        <th>Comment</th>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtof::TOFExpSignalDiffAl</td>
-        <td>D</td>
-        <td>tofExpSignalDiffAl</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtof::TOFExpSigmaAl</td>
-        <td></td>
-        <td>tofExpSigmaAl</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtof::TOFNSigmaAl</td>
-        <td></td>
-        <td>tofNSigmaAl</td>
+        <td>diffbetael</td>
         <td>float</td>
         <td></td>
       </tr>
@@ -5259,14 +4998,14 @@ Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/T
 
 </div>
 
-####  o2-analysis-pid-tof-tiny
-Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/Tasks/PID//pidTOF_tiny.cxx" target="_blank">pidTOF_tiny.cxx</a>
+####  o2-analysis-pid-tof
+Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/Tasks/PID//pidTOF.cxx" target="_blank">pidTOF.cxx</a>
 <div>
 
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTOFTEl</button>
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTOFEl</button>
   <div class="panel">
     <div>
-       
+       Table of the TOF response with binned Nsigma for electron
     </div>
     <div>
       Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
@@ -5296,10 +5035,10 @@ Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/T
     </table>
   </div>
 
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTOFTMu</button>
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTOFMu</button>
   <div class="panel">
     <div>
-       
+       Table of the TOF response with binned Nsigma for muon
     </div>
     <div>
       Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
@@ -5329,10 +5068,10 @@ Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/T
     </table>
   </div>
 
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTOFTPi</button>
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTOFPi</button>
   <div class="panel">
     <div>
-       
+       Table of the TOF response with binned Nsigma for pion
     </div>
     <div>
       Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
@@ -5362,10 +5101,10 @@ Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/T
     </table>
   </div>
 
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTOFTKa</button>
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTOFKa</button>
   <div class="panel">
     <div>
-       
+       Table of the TOF response with binned Nsigma for kaon
     </div>
     <div>
       Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
@@ -5395,10 +5134,10 @@ Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/T
     </table>
   </div>
 
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTOFTPr</button>
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTOFPr</button>
   <div class="panel">
     <div>
-       
+       Table of the TOF response with binned Nsigma for proton
     </div>
     <div>
       Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
@@ -5428,10 +5167,10 @@ Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/T
     </table>
   </div>
 
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTOFTDe</button>
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTOFDe</button>
   <div class="panel">
     <div>
-       
+       Table of the TOF response with binned Nsigma for deuteron
     </div>
     <div>
       Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
@@ -5461,10 +5200,10 @@ Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/T
     </table>
   </div>
 
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTOFTTr</button>
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTOFTr</button>
   <div class="panel">
     <div>
-       
+       Table of the TOF response with binned Nsigma for triton
     </div>
     <div>
       Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
@@ -5494,10 +5233,10 @@ Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/T
     </table>
   </div>
 
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTOFTHe</button>
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTOFHe</button>
   <div class="panel">
     <div>
-       
+       Table of the TOF response with binned Nsigma for helium3
     </div>
     <div>
       Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
@@ -5527,10 +5266,10 @@ Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/T
     </table>
   </div>
 
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTOFTAl</button>
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTOFAl</button>
   <div class="panel">
     <div>
-       
+       Table of the TOF response with binned Nsigma for alpha
     </div>
     <div>
       Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
@@ -5562,14 +5301,239 @@ Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/T
 
 </div>
 
-####  o2-analysis-pid-tof-beta
-Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/Tasks/PID//pidTOFbeta.cxx" target="_blank">pidTOFbeta.cxx</a>
+####  o2-analysis-pid-tof-full
+Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/Tasks/PID//pidTOFFull.cxx" target="_blank">pidTOFFull.cxx</a>
 <div>
 
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTOFbeta</button>
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTOFFullEl</button>
   <div class="panel">
     <div>
-       
+       Table of the TOF (full) response with expected signal, expected resolution and Nsigma for electron
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
+    </div>
+    <div>Is used in:
+      <ul>
+        <li>o2::aod::BigTracksPID = soa::Join<o2::aod::BigTracks, o2::aod::pidTPCFullEl, o2::aod::pidTPCFullMu, o2::aod::pidTPCFullPi, o2::aod::pidTPCFullKa, o2::aod::pidTPCFullPr, o2::aod::pidTOFFullEl, o2::aod::pidTOFFullMu, o2::aod::pidTOFFullPi, o2::aod::pidTOFFullKa, o2::aod::pidTOFFullPr></li>
+      </ul>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtof::TOFExpSignalDiffEl</td>
+        <td>D</td>
+        <td>tofExpSignalDiffEl</td>
+        <td>float</td>
+        <td>Difference between signal and expected for electron</td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtof::TOFExpSigmaEl</td>
+        <td></td>
+        <td>tofExpSigmaEl</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtof::TOFNSigmaEl</td>
+        <td></td>
+        <td>tofNSigmaEl</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTOFFullMu</button>
+  <div class="panel">
+    <div>
+       Table of the TOF (full) response with expected signal, expected resolution and Nsigma for muon
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
+    </div>
+    <div>Is used in:
+      <ul>
+        <li>o2::aod::BigTracksPID = soa::Join<o2::aod::BigTracks, o2::aod::pidTPCFullEl, o2::aod::pidTPCFullMu, o2::aod::pidTPCFullPi, o2::aod::pidTPCFullKa, o2::aod::pidTPCFullPr, o2::aod::pidTOFFullEl, o2::aod::pidTOFFullMu, o2::aod::pidTOFFullPi, o2::aod::pidTOFFullKa, o2::aod::pidTOFFullPr></li>
+      </ul>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtof::TOFExpSignalDiffMu</td>
+        <td>D</td>
+        <td>tofExpSignalDiffMu</td>
+        <td>float</td>
+        <td>Difference between signal and expected for muon</td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtof::TOFExpSigmaMu</td>
+        <td></td>
+        <td>tofExpSigmaMu</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtof::TOFNSigmaMu</td>
+        <td></td>
+        <td>tofNSigmaMu</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTOFFullPi</button>
+  <div class="panel">
+    <div>
+       Table of the TOF (full) response with expected signal, expected resolution and Nsigma for pion
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
+    </div>
+    <div>Is used in:
+      <ul>
+        <li>o2::aod::BigTracksPID = soa::Join<o2::aod::BigTracks, o2::aod::pidTPCFullEl, o2::aod::pidTPCFullMu, o2::aod::pidTPCFullPi, o2::aod::pidTPCFullKa, o2::aod::pidTPCFullPr, o2::aod::pidTOFFullEl, o2::aod::pidTOFFullMu, o2::aod::pidTOFFullPi, o2::aod::pidTOFFullKa, o2::aod::pidTOFFullPr></li>
+      </ul>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtof::TOFExpSignalDiffPi</td>
+        <td>D</td>
+        <td>tofExpSignalDiffPi</td>
+        <td>float</td>
+        <td>Difference between signal and expected for pion</td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtof::TOFExpSigmaPi</td>
+        <td></td>
+        <td>tofExpSigmaPi</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtof::TOFNSigmaPi</td>
+        <td></td>
+        <td>tofNSigmaPi</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTOFFullKa</button>
+  <div class="panel">
+    <div>
+       Table of the TOF (full) response with expected signal, expected resolution and Nsigma for kaon
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
+    </div>
+    <div>Is used in:
+      <ul>
+        <li>o2::aod::BigTracksPID = soa::Join<o2::aod::BigTracks, o2::aod::pidTPCFullEl, o2::aod::pidTPCFullMu, o2::aod::pidTPCFullPi, o2::aod::pidTPCFullKa, o2::aod::pidTPCFullPr, o2::aod::pidTOFFullEl, o2::aod::pidTOFFullMu, o2::aod::pidTOFFullPi, o2::aod::pidTOFFullKa, o2::aod::pidTOFFullPr></li>
+      </ul>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtof::TOFExpSignalDiffKa</td>
+        <td>D</td>
+        <td>tofExpSignalDiffKa</td>
+        <td>float</td>
+        <td>Difference between signal and expected for kaon</td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtof::TOFExpSigmaKa</td>
+        <td></td>
+        <td>tofExpSigmaKa</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtof::TOFNSigmaKa</td>
+        <td></td>
+        <td>tofNSigmaKa</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTOFFullPr</button>
+  <div class="panel">
+    <div>
+       Table of the TOF (full) response with expected signal, expected resolution and Nsigma for proton
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
+    </div>
+    <div>Is used in:
+      <ul>
+        <li>o2::aod::BigTracksPID = soa::Join<o2::aod::BigTracks, o2::aod::pidTPCFullEl, o2::aod::pidTPCFullMu, o2::aod::pidTPCFullPi, o2::aod::pidTPCFullKa, o2::aod::pidTPCFullPr, o2::aod::pidTOFFullEl, o2::aod::pidTOFFullMu, o2::aod::pidTOFFullPi, o2::aod::pidTOFFullKa, o2::aod::pidTOFFullPr></li>
+      </ul>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtof::TOFExpSignalDiffPr</td>
+        <td>D</td>
+        <td>tofExpSignalDiffPr</td>
+        <td>float</td>
+        <td>Difference between signal and expected for proton</td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtof::TOFExpSigmaPr</td>
+        <td></td>
+        <td>tofExpSigmaPr</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtof::TOFNSigmaPr</td>
+        <td></td>
+        <td>tofNSigmaPr</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTOFFullDe</button>
+  <div class="panel">
+    <div>
+       Table of the TOF (full) response with expected signal, expected resolution and Nsigma for deuteron
     </div>
     <div>
       Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
@@ -5583,44 +5547,143 @@ Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/T
         <th>Comment</th>
       </tr>
       <tr>
-        <td>o2::aod::pidtofbeta::Beta</td>
-        <td></td>
-        <td>beta</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtofbeta::BetaError</td>
-        <td></td>
-        <td>betaerror</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtofbeta::ExpBetaEl</td>
-        <td></td>
-        <td>expbetael</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtofbeta::ExpBetaElError</td>
-        <td></td>
-        <td>expbetaelerror</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtofbeta::SeparationBetaEl</td>
-        <td></td>
-        <td>separationbetael</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtofbeta::DiffBetaEl</td>
+        <td>o2::aod::pidtof::TOFExpSignalDiffDe</td>
         <td>D</td>
-        <td>diffbetael</td>
+        <td>tofExpSignalDiffDe</td>
+        <td>float</td>
+        <td>Difference between signal and expected for deuteron</td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtof::TOFExpSigmaDe</td>
+        <td></td>
+        <td>tofExpSigmaDe</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtof::TOFNSigmaDe</td>
+        <td></td>
+        <td>tofNSigmaDe</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTOFFullTr</button>
+  <div class="panel">
+    <div>
+       Table of the TOF (full) response with expected signal, expected resolution and Nsigma for triton
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtof::TOFExpSignalDiffTr</td>
+        <td>D</td>
+        <td>tofExpSignalDiffTr</td>
+        <td>float</td>
+        <td>Difference between signal and expected for triton</td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtof::TOFExpSigmaTr</td>
+        <td></td>
+        <td>tofExpSigmaTr</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtof::TOFNSigmaTr</td>
+        <td></td>
+        <td>tofNSigmaTr</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTOFFullHe</button>
+  <div class="panel">
+    <div>
+       Table of the TOF (full) response with expected signal, expected resolution and Nsigma for helium3
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtof::TOFExpSignalDiffHe</td>
+        <td>D</td>
+        <td>tofExpSignalDiffHe</td>
+        <td>float</td>
+        <td>Difference between signal and expected for helium3</td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtof::TOFExpSigmaHe</td>
+        <td></td>
+        <td>tofExpSigmaHe</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtof::TOFNSigmaHe</td>
+        <td></td>
+        <td>tofNSigmaHe</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTOFFullAl</button>
+  <div class="panel">
+    <div>
+       Table of the TOF (full) response with expected signal, expected resolution and Nsigma for alpha
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtof::TOFExpSignalDiffAl</td>
+        <td>D</td>
+        <td>tofExpSignalDiffAl</td>
+        <td>float</td>
+        <td>Difference between signal and expected for alpha</td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtof::TOFExpSigmaAl</td>
+        <td></td>
+        <td>tofExpSigmaAl</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtof::TOFNSigmaAl</td>
+        <td></td>
+        <td>tofNSigmaAl</td>
         <td>float</td>
         <td></td>
       </tr>
@@ -5633,17 +5696,320 @@ Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/T
 Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/Tasks/PID//pidTPC.cxx" target="_blank">pidTPC.cxx</a>
 <div>
 
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTPCEl</button>
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTPCEl</button>
   <div class="panel">
     <div>
-       
+       Table of the TPC response with binned Nsigma for electron
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtpc_tiny::TPCNSigmaStoreEl</td>
+        <td></td>
+        <td>tpcNSigmaStoreEl</td>
+        <td>int8_t</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtpc_tiny::TPCNSigmaEl</td>
+        <td>D</td>
+        <td>tpcNSigmaEl</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTPCMu</button>
+  <div class="panel">
+    <div>
+       Table of the TPC response with binned Nsigma for muon
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtpc_tiny::TPCNSigmaStoreMu</td>
+        <td></td>
+        <td>tpcNSigmaStoreMu</td>
+        <td>int8_t</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtpc_tiny::TPCNSigmaMu</td>
+        <td>D</td>
+        <td>tpcNSigmaMu</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTPCPi</button>
+  <div class="panel">
+    <div>
+       Table of the TPC response with binned Nsigma for pion
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtpc_tiny::TPCNSigmaStorePi</td>
+        <td></td>
+        <td>tpcNSigmaStorePi</td>
+        <td>int8_t</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtpc_tiny::TPCNSigmaPi</td>
+        <td>D</td>
+        <td>tpcNSigmaPi</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTPCKa</button>
+  <div class="panel">
+    <div>
+       Table of the TPC response with binned Nsigma for kaon
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtpc_tiny::TPCNSigmaStoreKa</td>
+        <td></td>
+        <td>tpcNSigmaStoreKa</td>
+        <td>int8_t</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtpc_tiny::TPCNSigmaKa</td>
+        <td>D</td>
+        <td>tpcNSigmaKa</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTPCPr</button>
+  <div class="panel">
+    <div>
+       Table of the TPC response with binned Nsigma for proton
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtpc_tiny::TPCNSigmaStorePr</td>
+        <td></td>
+        <td>tpcNSigmaStorePr</td>
+        <td>int8_t</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtpc_tiny::TPCNSigmaPr</td>
+        <td>D</td>
+        <td>tpcNSigmaPr</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTPCDe</button>
+  <div class="panel">
+    <div>
+       Table of the TPC response with binned Nsigma for deuteron
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtpc_tiny::TPCNSigmaStoreDe</td>
+        <td></td>
+        <td>tpcNSigmaStoreDe</td>
+        <td>int8_t</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtpc_tiny::TPCNSigmaDe</td>
+        <td>D</td>
+        <td>tpcNSigmaDe</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTPCTr</button>
+  <div class="panel">
+    <div>
+       Table of the TPC response with binned Nsigma for triton
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtpc_tiny::TPCNSigmaStoreTr</td>
+        <td></td>
+        <td>tpcNSigmaStoreTr</td>
+        <td>int8_t</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtpc_tiny::TPCNSigmaTr</td>
+        <td>D</td>
+        <td>tpcNSigmaTr</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTPCHe</button>
+  <div class="panel">
+    <div>
+       Table of the TPC response with binned Nsigma for helium3
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtpc_tiny::TPCNSigmaStoreHe</td>
+        <td></td>
+        <td>tpcNSigmaStoreHe</td>
+        <td>int8_t</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtpc_tiny::TPCNSigmaHe</td>
+        <td>D</td>
+        <td>tpcNSigmaHe</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTPCAl</button>
+  <div class="panel">
+    <div>
+       Table of the TPC response with binned Nsigma for alpha
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtpc_tiny::TPCNSigmaStoreAl</td>
+        <td></td>
+        <td>tpcNSigmaStoreAl</td>
+        <td>int8_t</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::pidtpc_tiny::TPCNSigmaAl</td>
+        <td>D</td>
+        <td>tpcNSigmaAl</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+
+####  o2-analysis-pid-tpc-full
+Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/Tasks/PID//pidTPCFull.cxx" target="_blank">pidTPCFull.cxx</a>
+<div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTPCFullEl</button>
+  <div class="panel">
+    <div>
+       Table of the TPC (full) response with expected signal, expected resolution and Nsigma for electron
     </div>
     <div>
       Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
     </div>
     <div>Is used in:
       <ul>
-        <li>o2::aod::BigTracksPID = soa::Join<o2::aod::BigTracks, o2::aod::pidRespTPCEl, o2::aod::pidRespTPCMu, o2::aod::pidRespTPCPi, o2::aod::pidRespTPCKa, o2::aod::pidRespTPCPr, o2::aod::pidRespTOFEl, o2::aod::pidRespTOFMu, o2::aod::pidRespTOFPi, o2::aod::pidRespTOFKa, o2::aod::pidRespTOFPr></li>
+        <li>o2::aod::BigTracksPID = soa::Join<o2::aod::BigTracks, o2::aod::pidTPCFullEl, o2::aod::pidTPCFullMu, o2::aod::pidTPCFullPi, o2::aod::pidTPCFullKa, o2::aod::pidTPCFullPr, o2::aod::pidTOFFullEl, o2::aod::pidTOFFullMu, o2::aod::pidTOFFullPi, o2::aod::pidTOFFullKa, o2::aod::pidTOFFullPr></li>
       </ul>
     </div>
     <table class=DataModel>
@@ -5678,17 +6044,17 @@ Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/T
     </table>
   </div>
 
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTPCMu</button>
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTPCFullMu</button>
   <div class="panel">
     <div>
-       
+       Table of the TPC (full) response with expected signal, expected resolution and Nsigma for muon
     </div>
     <div>
       Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
     </div>
     <div>Is used in:
       <ul>
-        <li>o2::aod::BigTracksPID = soa::Join<o2::aod::BigTracks, o2::aod::pidRespTPCEl, o2::aod::pidRespTPCMu, o2::aod::pidRespTPCPi, o2::aod::pidRespTPCKa, o2::aod::pidRespTPCPr, o2::aod::pidRespTOFEl, o2::aod::pidRespTOFMu, o2::aod::pidRespTOFPi, o2::aod::pidRespTOFKa, o2::aod::pidRespTOFPr></li>
+        <li>o2::aod::BigTracksPID = soa::Join<o2::aod::BigTracks, o2::aod::pidTPCFullEl, o2::aod::pidTPCFullMu, o2::aod::pidTPCFullPi, o2::aod::pidTPCFullKa, o2::aod::pidTPCFullPr, o2::aod::pidTOFFullEl, o2::aod::pidTOFFullMu, o2::aod::pidTOFFullPi, o2::aod::pidTOFFullKa, o2::aod::pidTOFFullPr></li>
       </ul>
     </div>
     <table class=DataModel>
@@ -5723,17 +6089,17 @@ Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/T
     </table>
   </div>
 
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTPCPi</button>
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTPCFullPi</button>
   <div class="panel">
     <div>
-       
+       Table of the TPC (full) response with expected signal, expected resolution and Nsigma for pion
     </div>
     <div>
       Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
     </div>
     <div>Is used in:
       <ul>
-        <li>o2::aod::BigTracksPID = soa::Join<o2::aod::BigTracks, o2::aod::pidRespTPCEl, o2::aod::pidRespTPCMu, o2::aod::pidRespTPCPi, o2::aod::pidRespTPCKa, o2::aod::pidRespTPCPr, o2::aod::pidRespTOFEl, o2::aod::pidRespTOFMu, o2::aod::pidRespTOFPi, o2::aod::pidRespTOFKa, o2::aod::pidRespTOFPr></li>
+        <li>o2::aod::BigTracksPID = soa::Join<o2::aod::BigTracks, o2::aod::pidTPCFullEl, o2::aod::pidTPCFullMu, o2::aod::pidTPCFullPi, o2::aod::pidTPCFullKa, o2::aod::pidTPCFullPr, o2::aod::pidTOFFullEl, o2::aod::pidTOFFullMu, o2::aod::pidTOFFullPi, o2::aod::pidTOFFullKa, o2::aod::pidTOFFullPr></li>
       </ul>
     </div>
     <table class=DataModel>
@@ -5768,17 +6134,17 @@ Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/T
     </table>
   </div>
 
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTPCKa</button>
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTPCFullKa</button>
   <div class="panel">
     <div>
-       
+       Table of the TPC (full) response with expected signal, expected resolution and Nsigma for kaon
     </div>
     <div>
       Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
     </div>
     <div>Is used in:
       <ul>
-        <li>o2::aod::BigTracksPID = soa::Join<o2::aod::BigTracks, o2::aod::pidRespTPCEl, o2::aod::pidRespTPCMu, o2::aod::pidRespTPCPi, o2::aod::pidRespTPCKa, o2::aod::pidRespTPCPr, o2::aod::pidRespTOFEl, o2::aod::pidRespTOFMu, o2::aod::pidRespTOFPi, o2::aod::pidRespTOFKa, o2::aod::pidRespTOFPr></li>
+        <li>o2::aod::BigTracksPID = soa::Join<o2::aod::BigTracks, o2::aod::pidTPCFullEl, o2::aod::pidTPCFullMu, o2::aod::pidTPCFullPi, o2::aod::pidTPCFullKa, o2::aod::pidTPCFullPr, o2::aod::pidTOFFullEl, o2::aod::pidTOFFullMu, o2::aod::pidTOFFullPi, o2::aod::pidTOFFullKa, o2::aod::pidTOFFullPr></li>
       </ul>
     </div>
     <table class=DataModel>
@@ -5813,17 +6179,17 @@ Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/T
     </table>
   </div>
 
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTPCPr</button>
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTPCFullPr</button>
   <div class="panel">
     <div>
-       
+       Table of the TPC (full) response with expected signal, expected resolution and Nsigma for proton
     </div>
     <div>
       Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
     </div>
     <div>Is used in:
       <ul>
-        <li>o2::aod::BigTracksPID = soa::Join<o2::aod::BigTracks, o2::aod::pidRespTPCEl, o2::aod::pidRespTPCMu, o2::aod::pidRespTPCPi, o2::aod::pidRespTPCKa, o2::aod::pidRespTPCPr, o2::aod::pidRespTOFEl, o2::aod::pidRespTOFMu, o2::aod::pidRespTOFPi, o2::aod::pidRespTOFKa, o2::aod::pidRespTOFPr></li>
+        <li>o2::aod::BigTracksPID = soa::Join<o2::aod::BigTracks, o2::aod::pidTPCFullEl, o2::aod::pidTPCFullMu, o2::aod::pidTPCFullPi, o2::aod::pidTPCFullKa, o2::aod::pidTPCFullPr, o2::aod::pidTOFFullEl, o2::aod::pidTOFFullMu, o2::aod::pidTOFFullPi, o2::aod::pidTOFFullKa, o2::aod::pidTOFFullPr></li>
       </ul>
     </div>
     <table class=DataModel>
@@ -5858,10 +6224,10 @@ Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/T
     </table>
   </div>
 
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTPCDe</button>
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTPCFullDe</button>
   <div class="panel">
     <div>
-       
+       Table of the TPC (full) response with expected signal, expected resolution and Nsigma for deuteron
     </div>
     <div>
       Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
@@ -5898,10 +6264,10 @@ Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/T
     </table>
   </div>
 
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTPCTr</button>
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTPCFullTr</button>
   <div class="panel">
     <div>
-       
+       Table of the TPC (full) response with expected signal, expected resolution and Nsigma for triton
     </div>
     <div>
       Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
@@ -5938,10 +6304,10 @@ Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/T
     </table>
   </div>
 
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTPCHe</button>
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTPCFullHe</button>
   <div class="panel">
     <div>
-       
+       Table of the TPC (full) response with expected signal, expected resolution and Nsigma for helium3
     </div>
     <div>
       Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
@@ -5978,10 +6344,10 @@ Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/T
     </table>
   </div>
 
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTPCAl</button>
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidTPCFullAl</button>
   <div class="panel">
     <div>
-       
+       Table of the TPC (full) response with expected signal, expected resolution and Nsigma for alpha
     </div>
     <div>
       Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
@@ -6011,309 +6377,6 @@ Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/T
       <tr>
         <td>o2::aod::pidtpc::TPCNSigmaAl</td>
         <td></td>
-        <td>tpcNSigmaAl</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-    </table>
-  </div>
-
-</div>
-
-####  o2-analysis-pid-tpc-tiny
-Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/Tasks/PID//pidTPC_tiny.cxx" target="_blank">pidTPC_tiny.cxx</a>
-<div>
-
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTPCTEl</button>
-  <div class="panel">
-    <div>
-       
-    </div>
-    <div>
-      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
-    </div>
-    <table class=DataModel>
-      <tr>
-        <th>Name</th>
-        <th></th>
-        <th>Getter</th>
-        <th>Type</th>
-        <th>Comment</th>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtpc_tiny::TPCNSigmaStoreEl</td>
-        <td></td>
-        <td>tpcNSigmaStoreEl</td>
-        <td>int8_t</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtpc_tiny::TPCNSigmaEl</td>
-        <td>D</td>
-        <td>tpcNSigmaEl</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-    </table>
-  </div>
-
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTPCTMu</button>
-  <div class="panel">
-    <div>
-       
-    </div>
-    <div>
-      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
-    </div>
-    <table class=DataModel>
-      <tr>
-        <th>Name</th>
-        <th></th>
-        <th>Getter</th>
-        <th>Type</th>
-        <th>Comment</th>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtpc_tiny::TPCNSigmaStoreMu</td>
-        <td></td>
-        <td>tpcNSigmaStoreMu</td>
-        <td>int8_t</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtpc_tiny::TPCNSigmaMu</td>
-        <td>D</td>
-        <td>tpcNSigmaMu</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-    </table>
-  </div>
-
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTPCTPi</button>
-  <div class="panel">
-    <div>
-       
-    </div>
-    <div>
-      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
-    </div>
-    <table class=DataModel>
-      <tr>
-        <th>Name</th>
-        <th></th>
-        <th>Getter</th>
-        <th>Type</th>
-        <th>Comment</th>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtpc_tiny::TPCNSigmaStorePi</td>
-        <td></td>
-        <td>tpcNSigmaStorePi</td>
-        <td>int8_t</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtpc_tiny::TPCNSigmaPi</td>
-        <td>D</td>
-        <td>tpcNSigmaPi</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-    </table>
-  </div>
-
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTPCTKa</button>
-  <div class="panel">
-    <div>
-       
-    </div>
-    <div>
-      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
-    </div>
-    <table class=DataModel>
-      <tr>
-        <th>Name</th>
-        <th></th>
-        <th>Getter</th>
-        <th>Type</th>
-        <th>Comment</th>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtpc_tiny::TPCNSigmaStoreKa</td>
-        <td></td>
-        <td>tpcNSigmaStoreKa</td>
-        <td>int8_t</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtpc_tiny::TPCNSigmaKa</td>
-        <td>D</td>
-        <td>tpcNSigmaKa</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-    </table>
-  </div>
-
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTPCTPr</button>
-  <div class="panel">
-    <div>
-       
-    </div>
-    <div>
-      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
-    </div>
-    <table class=DataModel>
-      <tr>
-        <th>Name</th>
-        <th></th>
-        <th>Getter</th>
-        <th>Type</th>
-        <th>Comment</th>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtpc_tiny::TPCNSigmaStorePr</td>
-        <td></td>
-        <td>tpcNSigmaStorePr</td>
-        <td>int8_t</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtpc_tiny::TPCNSigmaPr</td>
-        <td>D</td>
-        <td>tpcNSigmaPr</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-    </table>
-  </div>
-
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTPCTDe</button>
-  <div class="panel">
-    <div>
-       
-    </div>
-    <div>
-      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
-    </div>
-    <table class=DataModel>
-      <tr>
-        <th>Name</th>
-        <th></th>
-        <th>Getter</th>
-        <th>Type</th>
-        <th>Comment</th>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtpc_tiny::TPCNSigmaStoreDe</td>
-        <td></td>
-        <td>tpcNSigmaStoreDe</td>
-        <td>int8_t</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtpc_tiny::TPCNSigmaDe</td>
-        <td>D</td>
-        <td>tpcNSigmaDe</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-    </table>
-  </div>
-
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTPCTTr</button>
-  <div class="panel">
-    <div>
-       
-    </div>
-    <div>
-      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
-    </div>
-    <table class=DataModel>
-      <tr>
-        <th>Name</th>
-        <th></th>
-        <th>Getter</th>
-        <th>Type</th>
-        <th>Comment</th>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtpc_tiny::TPCNSigmaStoreTr</td>
-        <td></td>
-        <td>tpcNSigmaStoreTr</td>
-        <td>int8_t</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtpc_tiny::TPCNSigmaTr</td>
-        <td>D</td>
-        <td>tpcNSigmaTr</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-    </table>
-  </div>
-
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTPCTHe</button>
-  <div class="panel">
-    <div>
-       
-    </div>
-    <div>
-      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
-    </div>
-    <table class=DataModel>
-      <tr>
-        <th>Name</th>
-        <th></th>
-        <th>Getter</th>
-        <th>Type</th>
-        <th>Comment</th>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtpc_tiny::TPCNSigmaStoreHe</td>
-        <td></td>
-        <td>tpcNSigmaStoreHe</td>
-        <td>int8_t</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtpc_tiny::TPCNSigmaHe</td>
-        <td>D</td>
-        <td>tpcNSigmaHe</td>
-        <td>float</td>
-        <td></td>
-      </tr>
-    </table>
-  </div>
-
-  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::pidRespTPCTAl</button>
-  <div class="panel">
-    <div>
-       
-    </div>
-    <div>
-      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel/PID/PIDResponse.h</a>
-    </div>
-    <table class=DataModel>
-      <tr>
-        <th>Name</th>
-        <th></th>
-        <th>Getter</th>
-        <th>Type</th>
-        <th>Comment</th>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtpc_tiny::TPCNSigmaStoreAl</td>
-        <td></td>
-        <td>tpcNSigmaStoreAl</td>
-        <td>int8_t</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>o2::aod::pidtpc_tiny::TPCNSigmaAl</td>
-        <td>D</td>
         <td>tpcNSigmaAl</td>
         <td>float</td>
         <td></td>
@@ -6868,6 +6931,1441 @@ Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/T
 
 </div>
 
+####  o2-analysis-hf-candidate-creator-2prong
+Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/Tasks/PWGHF//HFCandidateCreator2Prong.cxx" target="_blank">HFCandidateCreator2Prong.cxx</a>
+<div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::HfCandProng2Base</button>
+  <div class="panel">
+    <div>
+       
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel//HFSecondaryVertex.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel//HFSecondaryVertex.h</a>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::CollisionId</td>
+        <td>I</td>
+        <td>collisionId</td>
+        <td>int32</td>
+        <td>Pointer into Collisions</td>
+      </tr>
+      <tr>
+        <td>o2::aod::collision::PosX</td>
+        <td>GI</td>
+        <td></td>
+        <td>?</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::collision::PosY</td>
+        <td>GI</td>
+        <td></td>
+        <td>?</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::collision::PosZ</td>
+        <td>GI</td>
+        <td></td>
+        <td>?</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::XSecondaryVertex</td>
+        <td></td>
+        <td>xSecondaryVertex</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::YSecondaryVertex</td>
+        <td></td>
+        <td>ySecondaryVertex</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::ZSecondaryVertex</td>
+        <td></td>
+        <td>zSecondaryVertex</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::ErrorDecayLength</td>
+        <td></td>
+        <td>errorDecayLength</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::ErrorDecayLengthXY</td>
+        <td></td>
+        <td>errorDecayLengthXY</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::Chi2PCA</td>
+        <td></td>
+        <td>chi2PCA</td>
+        <td>float</td>
+        <td>sum of (non-weighted) distances of the secondary vertex to its prongs</td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::RSecondaryVertex</td>
+        <td>D</td>
+        <td>rSecondaryVertex</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::DecayLength</td>
+        <td>D</td>
+        <td>decayLength</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::DecayLengthXY</td>
+        <td>D</td>
+        <td>decayLengthXY</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::DecayLengthNormalised</td>
+        <td>D</td>
+        <td>decayLengthNormalised</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::DecayLengthXYNormalised</td>
+        <td>D</td>
+        <td>decayLengthXYNormalised</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::ImpactParameterNormalised0</td>
+        <td>D</td>
+        <td>impactParameterNormalised0</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::PtProng0</td>
+        <td>D</td>
+        <td>ptProng0</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::Pt2Prong0</td>
+        <td>D</td>
+        <td>pt2Prong0</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::PVectorProng0</td>
+        <td>D</td>
+        <td>pVectorProng0</td>
+        <td>array<float,3></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::ImpactParameterNormalised1</td>
+        <td>D</td>
+        <td>impactParameterNormalised1</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::PtProng1</td>
+        <td>D</td>
+        <td>ptProng1</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::Pt2Prong1</td>
+        <td>D</td>
+        <td>pt2Prong1</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::PVectorProng1</td>
+        <td>D</td>
+        <td>pVectorProng1</td>
+        <td>array<float,3></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::PxProng0</td>
+        <td></td>
+        <td>pxProng0</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::PyProng0</td>
+        <td></td>
+        <td>pyProng0</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::PzProng0</td>
+        <td></td>
+        <td>pzProng0</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::PxProng1</td>
+        <td></td>
+        <td>pxProng1</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::PyProng1</td>
+        <td></td>
+        <td>pyProng1</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::PzProng1</td>
+        <td></td>
+        <td>pzProng1</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::ImpactParameter0</td>
+        <td></td>
+        <td>impactParameter0</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::ImpactParameter1</td>
+        <td></td>
+        <td>impactParameter1</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::ErrorImpactParameter0</td>
+        <td></td>
+        <td>errorImpactParameter0</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::ErrorImpactParameter1</td>
+        <td></td>
+        <td>errorImpactParameter1</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_track_index::Index0Id</td>
+        <td>I</td>
+        <td>index0Id</td>
+        <td>int</td>
+        <td>Pointer into Tracks</td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_track_index::Index1Id</td>
+        <td>I</td>
+        <td>index1Id</td>
+        <td>int</td>
+        <td>Pointer into Tracks</td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_track_index::HFflag</td>
+        <td></td>
+        <td>hfflag</td>
+        <td>uint8_t</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand_prong2::M</td>
+        <td>D</td>
+        <td>m</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand_prong2::M2</td>
+        <td>D</td>
+        <td>m2</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand_prong2::ImpactParameterProduct</td>
+        <td>D</td>
+        <td>impactParameterProduct</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand_prong2::CosThetaStar</td>
+        <td>D</td>
+        <td>cosThetaStar</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand_prong2::ImpactParameterProngSqSum</td>
+        <td>D</td>
+        <td>impactParameterProngSqSum</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::Pt</td>
+        <td>D</td>
+        <td>pt</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::Pt2</td>
+        <td>D</td>
+        <td>pt2</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::P</td>
+        <td>D</td>
+        <td>p</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::P2</td>
+        <td>D</td>
+        <td>p2</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::PVector</td>
+        <td>D</td>
+        <td>pVector</td>
+        <td>array<float,3></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::CPA</td>
+        <td>D</td>
+        <td>cpa</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::CPAXY</td>
+        <td>D</td>
+        <td>cpaXY</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::Ct</td>
+        <td>D</td>
+        <td>ct</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::ImpactParameterXY</td>
+        <td>D</td>
+        <td>impactParameterXY</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand_prong2::MaxNormalisedDeltaIP</td>
+        <td>D</td>
+        <td>maxNormalisedDeltaIP</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::Eta</td>
+        <td>D</td>
+        <td>eta</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::Phi</td>
+        <td>D</td>
+        <td>phi</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::Y</td>
+        <td>D</td>
+        <td>y</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::E</td>
+        <td>D</td>
+        <td>e</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::E2</td>
+        <td>D</td>
+        <td>e2</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::HfCandProng2MCRec</button>
+  <div class="panel">
+    <div>
+       
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel//HFSecondaryVertex.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel//HFSecondaryVertex.h</a>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand_prong2::FlagMCMatchRec</td>
+        <td></td>
+        <td>flagMCMatchRec</td>
+        <td>int8_t</td>
+        <td>reconstruction level</td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand_prong2::OriginMCRec</td>
+        <td></td>
+        <td>originMCRec</td>
+        <td>int8_t</td>
+        <td>particle origin, reconstruction level</td>
+      </tr>
+    </table>
+  </div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::HfCandProng2MCGen</button>
+  <div class="panel">
+    <div>
+       
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel//HFSecondaryVertex.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel//HFSecondaryVertex.h</a>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand_prong2::FlagMCMatchGen</td>
+        <td></td>
+        <td>flagMCMatchGen</td>
+        <td>int8_t</td>
+        <td>generator level</td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand_prong2::OriginMCGen</td>
+        <td></td>
+        <td>originMCGen</td>
+        <td>int8_t</td>
+        <td>particle origin, generator level</td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+
+####  o2-analysis-hf-candidate-creator-3prong
+Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/Tasks/PWGHF//HFCandidateCreator3Prong.cxx" target="_blank">HFCandidateCreator3Prong.cxx</a>
+<div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::HfCandProng3Base</button>
+  <div class="panel">
+    <div>
+       
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel//HFSecondaryVertex.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel//HFSecondaryVertex.h</a>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::CollisionId</td>
+        <td>I</td>
+        <td>collisionId</td>
+        <td>int32</td>
+        <td>Pointer into Collisions</td>
+      </tr>
+      <tr>
+        <td>o2::aod::collision::PosX</td>
+        <td>GI</td>
+        <td></td>
+        <td>?</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::collision::PosY</td>
+        <td>GI</td>
+        <td></td>
+        <td>?</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::collision::PosZ</td>
+        <td>GI</td>
+        <td></td>
+        <td>?</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::XSecondaryVertex</td>
+        <td></td>
+        <td>xSecondaryVertex</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::YSecondaryVertex</td>
+        <td></td>
+        <td>ySecondaryVertex</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::ZSecondaryVertex</td>
+        <td></td>
+        <td>zSecondaryVertex</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::ErrorDecayLength</td>
+        <td></td>
+        <td>errorDecayLength</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::ErrorDecayLengthXY</td>
+        <td></td>
+        <td>errorDecayLengthXY</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::Chi2PCA</td>
+        <td></td>
+        <td>chi2PCA</td>
+        <td>float</td>
+        <td>sum of (non-weighted) distances of the secondary vertex to its prongs</td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::RSecondaryVertex</td>
+        <td>D</td>
+        <td>rSecondaryVertex</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::DecayLength</td>
+        <td>D</td>
+        <td>decayLength</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::DecayLengthXY</td>
+        <td>D</td>
+        <td>decayLengthXY</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::DecayLengthNormalised</td>
+        <td>D</td>
+        <td>decayLengthNormalised</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::DecayLengthXYNormalised</td>
+        <td>D</td>
+        <td>decayLengthXYNormalised</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::ImpactParameterNormalised0</td>
+        <td>D</td>
+        <td>impactParameterNormalised0</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::PtProng0</td>
+        <td>D</td>
+        <td>ptProng0</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::Pt2Prong0</td>
+        <td>D</td>
+        <td>pt2Prong0</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::PVectorProng0</td>
+        <td>D</td>
+        <td>pVectorProng0</td>
+        <td>array<float,3></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::ImpactParameterNormalised1</td>
+        <td>D</td>
+        <td>impactParameterNormalised1</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::PtProng1</td>
+        <td>D</td>
+        <td>ptProng1</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::Pt2Prong1</td>
+        <td>D</td>
+        <td>pt2Prong1</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::PVectorProng1</td>
+        <td>D</td>
+        <td>pVectorProng1</td>
+        <td>array<float,3></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::PxProng0</td>
+        <td></td>
+        <td>pxProng0</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::PyProng0</td>
+        <td></td>
+        <td>pyProng0</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::PzProng0</td>
+        <td></td>
+        <td>pzProng0</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::PxProng1</td>
+        <td></td>
+        <td>pxProng1</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::PyProng1</td>
+        <td></td>
+        <td>pyProng1</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::PzProng1</td>
+        <td></td>
+        <td>pzProng1</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::PxProng2</td>
+        <td></td>
+        <td>pxProng2</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::PyProng2</td>
+        <td></td>
+        <td>pyProng2</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::PzProng2</td>
+        <td></td>
+        <td>pzProng2</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::ImpactParameter0</td>
+        <td></td>
+        <td>impactParameter0</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::ImpactParameter1</td>
+        <td></td>
+        <td>impactParameter1</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::ImpactParameter2</td>
+        <td></td>
+        <td>impactParameter2</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::ErrorImpactParameter0</td>
+        <td></td>
+        <td>errorImpactParameter0</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::ErrorImpactParameter1</td>
+        <td></td>
+        <td>errorImpactParameter1</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::ErrorImpactParameter2</td>
+        <td></td>
+        <td>errorImpactParameter2</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_track_index::Index0Id</td>
+        <td>I</td>
+        <td>index0Id</td>
+        <td>int</td>
+        <td>Pointer into Tracks</td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_track_index::Index1Id</td>
+        <td>I</td>
+        <td>index1Id</td>
+        <td>int</td>
+        <td>Pointer into Tracks</td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_track_index::Index2Id</td>
+        <td>I</td>
+        <td>index2Id</td>
+        <td>int</td>
+        <td>Pointer into Tracks</td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_track_index::HFflag</td>
+        <td></td>
+        <td>hfflag</td>
+        <td>uint8_t</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand_prong3::M</td>
+        <td>D</td>
+        <td>m</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand_prong3::M2</td>
+        <td>D</td>
+        <td>m2</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand_prong3::ImpactParameterProngSqSum</td>
+        <td>D</td>
+        <td>impactParameterProngSqSum</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::ImpactParameterNormalised2</td>
+        <td>D</td>
+        <td>impactParameterNormalised2</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::PtProng2</td>
+        <td>D</td>
+        <td>ptProng2</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::Pt2Prong2</td>
+        <td>D</td>
+        <td>pt2Prong2</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::PVectorProng2</td>
+        <td>D</td>
+        <td>pVectorProng2</td>
+        <td>array<float,3></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::Pt</td>
+        <td>D</td>
+        <td>pt</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::Pt2</td>
+        <td>D</td>
+        <td>pt2</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::P</td>
+        <td>D</td>
+        <td>p</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::P2</td>
+        <td>D</td>
+        <td>p2</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::PVector</td>
+        <td>D</td>
+        <td>pVector</td>
+        <td>array<float,3></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::CPA</td>
+        <td>D</td>
+        <td>cpa</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::CPAXY</td>
+        <td>D</td>
+        <td>cpaXY</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::Ct</td>
+        <td>D</td>
+        <td>ct</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::ImpactParameterXY</td>
+        <td>D</td>
+        <td>impactParameterXY</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand_prong3::MaxNormalisedDeltaIP</td>
+        <td>D</td>
+        <td>maxNormalisedDeltaIP</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::Eta</td>
+        <td>D</td>
+        <td>eta</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::Phi</td>
+        <td>D</td>
+        <td>phi</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::Y</td>
+        <td>D</td>
+        <td>y</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::E</td>
+        <td>D</td>
+        <td>e</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand::E2</td>
+        <td>D</td>
+        <td>e2</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::HfCandProng3MCRec</button>
+  <div class="panel">
+    <div>
+       
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel//HFSecondaryVertex.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel//HFSecondaryVertex.h</a>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand_prong3::FlagMCMatchRec</td>
+        <td></td>
+        <td>flagMCMatchRec</td>
+        <td>int8_t</td>
+        <td>reconstruction level</td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand_prong3::OriginMCRec</td>
+        <td></td>
+        <td>originMCRec</td>
+        <td>int8_t</td>
+        <td>particle origin, reconstruction level</td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand_prong3::FlagMCDecayChanRec</td>
+        <td></td>
+        <td>flagMCDecayChanRec</td>
+        <td>int8_t</td>
+        <td>resonant decay channel flag, reconstruction level</td>
+      </tr>
+    </table>
+  </div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::HfCandProng3MCGen</button>
+  <div class="panel">
+    <div>
+       
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel//HFSecondaryVertex.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel//HFSecondaryVertex.h</a>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand_prong3::FlagMCMatchGen</td>
+        <td></td>
+        <td>flagMCMatchGen</td>
+        <td>int8_t</td>
+        <td>generator level</td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand_prong3::OriginMCGen</td>
+        <td></td>
+        <td>originMCGen</td>
+        <td>int8_t</td>
+        <td>particle origin, generator level</td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_cand_prong3::FlagMCDecayChanGen</td>
+        <td></td>
+        <td>flagMCDecayChanGen</td>
+        <td>int8_t</td>
+        <td>resonant decay channel flag, generator level</td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+
+####  o2-analysis-hf-d0-candidate-selector
+Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/Tasks/PWGHF//HFD0CandidateSelector.cxx" target="_blank">HFD0CandidateSelector.cxx</a>
+<div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::HFSelD0Candidate</button>
+  <div class="panel">
+    <div>
+       
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel//HFCandidateSelectionTables.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel//HFCandidateSelectionTables.h</a>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_selcandidate_d0::IsSelD0</td>
+        <td></td>
+        <td>isSelD0</td>
+        <td>int</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_selcandidate_d0::IsSelD0bar</td>
+        <td></td>
+        <td>isSelD0bar</td>
+        <td>int</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+
+####  o2-analysis-hf-dplus-topikpi-candidate-selector
+Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/Tasks/PWGHF//HFDplusToPiKPiCandidateSelector.cxx" target="_blank">HFDplusToPiKPiCandidateSelector.cxx</a>
+<div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::HFSelDplusToPiKPiCandidate</button>
+  <div class="panel">
+    <div>
+       
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel//HFCandidateSelectionTables.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel//HFCandidateSelectionTables.h</a>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_selcandidate_dplus::IsSelDplusToPiKPi</td>
+        <td></td>
+        <td>isSelDplusToPiKPi</td>
+        <td>int</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+
+####  o2-analysis-hf-jpsi-toee-candidate-selector
+Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/Tasks/PWGHF//HFJpsiToEECandidateSelector.cxx" target="_blank">HFJpsiToEECandidateSelector.cxx</a>
+<div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::HFSelJpsiToEECandidate</button>
+  <div class="panel">
+    <div>
+       
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel//HFCandidateSelectionTables.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel//HFCandidateSelectionTables.h</a>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_selcandidate_jpsi::IsSelJpsiToEE</td>
+        <td></td>
+        <td>isSelJpsiToEE</td>
+        <td>int</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+
+####  o2-analysis-hf-lc-candidate-selector
+Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/Tasks/PWGHF//HFLcCandidateSelector.cxx" target="_blank">HFLcCandidateSelector.cxx</a>
+<div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::HFSelLcCandidate</button>
+  <div class="panel">
+    <div>
+       
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel//HFCandidateSelectionTables.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel//HFCandidateSelectionTables.h</a>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_selcandidate_lc::IsSelLcpKpi</td>
+        <td></td>
+        <td>isSelLcpKpi</td>
+        <td>int</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_selcandidate_lc::IsSelLcpiKp</td>
+        <td></td>
+        <td>isSelLcpiKp</td>
+        <td>int</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+
+####  o2-analysis-hf-track-index-skims-creator
+Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/Tasks/PWGHF//HFTrackIndexSkimsCreator.cxx" target="_blank">HFTrackIndexSkimsCreator.cxx</a>
+<div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::HFSelTrack</button>
+  <div class="panel">
+    <div>
+       
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel//HFSecondaryVertex.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel//HFSecondaryVertex.h</a>
+    </div>
+    <div>Is used in:
+      <ul>
+        <li>o2::aod::BigTracks = soa::Join<o2::aod::Tracks, o2::aod::TracksCov, o2::aod::TracksExtra, o2::aod::HFSelTrack></li>
+      </ul>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_seltrack::IsSelProng</td>
+        <td></td>
+        <td>isSelProng</td>
+        <td>int</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_seltrack::DCAPrim0</td>
+        <td></td>
+        <td>dcaPrim0</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_seltrack::DCAPrim1</td>
+        <td></td>
+        <td>dcaPrim1</td>
+        <td>float</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::HfTrackIndexProng2</button>
+  <div class="panel">
+    <div>
+       
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel//HFSecondaryVertex.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel//HFSecondaryVertex.h</a>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_track_index::Index0Id</td>
+        <td>I</td>
+        <td>index0Id</td>
+        <td>int</td>
+        <td>Pointer into Tracks</td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_track_index::Index1Id</td>
+        <td>I</td>
+        <td>index1Id</td>
+        <td>int</td>
+        <td>Pointer into Tracks</td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_track_index::HFflag</td>
+        <td></td>
+        <td>hfflag</td>
+        <td>uint8_t</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::HfCutStatusProng2</button>
+  <div class="panel">
+    <div>
+       
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel//HFSecondaryVertex.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel//HFSecondaryVertex.h</a>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_track_index::D0ToKPiFlag</td>
+        <td></td>
+        <td>d0ToKPiFlag</td>
+        <td>uint8_t</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_track_index::JpsiToEEFlag</td>
+        <td></td>
+        <td>jpsiToEEFlag</td>
+        <td>uint8_t</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::HfTrackIndexProng3</button>
+  <div class="panel">
+    <div>
+       
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel//HFSecondaryVertex.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel//HFSecondaryVertex.h</a>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_track_index::Index0Id</td>
+        <td>I</td>
+        <td>index0Id</td>
+        <td>int</td>
+        <td>Pointer into Tracks</td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_track_index::Index1Id</td>
+        <td>I</td>
+        <td>index1Id</td>
+        <td>int</td>
+        <td>Pointer into Tracks</td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_track_index::Index2Id</td>
+        <td>I</td>
+        <td>index2Id</td>
+        <td>int</td>
+        <td>Pointer into Tracks</td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_track_index::HFflag</td>
+        <td></td>
+        <td>hfflag</td>
+        <td>uint8_t</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::HfCutStatusProng3</button>
+  <div class="panel">
+    <div>
+       
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel//HFSecondaryVertex.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel//HFSecondaryVertex.h</a>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_track_index::DPlusPiKPiFlag</td>
+        <td></td>
+        <td>dPlusPiKPiFlag</td>
+        <td>uint8_t</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_track_index::LcPKPiFlag</td>
+        <td></td>
+        <td>lcPKPiFlag</td>
+        <td>uint8_t</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_track_index::DsKKPiFlag</td>
+        <td></td>
+        <td>dsKKPiFlag</td>
+        <td>uint8_t</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_track_index::XicToPKPiFlag</td>
+        <td></td>
+        <td>xicToPKPiFlag</td>
+        <td>uint8_t</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+
+####  o2-analysis-hf-xic-topkpi-candidate-selector
+Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/Tasks/PWGHF//HFXicToPKPiCandidateSelector.cxx" target="_blank">HFXicToPKPiCandidateSelector.cxx</a>
+<div>
+
+  <button class="myaccordion"><i class="fa fa-table"></i> o2::aod::HFSelXicToPKPiCandidate</button>
+  <div class="panel">
+    <div>
+       
+    </div>
+    <div>
+      Header file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Analysis/DataModel/include/AnalysisDataModel//HFCandidateSelectionTables.h" target="_blank">Analysis/DataModel/include/AnalysisDataModel//HFCandidateSelectionTables.h</a>
+    </div>
+    <table class=DataModel>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th>Getter</th>
+        <th>Type</th>
+        <th>Comment</th>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_selcandidate_xic::IsSelXicToPKPi</td>
+        <td></td>
+        <td>isSelXicToPKPi</td>
+        <td>int</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>o2::aod::hf_selcandidate_xic::IsSelXicToPiKP</td>
+        <td></td>
+        <td>isSelXicToPiKP</td>
+        <td>int</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+
 <a name="usings"></a>
 ## List of defined joins and iterators
 <div>
@@ -7190,7 +8688,7 @@ Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/T
   <button class="myaccordion"><i class="fa fa-map-pin"></i> o2::aod::BigTracksPID</button>
   <div class="panel">
     <ul>
-        <li>o2::aod::BigTracksPID = soa::Join<o2::aod::BigTracks, o2::aod::pidRespTPCEl, o2::aod::pidRespTPCMu, o2::aod::pidRespTPCPi, o2::aod::pidRespTPCKa, o2::aod::pidRespTPCPr, o2::aod::pidRespTOFEl, o2::aod::pidRespTOFMu, o2::aod::pidRespTOFPi, o2::aod::pidRespTOFKa, o2::aod::pidRespTOFPr></li>
+        <li>o2::aod::BigTracksPID = soa::Join<o2::aod::BigTracks, o2::aod::pidTPCFullEl, o2::aod::pidTPCFullMu, o2::aod::pidTPCFullPi, o2::aod::pidTPCFullKa, o2::aod::pidTPCFullPr, o2::aod::pidTOFFullEl, o2::aod::pidTOFFullMu, o2::aod::pidTOFFullPi, o2::aod::pidTOFFullKa, o2::aod::pidTOFFullPr></li>
     </ul>
   </div>
 
@@ -7296,6 +8794,13 @@ Code file: <a href="https://github.com/AliceO2Group/AliceO2/blob/dev//Analysis/T
   <div class="panel">
     <ul>
         <li>o2::aod::ReducedMuonExtra = o2::aod::ReducedMuonsExtra::iterator</li>
+    </ul>
+  </div>
+
+  <button class="myaccordion"><i class="fa fa-map-pin"></i> o2::aod::ReducedMuonCov</button>
+  <div class="panel">
+    <ul>
+        <li>o2::aod::ReducedMuonCov = o2::aod::ReducedMuonsCov::iterator</li>
     </ul>
   </div>
 

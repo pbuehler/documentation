@@ -5,6 +5,10 @@ title: Installation
 
 # Installation
 
+```todo
+Move the installation instructions to this site
+```
+
 To install the O2 framework please follow the instructions provided in the official ALICE software page:
 
 [//]: # (open the link in a new window)

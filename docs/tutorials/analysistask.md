@@ -53,11 +53,13 @@ ALl tables of the ALICE O2 analysis data model reside in the namespace o2::aod. 
 
 ## Tasks, workflows, data analysis
 
-A task is a basic block of an analysis program. Several tasks can be put together to form a workflow (using defineDataProcessing()). Workflows on the other hand can be chained - the output of one workflow is piped to the input of the other workflow.
+A task is a basic block of an analysis program. It it a struct and has an init and a process function. In order to be complete either of the two functions must be defined.
+
+Several tasks can be put together to form a workflow (using defineDataProcessing()). Workflows on the other hand can be chained - the output of one workflow is piped to the input of the other workflow.
 
 This is discussed in more detail in the [Data Processing ](../framework/framework.html#creating-tasks-to-process-the-data) section of these documentation pages.
 
-So this is kind of a task skeleton
+So this is kind of a workflow skeleton
 
 ```cpp
 // Copyright CERN and copyright holders of ALICE O2. This software is
@@ -78,9 +80,13 @@ using namespace o2;
 using namespace o2::framework;
 
 struct ATask {
+  init();
+  process();
 };
 
 struct BTask {
+  init();
+  process();
 };
 
 WorkflowSpec defineDataProcessing(ConfigContext const& cfgc)

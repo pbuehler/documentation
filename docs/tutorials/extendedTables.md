@@ -16,7 +16,6 @@ Learn how add new columns to existing tables, use dynamic and expression columns
 </div>
   
 
-
 <a name="atask"></a>
 ### ATask
 
@@ -113,6 +112,7 @@ using namespace o2::framework;
 
 DynTable is a table with a few dynamic columns and has to be created and filled using Produces and the fill function. ExTable is an extended table and needes to be filled with the Helper function `Spawns`. Spawns causes the expression columns to be computed.
 
+
 ```cpp
 // spawn ExTable and produce DynTable
 struct DTask {
@@ -128,7 +128,7 @@ struct DTask {
 };
 ```
 
-In ETask the two tables are joined and used as an argument for the process function.
+In ETask the two tables are joined and used as an argument for the process function.  Note, that a table which is Spawned in a given task can not be consumed (used in the process function) in the same task. That is why table ExTable is Spawned in task DTask before it can be consumed in task ETask.
 
 ```cpp
 // loop over the joined table <ExTable, DynTable>
