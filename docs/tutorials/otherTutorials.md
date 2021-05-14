@@ -123,25 +123,10 @@ target="_blank">ALICEO2 code repository</a>.
 
 
 <div style="margin-bottom:5mm">
-  Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/multiProcess.cxx" target="_blank">multiProcess.cxx</a><br>
-  Executable: o2-analysistutorial-multiprocess-example
-  <div class="indBox">
-  </div>
-</div>
-
-
-<div style="margin-bottom:5mm">
   Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/muonIteration.cxx" target="_blank">muonIteration.cxx</a><br>
   Executable: o2-analysistutorial-muon-iteration
   <div class="indBox">
-  </div>
-</div>
-
-
-<div style="margin-bottom:5mm">
-  Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/outputs.cxx" target="_blank">outputs.cxx</a><br>
-  Executable: o2-analysistutorial-outputs
-  <div class="indBox">
+    This tutorial shows how to use tables MatchedBCCollisionsExclusive and MatchedBCCollisionsSparse to access the Muons belonging to a given collision. 
   </div>
 </div>
 
@@ -150,14 +135,7 @@ target="_blank">ALICEO2 code repository</a>.
   Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/schemaEvolution.cxx" target="_blank">schemaEvolution.cxx</a><br>
   Executable: o2-analysistutorial-schema-evolution
   <div class="indBox">
-  </div>
-</div>
-
-
-<div style="margin-bottom:5mm">
-  Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/trackCollectionIteration.cxx" target="_blank">trackCollectionIteration.cxx</a><br>
-  Executable: o2-analysistutorial-collection-iteration
-  <div class="indBox">
+    This example shows how schema evolution of tables can be implemented. Here two tables are defined which only differ by one column. It is shown how an example task can use a template, and can be instantiated to work on both.
   </div>
 </div>
 
@@ -166,6 +144,7 @@ target="_blank">ALICEO2 code repository</a>.
   Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/tracksCombinations.cxx" target="_blank">tracksCombinations.cxx</a><br>
   Executable: o2-analysistutorial-tracks-combinations
   <div class="indBox">
+    Use a hash to sort tracks into a 2D histogram. The hash is used to create pairs of tracks from the same hash bin with function selfCombinations.
   </div>
 </div>
 
@@ -174,6 +153,7 @@ target="_blank">ALICEO2 code repository</a>.
   Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/weakDecayIteration.cxx" target="_blank">weakDecayIteration.cxx</a><br>
   Executable: o2-analysistutorial-weak-decay-iteration
   <div class="indBox">
+    Shows how to access V0 and cascade information.
   </div>
 </div>
 
@@ -182,5 +162,6 @@ target="_blank">ALICEO2 code repository</a>.
   Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/ZDCVZeroIteration.cxx" target="_blank">ZDCVZeroIteration.cxx</a><br>
   Executable: o2-analysistutorial-zdc-vzero-iteration
   <div class="indBox">
+    This tutorial shows how to use tables CollisionMatchedRun2Sparse and Run2MatchedExclusive to access ZDC and Fv0 information from Run2 data. 
   </div>
 </div>

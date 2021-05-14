@@ -21,7 +21,7 @@ A Task can have several process functions. Such a task does not differ from a ta
 
 The tutorial example MultipleProcessExample has three process functions. All of of these process functions are relevant when processing MC data, but only one is needed when processing real data.
 
-In order for a process function to be executed it needs to be listed in the definition of the WorkFlowSpec. Here a global configurable is introduced to distingush the two cases. The option optionDoMC is set true when MC data are to be processed and otherwise to false.  
+In order for a process function to be executed it needs to be listed in the definition of the WorkFlowSpec. Here a global configurable is introduced to distingush the two cases. The option optionDoMC is set true when MC data are to be processed and otherwise to false. Note, it is important, that the ConfigParamSpec is made before runDataProcessing.h is included! The program will otherwise not compile.
 
 ```cpp
 void customize(std::vector<o2::framework::ConfigParamSpec>& workflowOptions)
@@ -29,6 +29,8 @@ void customize(std::vector<o2::framework::ConfigParamSpec>& workflowOptions)
   ConfigParamSpec optionDoMC{"doMC", VariantType::Bool, false, {"Use MC info"}};
   workflowOptions.push_back(optionDoMC);
 }
+
+#include "Framework/runDataProcessing.h"
 ```
 
 Now the definition of the WorkflowSpec can be based on the value of optionDoMC. Note, that for optionDoMC==false only the process functions processRec is included, whereas in the case with optionDoMC==true, all three process functions are used.

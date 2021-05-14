@@ -7,6 +7,10 @@
 // In applying this license CERN does not waive the privileges and immunities
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
+//
+/// \brief Declaration and production of new tables.
+/// \author
+/// \since
 
 #include "Framework/runDataProcessing.h"
 #include "Framework/AnalysisTask.h"
@@ -17,15 +21,11 @@ namespace o2::aod
 {
 namespace etaphi
 {
-DECLARE_SOA_COLUMN(MEta, meta, float);
-DECLARE_SOA_COLUMN(MPhi, mphi, float);
-DECLARE_SOA_EXPRESSION_COLUMN(SPt, spt, float, nabs(track::sigma1Pt / track::signed1Pt));
+DECLARE_SOA_COLUMN(Eta, eta, float);
+DECLARE_SOA_COLUMN(Phi, phi, float);
 } // namespace etaphi
 DECLARE_SOA_TABLE(EtaPhi, "AOD", "ETAPHI",
-                  etaphi::MEta, etaphi::MPhi);
-
-DECLARE_SOA_EXTENDED_TABLE_USER(XTracks,FullTracks,"XTRACKS",
-                                etaphi::SPt);
+                  etaphi::Eta, etaphi::Phi);
 } // namespace o2::aod
 
 using namespace o2;
@@ -54,41 +54,27 @@ struct BTask {
   {
     LOGF(INFO, "Number of etaPhis: %d", etaPhis.size());
     for (auto& etaPhi : etaPhis) {
-      LOGF(INFO, "(%f, %f)", etaPhi.meta(), etaPhi.mphi());
+      LOGF(INFO, "(%f, %f)", etaPhi.eta(), etaPhi.phi());
     }
   }
 };
 
 struct CTask {
   using EtaPhiRow = aod::EtaPhi::iterator;
-  
+
   // consume the table produced in ATask
   // process the table row by row
   void process(EtaPhiRow const& etaPhi)
   {
-    LOGF(INFO, "(%f, %f)", etaPhi.meta(), etaPhi.mphi());
-  }
-};
-
-struct DTask {
-  // declare production of extended-table xtracks
-  Spawns<aod::XTracks> xtracks;
-  
-  void process(aod::XTracks const& xtracks)
-  {
-    LOGF(INFO, "Number of xtracks: %d", xtracks.size());
-    for (auto& xtrack : xtracks) {
-      LOGF(INFO, "(%f, %f - %f)", xtrack.spt(), xtrack.sigma1Pt(), xtrack.signed1Pt());
-    }
+    LOGF(INFO, "(%f, %f)", etaPhi.eta(), etaPhi.phi());
   }
 };
 
 WorkflowSpec defineDataProcessing(ConfigContext const& cfgc)
 {
   return WorkflowSpec{
-    //adaptAnalysisTask<ATask>(cfgc, TaskName{"new-collections-tutorial_A"}),
-    //adaptAnalysisTask<BTask>(cfgc, TaskName{"new-collections-tutorial_B"}),
-    //adaptAnalysisTask<CTask>(cfgc, TaskName{"new-collections-tutorial_C"}),
-    adaptAnalysisTask<DTask>(cfgc, TaskName{"new-collections-tutorial_D"}),
+    adaptAnalysisTask<ATask>(cfgc, TaskName{"new-collections-tutorial_A"}),
+    adaptAnalysisTask<BTask>(cfgc, TaskName{"new-collections-tutorial_B"}),
+    adaptAnalysisTask<CTask>(cfgc, TaskName{"new-collections-tutorial_C"}),
   };
 }
