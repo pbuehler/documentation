@@ -4,7 +4,7 @@ title: Contributing
 
 # Guidelines for writing documentation
 
-The source of the documentation consists of <a
+The source of this documentation consists of <a
 href="https://www.markdownguide.org/" target="_blank">markdown</a> files which 
 are located at this GitHub <a href="https://github.com/pbuehler/documentation"
 target="_blank">repository</a> under the directory **docs**.
@@ -27,9 +27,9 @@ target="_blank">here</a>.
 
 ### Organisation
 
-The source files are organized in a directory structure as outlined below. It consists of a number of subdirectories below the main directory docs/. Each subdirectory contains a README.md and any number of documentation files.
+The source files are organized in a directory structure as outlined below. It consists of a number of subdirectories in the main directory docs/. Each subdirectory contains a README.md and any number of documentation files.
 
-This structure is the basis for the automatic generation of the menu which appears on the left hand side of the web pages. The first level items of the menu represent the subdirectories below the main directory docs/. When clicking on such an item the README.md of the respective directory will be displayed. There is a second level item per documentation file in each folder, and the third level items correspond to the h2 headers in the documentation files.
+This structure is the basis for the automatic generation of the menu which appears on the left hand side of the web pages. The first level items of the menu represent the subdirectories of the main directory docs/. When clicking on such an item the README.md of the respective directory will be displayed. There is a second level menu item per documentation file in each folder, and the third level menu items correspond to the h2 headers in the documentation files.
 
 ```csh
 docs/
@@ -74,12 +74,18 @@ There are two methods to provide links to local and external pages.
 
 #### Links to local files or anchors
 
-For links to local pages and anchors within local pages use the <a href="https://www.markdownguide.org/basic-syntax/#links" target="_blank">markdown syntax</a>. This will open the link in the current window.
+For links to local pages and anchors within local pages use the <a href="https://www.markdownguide.org/basic-syntax/#links" target="_blank">markdown syntax</a>.<br>
+
+```markdown
+[highlighted text](/docs/..../documentationfile.html#anchorname)
+```
+
+Use the absolute path starting with /docs to specify the destination and the html-version of the documentation file. With this syntacx the link is opened in the current window.
 
 Anchors can be placed anywhere in a markdown file and are specified with
 
 ```markdown
-<a name="given name"></a>
+<a name="anchorname"></a>
 ```
 
 #### Links to external sites
