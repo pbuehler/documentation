@@ -18,15 +18,15 @@ Learn how to customize the reading of tables from root files. Write tables selec
 
 The topic of reading tables from and writing tables to file is comprehensively
 discussed in sections [Saving tables to
-file](../framework/framework.html#saving-tables-to-file) and [Reading tables
-from file](../framework/framework.html#reading-tables-from-files) of these
+file](../framework/framework.md#saving-tables-to-file) and [Reading tables
+from file](../framework/framework.md#reading-tables-from-files) of these
 documentation pages.
 
 Tables are saved to root trees with branches corresponding to the table columns. by default it is expected that a table with name TABLE is contained in a root tree O2tABLE and a column with name COLUMN, in a root branch fCOLUMN.
 
-When processing AO2D root files the command line option --aod-file is sufficient to have the system fill the tables of the O2 [Analysis Data Model](../framework/datamodel.md#the-data-model) with the information contained in the specified input files. This is of course because the layout of the data model and the AO2Ds is matched and the relations between table name and root tree names, column names and branch names is coded in the framework.
+When processing AO2D root files the command line option --aod-file is sufficient to have the system fill the tables of the O2 [Analysis Data Model](../datamodel/ao2dTables.md#list-of-tables-defined-in-the-ao2d-data-files) with the information contained in the specified input files. This is of course because the layout of the data model and the AO2Ds is matched and the relations between table name and root tree names, column names and branch names is coded in the framework.
 
-By default the writing of e.g. histograms created in a task also happens without much hassle. They are saved to one of the files AnalysisResults.root or QAResults.root (see tutorial [Histograms](histograms.html)).
+By default the writing of e.g. histograms created in a task also happens without much hassle. They are saved to one of the files AnalysisResults.root or QAResults.root (see tutorial [Histograms](histograms.md)).
 
 This tutorial demonstrates how to customize the reading and writing of tables from and to root files. 
 
@@ -81,7 +81,7 @@ o2-analysistutorial-aodwriter --aod-file AO2D.root --aod-writer-keep AOD/MINMAXE
 ```
 
 The exact syntax of the argument string is described
-[here](../framework/framework.html#keep). Try out what happens when you change
+[here](../framework/framework.md#keep). Try out what happens when you change
 the values!
 
 Instructions to write out several tables can be provided in a comma-separated list. However, with growing number of tables this quickly becomes clumsy. For this you can provide a [json](https://www.json.org/json-en.html) file including the related information to the command line argument --aod-writer-json.

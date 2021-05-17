@@ -85,7 +85,7 @@ target="_blank">ALICEO2 code repository</a>.
   Source: <a href="https://github.com/AliceO2Group/AliceO2/tree/dev/Analysis/Tutorials/src/histogramsFullTracks.cxx" target="_blank">histogramsFullTracks.cxx</a><br>
   Executable: o2-analysistutorial-full-tracks
   <div class="indBox">
-    There is a number of predefined joins of tables (see the <a href="/docs/framework/datamodel.html#list-of-defined-joins-and-iterators">list of defined joins and iterators</a>).
+    There is a number of predefined joins of tables (see the <a href="../datamodel/joinsAndIterators.md#list-of-defined-joins-and-iterators">list of defined joins and iterators</a>).
     This example shows how to use aod::FullTracks which is a join of Tracks, TracksCov, and TracksExtra.
   </div>
 </div>

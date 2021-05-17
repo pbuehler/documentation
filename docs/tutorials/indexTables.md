@@ -33,12 +33,11 @@ DECLARE_SOA_INDEX_TABLE_USER(HMPIDTracksIndex, Tracks, "HMPIDTRKIDX",indices::HM
 
 In TTask the basic usage of indices is demonstrated. Tracks are associated to
 collisions via the index column o2::aod::track::CollisionId (see the declaration
-of the [Tracks
-table](/docs/framework/datamodel.html#list-of-tables-defined-in-the-ao2d-data-files)).
+of the [Tracks table](../datamodel/ao2dTables.md#AO2D)).
 Access to the collsion associated with a given track track0 is achieved with
 track0.collision_as&lt;T&gt;(), where T is a table including the Collisions
 table (see also tutorial [Creating Tables]
-(/docs/tutorials/creatingTables.html#declaration-of-columns)).
+(creatingTables.md#declaration-of-columns)).
 In the example case T is a Join of Collisions and CollisionsExtra.
 
 ```cpp
@@ -64,7 +63,7 @@ struct TTask {
 <a name="ztask"></a>
 ### ZTask
 
-Index columns allow to easily select e.g. all tracks belonging to a given collision using the sliceBy() method (see also [DECLARE_SOA_TABLE](/docs/tutorials/creatingTables.html#declaration-of-tables)).  groupedTracks contains only tracks which belong to Collision col.
+Index columns allow to easily select e.g. all tracks belonging to a given collision using the sliceBy() method (see also [DECLARE_SOA_TABLE](creatingTables.md#declareTables)).  groupedTracks contains only tracks which belong to Collision col.
 
 ```cpp
 auto groupedTracks = tracks.sliceBy(aod::track::collisionId, col.globalIndex());
@@ -76,7 +75,7 @@ auto groupedTracks = tracks.sliceBy(aod::track::collisionId, col.globalIndex());
 Builds&lt;T&gt; is used to prepare an index column of type T. This has to be performed
 before the index table can be used. Note the declaration of the init() function
 without any content. This is needed to make the task complete
-(see [minimum requirements](/docs/tutorials/analysistask.html#tasks-workflows-data-analysis)
+(see [minimum requirements](analysistask.md#tasks-workflows-data-analysis)
 for a task).
 
 ```cpp

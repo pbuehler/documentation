@@ -77,10 +77,10 @@ There are two methods to provide links to local and external pages.
 For links to local pages and anchors within local pages use the <a href="https://www.markdownguide.org/basic-syntax/#links" target="_blank">markdown syntax</a>.<br>
 
 ```markdown
-[highlighted text](/docs/..../documentationfile.html#anchorname)
+[highlighted text](documentationfile.md#anchorname)
 ```
 
-Use the absolute path starting with /docs to specify the destination and the html-version of the documentation file. With this syntacx the link is opened in the current window.
+Use the relative path starting to specify the destination of the documentation file. With this syntax the link is opened in the current window.
 
 Anchors can be placed anywhere in a markdown file and are specified with
 

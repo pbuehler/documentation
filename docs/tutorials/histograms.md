@@ -84,7 +84,7 @@ In CTask the initial definition of the OutputObj trZ is incomplet. The axis defi
 <a name="dtask"></a>
 ### DTask
 
-HistogramRegistry is an other method to work with histograms in a flexible way. There is a [tutorial](/docs/tutorials/histogramRegistry.html) on this specific topic to which we refer for further details. To give an impression an example task using HistogramRegistry is displayed below.
+HistogramRegistry is an other method to work with histograms in a flexible way. There is a [tutorial](histogramRegistry.md) on this specific topic to which we refer for further details. To give an impression an example task using HistogramRegistry is displayed below.
 
 ```cpp
 struct DTask {

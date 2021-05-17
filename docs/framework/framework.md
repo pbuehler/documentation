@@ -42,7 +42,7 @@ defineDataProcessing() {
 Define minimum requirements for a complet task
 ```
 
-See also tutorial [Analysis Task](/docs/tutorials/analysistask.html).
+See also tutorial [Analysis Task](../tutorials/analysistask.md).
 
 ## Processing data
 
@@ -138,7 +138,7 @@ struct MyTask : AnalysisTask {
 }
 ```
 
-See also tutorials [Track Iteration](/docs/tutorials/trackiteration.html) and [Table Combinations](/docs/tutorials/trackiteration.html).
+See also tutorials [Track Iteration](../tutorials/trackiteration.md) and [Table Combinations](../tutorials/trackiteration.md).
 
 ## Configurables
 
@@ -157,7 +157,7 @@ struct MyTask {
 };
 ```
 
-Supported types for configurables are basic arithmetic types (e.g. `int`, `float`, `double`), string (i.e. `std::string`) and flat structures containing those (provided they have a ROOT dictionary attached). See e.g. the tutorial [configurableObjects.cxx](/docs/tutorials/otherTutorials.html#list-of-available-tutorials).
+Supported types for configurables are basic arithmetic types (e.g. `int`, `float`, `double`), string (i.e. `std::string`) and flat structures containing those (provided they have a ROOT dictionary attached). See e.g. the tutorial [configurableObjects.cxx](../tutorials/otherTutorials.md#list-of-available-tutorials).
 
 ## Creating new collections
 
@@ -211,7 +211,7 @@ The `etaphi` object is a functor that will effectively act as a cursor which all
 etaphi(track::Phi(calculatePhi(track), track::Eta(calculateEta(track)));
 ```
 
-See also tutorial [Creating Tables](/docs/tutorials/creatingTables.html).
+See also tutorial [Creating Tables](../tutorials/creatingTables.md).
 
 ### Adding dynamic columns to a data type
 
@@ -252,7 +252,7 @@ struct MyTask : AnalysisTask {
 - Complete list of column and table declarations
 ```
 
-See also tutorial [Extending Tables](/docs/tutorials/extendedTables.html).
+See also tutorial [Extending Tables](../tutorials/extendedTables.md).
 
 
 ### Executing a finalization method, post run
@@ -281,7 +281,7 @@ struct MyTask : AnalysisTask {
 Add description of HistogramRegistry and its functionality
 ```
 
-See also tutorials [Extending Tables](/docs/tutorials/histograms.html) and[histogram Registry](/docs/tutorials/histogramRegistry.html).
+See also tutorials [Extending Tables](../tutorials/histograms.md) and[histogram Registry](../tutorials/histogramRegistry.md).
 
 
 ## Filtering and partitioning data
@@ -387,7 +387,7 @@ struct MyTask : AnalysisTask {
 - Complete list of methods related to filters and partitions
 ```
 
-See also tutorials [Data Selection](/docs/tutorials/dataSelection.html).
+See also tutorials [Data Selection](../tutorials/dataSelection.md).
 
 
 ## Getting combinations (pairs, triplets, ...)
@@ -517,7 +517,7 @@ struct CollisionsCombinationsTask {
 };
 ```
 
-A full example can be found in the tutorial [Event Mixing](/docs/tutorials/eventMixing.html) section.
+A full example can be found in the tutorial [Event Mixing](../tutorials/eventMixing.md) section.
 
 
 ## Saving tables to file
@@ -810,7 +810,7 @@ The following json-file could be used to read these tables:
 of the various InputDescriptors are corresponding to each other.
   3. The regular expression fileregex is evaluated with the c++ Regular expressions library. Thus check there for the proper syntax of regexes.
   
-See also tutorial [Table IO](/docs/tutorials/tablesIO.html).  
+See also tutorial [Table IO](../tutorials/tablesIO.md).  
 
 
 ### Possible ideas

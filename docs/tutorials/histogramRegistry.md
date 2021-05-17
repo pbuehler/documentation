@@ -21,7 +21,7 @@ ROOT provides an extensive list of histogram types. So why would one create a ne
 The  HistogramRegistry is a container for different types of ROOT histograms.
 The list of supported ROOT histogram types can be found in <a href="https://github.com/AliceO2Group/AliceO2/blob/dev/Framework/Core/include/Framework/HistogramRegistry.h" target="_blank">HistogramRegistry.h</a>.
 
-The HistogramRegistry and its functionality is described in detail [here](/docs/framework/framework.html#histogramregistry).
+The HistogramRegistry and its functionality is described in detail [here](../framework/framework.md#histogramregistry).
 
 The tutorial example demonstrates some of the functionality and the variaty of histogram types which can be used with histogramRegistry.
 

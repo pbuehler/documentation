@@ -309,7 +309,7 @@ a column (tab.pt() e.g. gives access to an element of the column which was decla
 </div>
 
 <br>
-This tutorial demonstrates the creation and filling of normal tables. The usage of index tables is explained in tutorial [Index Tables](/docs/tutorials/indexTables.html).
+This tutorial demonstrates the creation and filling of normal tables. The usage of index tables is explained in tutorial [Index Tables](indexTables.md).
 
 
 <a name="atask"></a>

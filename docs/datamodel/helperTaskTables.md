@@ -6,7 +6,7 @@ title: Helper task tables
 <a name=helper_tasks></a>
 # List of tables created with helper tasks
 
-The AO2D data files contain the basic set of data which is available for data analysis and from which other quantities are deduced (see [AO2D tables](/docs/datamodel/ao2dTables.html)). There are however quantities like PID information, V0 characteristics, etc. which are commonly used in analysis. In order to prevent that tasks to compute such quantities are repeatingly developed, a set of helper tasks is provided by the O2 framework. These tasks are listed below together with the tables they provide.
+The AO2D data files contain the basic set of data which is available for data analysis and from which other quantities are deduced (see [AO2D tables](ao2dTables.md)). There are however quantities like PID information, V0 characteristics, etc. which are commonly used in analysis. In order to prevent that tasks to compute such quantities are repeatingly developed, a set of helper tasks is provided by the O2 framework. These tasks are listed below together with the tables they provide.
 
 Click on the labels to display the table details.
 

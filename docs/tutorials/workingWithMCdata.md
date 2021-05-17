@@ -19,7 +19,7 @@ The MC truth and MC reconstructed information can be accessd separately but are 
 <a name="atask"></a>
 ### ATask
 
-The data model includes a set of MC related tables (see also [datamodel](/docs/framework/datamodel.html)) which contain the MC truth information. In TaskA the process function loops over the rows of the MC truth Mccollisions table.
+The data model includes a set of MC related tables (see also [datamodel](../datamodel/)) which contain the MC truth information. In TaskA the process function loops over the rows of the MC truth Mccollisions table.
 
 ```cpp
 struct ATask {

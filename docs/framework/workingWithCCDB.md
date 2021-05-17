@@ -16,4 +16,4 @@ The CCDB can be accessed via a web interface at <a href="http://alice-ccdb.cern.
 - reading objects from CCDB
 ```
 
-See also tutorial [CCDB](/docs/tutorials/workingWithCCDB.html).
+See also tutorial [CCDB](../tutorials/workingWithCCDB.md).

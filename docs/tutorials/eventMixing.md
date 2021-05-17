@@ -24,7 +24,7 @@ o2::soa::combinations ('IndexPolicy'(tracks1, tracks2, ...))
 
 which returns tuples of tracks (one track from each set of tracks).
 
-There are several `IndexPolicy` available which are explained [here](/docs/framework/framework.html#getting-combinations)
+There are several `IndexPolicy` available which are explained [here](../framework/framework.md#getting-combinations).
 
 <a name="hashtask"></a>
 ### HashTask
